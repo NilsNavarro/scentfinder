@@ -41,4 +41,195 @@
         .hero-sub { font-size: 12px; color: #a08070; letter-spacing: 2px; }
 
         .search-wrap { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.03); border: 0.5px solid var(--or); border-radius: 50px; padding: 0.75rem 1.5rem; width: 100%; max-width: 500px; margin-top: 1rem; transition: all 0.3s; }
-        .search-wrap:focus-within { background: rgba(255,255,255,0.08); border-color: var(--orl); box-shadow: 0 0 20px rgba
+        .search-wrap:focus-within { background: rgba(255,255,255,0.08); border-color: var(--orl); box-shadow: 0 0 20px rgba(201,168,76,0.15); }
+        .search-wrap input { background: transparent; border: none; outline: none; color: var(--cr); font-size: 14px; flex: 1; font-family: 'DM Sans', sans-serif; }
+        .search-wrap input::placeholder { color: #7a5a60; }
+        .search-wrap i { color: var(--or); font-size: 18px; }
+
+        .promo-strip { background: var(--bx); padding: 0.6rem 2rem; display: flex; align-items: center; gap: 1.5rem; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--or); }
+        .promo-item { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+        .promo-label { font-size: 10px; color: var(--orl); letter-spacing: 1px; text-transform: uppercase; }
+        .promo-code { background: var(--or); color: var(--bxd); font-size: 10px; padding: 3px 10px; border-radius: 4px; letter-spacing: 1.5px; font-weight: 600; cursor: pointer; }
+
+        .section-hd { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem 1rem; }
+        .section-hd h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--bx); position: relative; }
+        .section-hd h2::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 30px; height: 1.5px; background: var(--or); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; padding: 0 2rem 2rem; }
+        .card { background: white; border: 0.5px solid var(--orl); border-radius: 16px; overflow: hidden; transition: all 0.3s ease; position: relative; }
+        .card:hover { transform: translateY(-5px); border-color: var(--or); box-shadow: 0 10px 25px rgba(107,26,42,0.08); }
+        .card-img { aspect-ratio: 0.9; background: #faf7f2; display: flex; align-items: center; justify-content: center; position: relative; padding: 2rem; }
+        .card-img img { max-width: 85%; max-height: 85%; object-fit: contain; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); }
+        .card-body { padding: 1.2rem; }
+        .card-brand { font-size: 10px; color: var(--or); letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500; margin-bottom: 4px; }
+        .card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--bx); line-height: 1.2; height: 2.8rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .prices { margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid var(--orl); display: flex; flex-direction: column; gap: 8px; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; }
+        .shop-name { font-size: 11px; color: #8a6050; font-weight: 500; }
+        .price-best { font-size: 14px; font-weight: 600; color: var(--bx); }
+        .go-btn { width: 100%; margin-top: 10px; background: var(--bx); color: var(--or); border: 1px solid var(--bx); border-radius: 8px; padding: 0.6rem; font-size: 11px; cursor: pointer; font-family: 'DM Sans', sans-serif; letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .go-btn:hover { background: var(--bxd); color: var(--orl); }
+
+        .footer { background: var(--bxd); padding: 3rem 2rem; margin-top: 4rem; color: var(--cr); border-top: 1px solid var(--or); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .footer-col h4 { font-family: 'Cormorant Garamond', serif; color: var(--or); font-size: 1.1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+        .footer-links { display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer-links a { color: #a08070; text-decoration: none; font-size: 12px; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--or); }
+        .footer-bottom { border-top: 0.5px solid rgba(201,168,76,0.2); margin-top: 3rem; padding-top: 1.5rem; text-align: center; }
+        .footer-copy { font-size: 10px; color: #7a5a60; letter-spacing: 1px; }
+
+        .about-hero { padding: 4rem 2rem; text-align: center; max-width: 800px; margin: 0 auto; }
+        .about-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--bx); margin-bottom: 1.5rem; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 2rem; max-width: 1000px; margin: 0 auto; }
+        .member-card { background: white; border: 0.5px solid var(--orl); border-radius: 20px; padding: 2rem; text-align: center; }
+        .member-avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--crd); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--bx); border: 1px solid var(--or); }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="logo-wrap" onclick="showPage('accueil')">
+        <div class="logo-oval"><span class="ls">S</span><span class="lf">F</span></div>
+        <div class="logo-text"><div class="ln">SCENTFINDER</div><div class="lt">COMPARATEUR DE LUXE</div></div>
+    </div>
+    <div class="nav-links">
+        <button class="nav-btn active" onclick="showPage('accueil')">Accueil</button>
+        <button class="nav-btn" onclick="showPage('apropos')">L'équipe</button>
+    </div>
+</nav>
+
+<!-- PAGE ACCUEIL -->
+<div id="page-accueil" class="page active">
+    <div class="hero">
+        <div class="hero-eyebrow">✦ Collection Exclusive ✦</div>
+        <div class="hero-title">Trouvez votre <em>signature olfactive</em><br>au meilleur prix</div>
+        <div class="hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
+        <div class="hero-sub">COMPARATEUR CERTIFIÉ · OFFRES MISES À JOUR</div>
+        <div class="search-wrap">
+            <i class="ti ti-search"></i>
+            <input type="text" placeholder="Rechercher une fragrance, une marque...">
+        </div>
+    </div>
+
+    <div class="promo-strip">
+        <div class="promo-item"><span class="promo-label">Sephora</span><span class="promo-code">SCENT20</span></div>
+        <div class="promo-item"><span class="promo-label">Notino</span><span class="promo-code">LUXE15</span></div>
+        <div class="promo-item"><span class="promo-label">Marionnaud</span><span class="promo-code">PERFUM50</span></div>
+    </div>
+
+    <div class="section-hd">
+        <h2>Sélection Prestige</h2>
+    </div>
+
+    <div class="grid" id="mainGrid">
+        <!-- Tes produits d'origine -->
+        <div class="card">
+            <div class="card-img"><img src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-dior_master/default/dw8374f63c/Y0996460/Y0996460_F099646009_E01.jpg" alt="Sauvage"></div>
+            <div class="card-body">
+                <div class="card-brand">Dior</div>
+                <div class="card-name">Sauvage Elixir</div>
+                <div class="prices">
+                    <div class="price-row"><span class="shop-name">Notino</span><span class="price-best">134,50 €</span></div>
+                    <div class="price-row"><span class="shop-name">Sephora</span><span class="price-best">155,00 €</span></div>
+                </div>
+                <button class="go-btn">Comparer les prix <i class="ti ti-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img"><img src="https://media.chanel.com/IMAGE.600.600.1.jpg" alt="Bleu de Chanel"></div>
+            <div class="card-body">
+                <div class="card-brand">Chanel</div>
+                <div class="card-name">Bleu de Chanel — Parfum</div>
+                <div class="prices">
+                    <div class="price-row"><span class="shop-name">Sephora</span><span class="price-best">112,00 €</span></div>
+                    <div class="price-row"><span class="shop-name">Marionnaud</span><span class="price-best">118,90 €</span></div>
+                </div>
+                <button class="go-btn">Comparer les prix <i class="ti ti-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img"><img src="https://fimgs.net/images/perfume/m.32169.jpg" alt="Baccarat Rouge"></div>
+            <div class="card-body">
+                <div class="card-brand">MFK</div>
+                <div class="card-name">Baccarat Rouge 540</div>
+                <div class="prices">
+                    <div class="price-row"><span class="shop-name">24S</span><span class="price-best">235,00 €</span></div>
+                    <div class="price-row"><span class="shop-name">Printemps</span><span class="price-best">235,00 €</span></div>
+                </div>
+                <button class="go-btn">Comparer les prix <i class="ti ti-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE À PROPOS (ÉQUIPE) -->
+<div id="page-apropos" class="page">
+    <div class="about-hero">
+        <h1 class="about-title">L'Expertise ScentFinder</h1>
+        <p>Une équipe de passionnés dédiée à la recherche du meilleur prix pour vos parfums de luxe.</p>
+    </div>
+    <div class="team-grid">
+        <div class="member-card">
+            <div class="member-avatar"><i class="ti ti-user"></i></div>
+            <div class="card-brand">Fondateur</div>
+            <div class="card-name">Nils</div>
+            <p style="font-size: 13px; margin-top: 10px; color: #8a6050;">Expert en fragrances de niche et responsable de la vision ScentFinder.</p>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER MIS À JOUR -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>SCENTFINDER</h4>
+            <p style="font-size: 12px; color: #a08070;">L'excellence de la parfumerie au prix le plus juste.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Menu</h4>
+            <div class="footer-links">
+                <a href="#" onclick="showPage('accueil')">Accueil</a>
+                <a href="#" onclick="showPage('apropos')">L'équipe</a>
+                <a href="#">Marques</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Légal</h4>
+            <div class="footer-links">
+                <a href="mentions-legales.html">Mentions Légales</a>
+                <!-- AJOUT DU LIEN ICI -->
+                <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="footer-copy">© 2024 SCENTFINDER — TOUS DROITS RÉSERVÉS</p>
+    </div>
+</footer>
+
+<script>
+    function showPage(pageId) {
+        // Masquer toutes les pages
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        // Afficher la page demandée
+        document.getElementById('page-' + pageId).classList.add('active');
+        
+        // Gérer les boutons de navigation
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.innerText.toLowerCase().includes(pageId.replace('page-',''))) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Retour en haut de page
+        window.scrollTo(0,0);
+    }
+</script>
+
+</body>
+</html>
