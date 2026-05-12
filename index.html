@@ -1,10 +1,12 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>ScentFinder — Comparateur de Parfums de Prestige</title>
-<link rel="stylesheet" href="https://cdn. Taylor/icons-webfont@latest/tabler-icons.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -250,7 +252,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .membre-bio{font-size:11px;color:#a08070;line-height:1.5;}
 .faq{display:flex;flex-direction:column;gap:0.5rem;padding:0 2rem;}
 .faq-item{background:var(--cr);border:0.5px solid var(--orl);border-radius:10px;overflow:hidden;}
-.faq-item:last-child { margin-bottom: 2rem; }
 .faq-q{padding:0.9rem 1rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--bx);}
 .faq-q i{color:var(--or);font-size:16px;transition:transform 0.2s;}
 .faq-q.open i{transform:rotate(180deg);}
@@ -295,304 +296,477 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .notif-opt-txt{font-size:12px;color:var(--bx);}
 .notif-opt.on .notif-opt-txt{color:var(--or);}
 .notif-opt i{font-size:15px;color:var(--or);}
-
-/* CSS POUR LA NOUVELLE PAGE POLITIQUE */
-.legal-content { max-width: 800px; margin: 0 auto; padding: 2rem; color: var(--bx); }
-.legal-content h2 { font-family: 'Cormorant Garamond', serif; margin: 1.5rem 0 0.8rem; border-bottom: 0.5px solid var(--orl); padding-bottom: 0.3rem; }
-.legal-content p { font-size: 14px; line-height: 1.7; margin-bottom: 1rem; color: #8a6050; }
 </style>
 </head>
 <body>
 
+<!-- ═══════════════════════════════════ NAVIGATION ═══════════════════════════════════ -->
 <nav class="nav">
-    <div class="logo-wrap" onclick="showPage('accueil')">
-        <div class="logo-oval"><span class="ls">S</span><span class="lf">F</span></div>
-        <div class="logo-text"><div class="ln">SCENTFINDER</div><div class="lt">COMPARATEUR DE PARFUMS</div></div>
-    </div>
-    <div class="nav-links">
-        <button class="nav-btn active" onclick="showPage('accueil')">Accueil</button>
-        <button class="nav-btn" onclick="showPage('top10')">Top 10</button>
-        <button class="nav-btn" onclick="showPage('alertes')">Alertes</button>
-        <button class="nav-btn" onclick="showPage('marques')">Marques</button>
-        <button class="nav-btn" onclick="showPage('iris')">Iris IA</button>
-        <button class="nav-btn" onclick="showPage('apropos')">?</button>
-    </div>
+  <div class="logo-wrap" onclick="showPage('accueil')">
+    <div class="logo-oval"><span class="ls">S</span><span class="lf">F</span></div>
+    <div class="logo-text"><div class="ln">SCENTFINDER</div><div class="lt">COMPARATEUR DE PARFUMS</div></div>
+  </div>
+  <div class="nav-links">
+    <button class="nav-btn active" onclick="showPage('accueil')">Accueil</button>
+    <button class="nav-btn" onclick="showPage('top10')">Top 10</button>
+    <button class="nav-btn" onclick="showPage('marques')">Marques</button>
+    <button class="nav-btn" onclick="showPage('alertes')">Alertes</button>
+    <button class="nav-btn" onclick="showPage('chatbot')">Iris IA</button>
+    <button class="nav-btn" onclick="showPage('apropos')">À propos</button>
+  </div>
 </nav>
 
+<!-- ═══════════════════════════════════ PAGE ACCUEIL ═══════════════════════════════════ -->
 <div id="page-accueil" class="page active">
-    <div class="hero">
-        <div class="hero-eyebrow">HAUTE PARFUMERIE</div>
-        <h1 class="hero-title">Trouvez votre <em>Signature Olfactive</em><br>au meilleur prix.</h1>
-        <div class="hero-divider"><span></span><i class="ti ti-droplet-half-2" style="color:var(--or);font-size:14px;"></i><span></span></div>
-        <p class="hero-sub">LE PREMIER COMPARATEUR DÉDIÉ AUX PARFUMS DE PRESTIGE</p>
-        <div class="search-wrap">
-            <i class="ti ti-search"></i>
-            <input type="text" placeholder="Rechercher une fragrance, une note ou une maison...">
-        </div>
+  <div class="hero">
+    <div class="hero-eyebrow">✦ QUALITÉ SUPÉRIEURE ✦</div>
+    <div class="hero-title">Le meilleur prix pour<br>votre <em>parfum de prestige</em></div>
+    <div class="hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
+    <div class="hero-sub">OFFRES CERTIFIÉES · CODES PROMO EXCLUSIFS</div>
+    <div class="search-wrap">
+      <i class="ti ti-search"></i>
+      <input type="text" id="searchAccueil" placeholder="Dior Sauvage, Chanel N°5, Guerlain..."/>
     </div>
+  </div>
 
-    <div class="promo-strip">
-        <div class="promo-item"><span class="promo-label">NOEL24 :</span><span class="promo-code">-15% CHEZ SEPHORA</span></div>
-        <span class="promo-sep">|</span>
-        <div class="promo-item"><span class="promo-label">IRIS :</span><span class="promo-code">CONSEILS IA GRATUITS</span></div>
-        <span class="promo-sep">|</span>
-        <div class="promo-item"><span class="promo-label">OFFRE :</span><span class="promo-code">LIVRAISON OFFERTE DÈS 80€</span></div>
-    </div>
+  <div class="promo-strip">
+    <div class="promo-item"><span class="promo-label">Sephora</span><span class="promo-code" onclick="toast('Code SEPH20 copié ✓')">SEPH20 −20%</span></div>
+    <span class="promo-sep">|</span>
+    <div class="promo-item"><span class="promo-label">Nocibé</span><span class="promo-code" onclick="toast('Code NOCI15 copié ✓')">NOCI15 −15%</span></div>
+    <span class="promo-sep">|</span>
+    <div class="promo-item"><span class="promo-label">Feelunique</span><span class="promo-code" onclick="toast('Code FEEL25 copié ✓')">FEEL25 −25%</span></div>
+    <span class="promo-sep">|</span>
+    <div class="promo-item"><span class="promo-label">Amazon</span><span class="promo-code" onclick="toast('Code AMZ12 copié ✓')">AMZ12 −12%</span></div>
+    <span class="promo-sep">|</span>
+    <div class="promo-item"><span class="promo-label">Marionnaud</span><span class="promo-code" onclick="toast('Code MARIO10 copié ✓')">MARIO10 −10%</span></div>
+  </div>
 
-    <div class="cats">
-        <button class="cat on">Tout</button>
-        <button class="cat">Best-Sellers</button>
-        <button class="cat">Nouveautés</button>
-        <button class="cat">Coffrets</button>
-        <button class="cat">Niche</button>
-        <button class="cat">Promotions</button>
-    </div>
+  <div class="cats" id="catsAccueil">
+    <button class="cat on" data-c="all">Tous</button>
+    <button class="cat" data-c="homme">Homme</button>
+    <button class="cat" data-c="femme">Femme</button>
+    <button class="cat" data-c="mixte">Mixte</button>
+    <button class="cat" data-c="niche">Niche</button>
+  </div>
 
-    <div class="section-hd">
-        <h2>Tendances Actuelles</h2>
-        <span>VOIR TOUT <i class="ti ti-chevron-right"></i></span>
-    </div>
+  <div class="section-hd">
+    <h2>Meilleures offres du moment</h2>
+    <span onclick="showPage('top10')">VOIR TOUT →</span>
+  </div>
 
-    <div class="grid">
-        <div class="card">
-            <div class="card-img">
-                <span class="best-badge">N°1 VENTES</span>
-                <span class="promo-badge">-25%</span>
-                ✨
-            </div>
-            <div class="card-body">
-                <div class="card-brand">Dior</div>
-                <div class="card-name">Sauvage Elixir</div>
-                <div class="card-vol">Eau de Parfum — 60ml</div>
-                <div class="stars-row">
-                    <div class="stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-half-filled"></i></div>
-                    <span class="reviews">(1240)</span>
-                </div>
-                <div class="prices">
-                    <div class="price-row"><span class="shop-name">Sephora</span><div style="text-align:right"><span class="price-old">165€</span><br><span class="price-best">123,75€</span></div></div>
-                    <div class="price-row"><span class="shop-name">Nocibé</span><span class="price-best">132,00€</span></div>
-                </div>
-                <div class="promo-tag">
-                    <span class="promo-tag-txt">Code <strong>NOEL24</strong></span>
-                    <span class="promo-tag-code">COPIER</span>
-                </div>
-                <button class="go-btn">VOIR L'OFFRE <i class="ti ti-external-link"></i></button>
-            </div>
-        </div>
+  <div class="grid" id="gridAccueil"></div>
+  <div class="toast" id="toastAccueil"></div>
 
-        <div class="card">
-            <div class="card-img">
-                <span class="best-badge" style="background:#2d8a4e;color:#fff;">NICHE</span>
-                🌿
-            </div>
-            <div class="card-body">
-                <div class="card-brand">Diptyque</div>
-                <div class="card-name">Philosykos</div>
-                <div class="card-vol">Eau de Toilette — 100ml</div>
-                <div class="stars-row">
-                    <div class="stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
-                    <span class="reviews">(850)</span>
-                </div>
-                <div class="prices">
-                    <div class="price-row"><span class="shop-name">Site Officiel</span><span class="price-best">150,00€</span></div>
-                    <div class="price-row"><span class="shop-name">Printemps</span><span class="price-best">150,00€</span></div>
-                </div>
-                <button class="go-btn" style="background:var(--crd);color:var(--bx);border-color:var(--orl);">COMPARER <i class="ti ti-arrows-diff"></i></button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="page-top10" class="page">
-    <div class="page-hero">
-        <div class="page-hero-eyebrow">CLASSEMENT</div>
-        <h1 class="page-hero-title">Le Top 10 des <em>Incontournables</em></h1>
-        <div class="page-hero-divider"><span></span><i class="ti ti-trophy" style="color:var(--or);font-size:14px;"></i><span></span></div>
-        <p class="page-hero-sub">MIS À JOUR TOUTES LES 24H SELON LES VENTES ET AVIS</p>
-    </div>
-
-    <div class="filters-bar">
-        <button class="f-btn on">Parfums Homme</button>
-        <button class="f-btn">Parfums Femme</button>
-        <button class="f-btn">Mixte / Niche</button>
-        <button class="f-btn">Plus Économiques</button>
-    </div>
-
-    <div class="section-hd"><h2>Le Podium du Moment</h2></div>
-
-    <div class="podium">
-        <div class="podium-card">
-            <div class="podium-rank rank-2">2</div>
-            <div class="podium-img">💎</div>
-            <div class="podium-body">
-                <div class="podium-brand">Chanel</div>
-                <div class="podium-name">Bleu de Chanel</div>
-                <div class="podium-eco">Prix stable</div>
-                <div class="podium-price">98,50€</div>
-            </div>
-        </div>
-        <div class="podium-card gold">
-            <div class="podium-rank rank-1">1</div>
-            <div class="podium-img">👑</div>
-            <div class="podium-body">
-                <div class="podium-brand">Dior</div>
-                <div class="podium-name">Sauvage</div>
-                <div class="badge-diamant"><i class="ti ti-sparkles"></i> BEST-SELLER</div>
-                <div class="podium-price">84,20€ <span class="podium-old">112€</span></div>
-            </div>
-        </div>
-        <div class="podium-card">
-            <div class="podium-rank rank-3">3</div>
-            <div class="podium-img">🔥</div>
-            <div class="podium-body">
-                <div class="podium-brand">JPG</div>
-                <div class="podium-name">Le Male</div>
-                <div class="podium-eco">Promo -15%</div>
-                <div class="podium-price">72,90€</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="top-list">
-        <div class="top-row hot">
-            <div class="top-num hot-num">4</div>
-            <div class="top-img">✨</div>
-            <div class="top-info">
-                <div class="top-brand">YSL</div>
-                <div class="top-name">La Nuit de L'Homme</div>
-                <div class="top-shop">Meilleur prix chez Nocibé</div>
-            </div>
-            <div class="top-right">
-                <div class="top-price">79,00€ <span class="top-old">105€</span></div>
-                <div class="promo-pill">CODE : NOEL24</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="page-alertes" class="page">
-    <div class="page-hero">
-        <div class="page-hero-eyebrow">SMART SHOPPING</div>
-        <h1 class="page-hero-title">Vos <em>Alertes Prix</em></h1>
-        <div class="page-hero-divider"><span></span><i class="ti ti-bell-ringing" style="color:var(--or);font-size:14px;"></i><span></span></div>
-    </div>
-    <div class="form-card">
-        <div class="section-hd" style="padding:0 0 1rem;"><h2>Créer une alerte</h2></div>
-        <div class="form-grid">
-            <div class="form-group full"><input type="text" class="form-input" placeholder="Parfum..."></div>
-            <div class="form-group"><input type="number" class="form-input" placeholder="Prix cible..."></div>
-            <button class="submit-btn">ACTIVER</button>
-        </div>
-    </div>
-</div>
-
-<div id="page-marques" class="page">
-    <div class="page-hero"><h1 class="page-hero-title">Les <em>Maisons</em></h1></div>
-    <div class="marques-grid">
-        <div class="marque-card"><div class="marque-header"><div class="marque-name">DIOR</div></div></div>
-    </div>
-</div>
-
-<div id="page-iris" class="page">
-    <div class="chat-hero">
-        <div class="bot-avatar"><i class="ti ti-sparkles"></i></div>
-        <div class="bot-name">Iris — Votre Conseillère IA</div>
-    </div>
-    <div class="chat-window" id="chatWindow"></div>
-    <div class="chat-input-bar">
-        <input type="text" class="chat-input" id="chatInput" placeholder="Posez votre question...">
-        <button class="send-btn" onclick="sendMsg()"><i class="ti ti-send"></i></button>
-    </div>
-</div>
-
-<div id="page-apropos" class="page">
-    <div class="page-hero">
-        <h1 class="page-hero-title">À <em>Propos</em></h1>
-    </div>
-    <div class="section">
-        <div class="manifeste">
-            <p class="manifeste-txt">ScentFinder est né d'une passion pour les parfums et le juste prix.</p>
-        </div>
-    </div>
-    <div class="section-title">FAQ</div>
-    <div class="faq">
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">Comment ça marche ? <i class="ti ti-chevron-down"></i></div>
-            <div class="faq-a">Nous comparons les prix en temps réel.</div>
-        </div>
-    </div>
-</div>
-
-<div id="page-politique" class="page">
-    <div class="page-hero">
-        <div class="page-hero-eyebrow">LÉGAL</div>
-        <h1 class="page-hero-title">Politique de <em>Confidentialité</em></h1>
-    </div>
-    <div class="legal-content">
-        <h2>1. Collecte des données</h2>
-        <p>Nous collectons les données techniques nécessaires à la navigation et, si vous créez une alerte, votre adresse email pour vous notifier des changements de prix.</p>
-        <h2>2. Utilisation des données</h2>
-        <p>Vos informations ne sont jamais revendues à des tiers. Elles servent uniquement à assurer le service ScentFinder.</p>
-        <h2>3. Vos droits</h2>
-        <p>Conformément au RGPD, vous disposez d'un droit d'accès et de suppression de vos données sur simple demande.</p>
-    </div>
-</div>
-
-<footer class="footer">
-    <div class="footer-logo">SCENTFINDER</div>
+  <div class="footer">
+    <div class="footer-logo">✦ SCENTFINDER</div>
     <div class="footer-links">
-        <a href="#" onclick="showPage('accueil')">Accueil</a>
-        <a href="#" onclick="showPage('apropos')">L'équipe</a>
-        <a href="#" onclick="showPage('politique')">Confidentialité</a>
-        <a href="#">Contact</a>
+      <a href="#" onclick="showPage('apropos')">À propos</a>
+      <a href="#">Affiliation</a>
+      <a href="#">Contact</a> 
+ <a href="mentions-legales.html">Mentions Légales</a>
     </div>
-</footer>
+  </div>
+</div>
 
-<div id="toast" class="toast">Code copié !</div>
+<!-- ═══════════════════════════════════ PAGE TOP 10 ═══════════════════════════════════ -->
+<div id="page-top10" class="page">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">✦ SÉLECTION DU JOUR ✦</div>
+    <div class="page-hero-title">Top 10 des <em>meilleures offres</em></div>
+    <div class="page-hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
+    <div class="page-hero-sub"><i class="ti ti-refresh"></i> Mis à jour aujourd'hui à 08h00</div>
+  </div>
+  <div class="filters-bar" id="filterTop">
+    <button class="f-btn on" data-f="all">Tous</button>
+    <button class="f-btn" data-f="homme">Homme</button>
+    <button class="f-btn" data-f="femme">Femme</button>
+    <button class="f-btn" data-f="mixte">Mixte</button>
+    <button class="f-btn" data-f="niche">Niche</button>
+  </div>
+  <div class="podium" id="podiumTop"></div>
+  <div class="section" style="padding-top:0;">
+    <div class="section-title">Classement complet</div>
+  </div>
+  <div class="top-list" id="topList"></div>
+  <div class="toast" id="toastTop"></div>
+  <div class="mise-a-jour">✦ Prix vérifiés et certifiés · Offres sous réserve de disponibilité</div>
+  <div class="footer">
+    <div class="footer-logo">✦ SCENTFINDER</div>
+    <div class="footer-links"><a href="#">Contact</a><a href="#">Affiliation</a></div>
+  </div>
+</div>
 
+<!-- ═══════════════════════════════════ PAGE MARQUES ═══════════════════════════════════ -->
+<div id="page-marques" class="page">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">✦ GRANDES MAISONS ✦</div>
+    <div class="page-hero-title">Classement <em>par marque</em></div>
+    <div class="page-hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
+  </div>
+  <div class="section" style="padding-bottom:0;">
+    <div style="display:flex;gap:0.75rem;align-items:center;margin-bottom:1rem;">
+      <div style="flex:1;display:flex;align-items:center;gap:8px;background:var(--crd);border:0.5px solid var(--orl);border-radius:50px;padding:0.55rem 1rem;">
+        <i class="ti ti-search" style="color:var(--or);font-size:15px;"></i>
+        <input type="text" id="searchMarque" placeholder="Rechercher une marque..." style="background:transparent;border:none;outline:none;font-size:13px;color:var(--bx);font-family:'DM Sans',sans-serif;flex:1;"/>
+      </div>
+      <select id="sortMarque" style="background:var(--crd);border:0.5px solid var(--orl);border-radius:50px;padding:0.55rem 1rem;font-size:12px;color:var(--bx);font-family:'DM Sans',sans-serif;outline:none;cursor:pointer;">
+        <option value="eco">Meilleure remise</option>
+        <option value="price">Prix croissant</option>
+        <option value="alpha">A → Z</option>
+      </select>
+    </div>
+    <div class="section-title">Catégorie</div>
+    <div class="filters-bar" id="filterMarqueCat" style="padding:0 0 0.75rem;">
+      <button class="f-btn on" data-c="all">Toutes</button>
+      <button class="f-btn" data-c="homme">Homme</button>
+      <button class="f-btn" data-c="femme">Femme</button>
+      <button class="f-btn" data-c="mixte">Mixte</button>
+      <button class="f-btn" data-c="niche">Niche</button>
+    </div>
+    <div class="section-title">Gamme de prix</div>
+    <div class="filters-bar" id="filterMarquePrix" style="padding:0 0 0.75rem;">
+      <button class="f-btn on" data-p="all">Tous</button>
+      <button class="f-btn" data-p="0-80">Moins de 80€</button>
+      <button class="f-btn" data-p="80-150">80€ – 150€</button>
+      <button class="f-btn" data-p="150+">Plus de 150€</button>
+    </div>
+  </div>
+  <div class="count-bar" id="countMarque"></div>
+  <div class="marques-grid" id="marqGrid"></div>
+  <div class="toast" id="toastMarque"></div>
+  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a href="#">Contact</a></div></div>
+</div>
+
+<!-- ═══════════════════════════════════ PAGE ALERTES ═══════════════════════════════════ -->
+<div id="page-alertes" class="page">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">✦ NE MANQUEZ PLUS AUCUNE OFFRE ✦</div>
+    <div class="page-hero-title">Alertes <em>prix personnalisées</em></div>
+    <div class="page-hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
+    <div class="page-hero-sub">Soyez notifié dès que le prix passe sous votre budget</div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-val" id="statNb">3</div><div class="stat-label">ALERTES ACTIVES</div></div>
+    <div class="stat-card"><div class="stat-val">€ 47</div><div class="stat-label">ÉCONOMIES RÉALISÉES</div></div>
+    <div class="stat-card"><div class="stat-val">1</div><div class="stat-label">OFFRE DÉCLENCHÉE</div></div>
+  </div>
+  <div class="section" style="padding-top:0;">
+    <div class="section-title">Créer une alerte</div>
+  </div>
+  <div class="form-card" style="margin-top:0;">
+    <div class="form-grid">
+      <div class="form-group">
+        <div class="form-label">Parfum</div>
+        <select class="form-select" id="selParfum">
+          <option>Dior Sauvage EDP</option><option>Chanel N°5 EDP</option><option>YSL Black Opium</option>
+          <option>Guerlain Mon Guerlain</option><option>Paco Rabanne 1 Million</option><option>Le Labo Santal 33</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Volume</div>
+        <select class="form-select"><option>50 ml</option><option>100 ml</option><option>200 ml</option></select>
+      </div>
+      <div class="form-group full">
+        <div class="form-label">Prix cible</div>
+        <div class="price-input-wrap"><span>€</span><input type="number" placeholder="Ex : 75" id="prixCible"/></div>
+      </div>
+      <div class="form-group full">
+        <div class="form-label">Email</div>
+        <input class="form-input" type="email" placeholder="votre@email.com" id="emailInp"/>
+      </div>
+      <div class="form-group full">
+        <div class="form-label">Notification via</div>
+        <div class="notif-options">
+          <label class="notif-opt on" id="opt-email"><i class="ti ti-mail"></i><span class="notif-opt-txt">Email</span></label>
+          <label class="notif-opt" id="opt-sms"><i class="ti ti-device-mobile"></i><span class="notif-opt-txt">SMS</span></label>
+          <label class="notif-opt" id="opt-push"><i class="ti ti-bell"></i><span class="notif-opt-txt">Push</span></label>
+        </div>
+      </div>
+    </div>
+    <button class="submit-btn" onclick="creerAlerte()"><i class="ti ti-bell"></i> CRÉER MON ALERTE</button>
+  </div>
+  <div class="section" style="padding-top:0;">
+    <div class="section-title">Mes alertes actives</div>
+  </div>
+  <div class="alerte-list" id="alerteList"></div>
+  <div class="toast" id="toastAlerte"></div>
+  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a href="#">Contact</a></div></div>
+</div>
+
+<!-- ═══════════════════════════════════ PAGE CHATBOT ═══════════════════════════════════ -->
+<div id="page-chatbot" class="page">
+  <div class="chat-hero">
+    <div class="bot-avatar"><i class="ti ti-sparkles"></i></div>
+    <div>
+      <div class="bot-name">Iris — Conseillère IA</div>
+      <div class="bot-status"><div class="status-dot"></div><div class="status-txt">EN LIGNE · RÉPOND EN QUELQUES SECONDES</div></div>
+    </div>
+    <div class="bot-badge"><i class="ti ti-diamond" style="font-size:10px"></i> IA PRESTIGE</div>
+  </div>
+  <div class="suggestions">
+    <button class="sug-btn" onclick="sendSug(this)">Quel parfum pour offrir ?</button>
+    <button class="sug-btn" onclick="sendSug(this)">Parfum floral femme</button>
+    <button class="sug-btn" onclick="sendSug(this)">Meilleure offre du moment</button>
+    <button class="sug-btn" onclick="sendSug(this)">Parfum boisé homme</button>
+    <button class="sug-btn" onclick="sendSug(this)">Budget 70€ max</button>
+    <button class="sug-btn" onclick="sendSug(this)">Différence EDP et EDT ?</button>
+  </div>
+  <div class="chat-window" id="chatWindow"></div>
+  <div class="chat-input-bar">
+    <input class="chat-input" id="chatInput" type="text" placeholder="Posez votre question à Iris..."/>
+    <button class="send-btn" onclick="sendMsg()"><i class="ti ti-send"></i></button>
+  </div>
+  <div class="powered">✦ Propulsé par l'intelligence artificielle · ScentFinder 2025</div>
+</div>
+
+<!-- ═══════════════════════════════════ PAGE À PROPOS ═══════════════════════════════════ -->
+<div id="page-apropos" class="page">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">✦ NOTRE HISTOIRE ✦</div>
+    <div class="page-hero-title">À propos de <em>ScentFinder</em></div>
+    <div class="page-hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
+    <div class="page-hero-sub">Le comparateur de référence pour les parfums de prestige</div>
+  </div>
+  <div class="section">
+    <div class="section-title">Notre manifeste</div>
+    <div class="manifeste">
+      <div class="manifeste-deco">"</div>
+      <div class="manifeste-txt">Le luxe ne devrait pas être un privilège réservé à quelques-uns.<br><br>
+      Chez <em>ScentFinder</em>, nous croyons que chaque personne mérite d'accéder aux plus grands parfums au <em>meilleur prix possible</em>. Nous comparons chaque jour des centaines d'offres certifiées pour vous garantir une transparence totale et des économies réelles.</div>
+      <div class="manifeste-sign">— L'équipe ScentFinder, Paris 2025</div>
+    </div>
+  </div>
+  <div class="section" style="padding-top:0;">
+    <div class="section-title">En chiffres</div>
+    <div class="chiffres">
+      <div class="chiffre-card"><div class="chiffre-val">500+</div><div class="chiffre-lbl">PARFUMS RÉFÉRENCÉS</div></div>
+      <div class="chiffre-card"><div class="chiffre-val">12</div><div class="chiffre-lbl">BOUTIQUES PARTENAIRES</div></div>
+      <div class="chiffre-card"><div class="chiffre-val">€ 47</div><div class="chiffre-lbl">ÉCONOMIE MOYENNE</div></div>
+    </div>
+  </div>
+  <div class="section" style="padding-top:0;">
+    <div class="section-title">Nos valeurs</div>
+    <div class="valeurs">
+      <div class="valeur-card"><div class="valeur-icon"><i class="ti ti-shield-check"></i></div><div class="valeur-title">Transparence</div><div class="valeur-txt">Chaque offre est vérifiée et certifiée avant publication.</div></div>
+      <div class="valeur-card"><div class="valeur-icon"><i class="ti ti-diamond"></i></div><div class="valeur-title">Qualité</div><div class="valeur-txt">Uniquement des parfums authentiques issus de boutiques officielles.</div></div>
+      <div class="valeur-card"><div class="valeur-icon"><i class="ti ti-refresh"></i></div><div class="valeur-title">Actualité</div><div class="valeur-txt">Les prix sont mis à jour chaque jour.</div></div>
+      <div class="valeur-card"><div class="valeur-icon"><i class="ti ti-heart"></i></div><div class="valeur-title">Passion</div><div class="valeur-txt">Une équipe de passionnés de parfumerie.</div></div>
+    </div>
+  </div>
+  <div class="section" style="padding-top:0;">
+    <div class="section-title">L'équipe</div>
+    <div class="equipe">
+      <div class="membre-card"><div class="membre-avatar">N</div><div class="membre-nom">Nils</div><div class="membre-role">FONDATEUR</div><div class="membre-bio">Passionné de parfums et de tech, il a créé ScentFinder pour démocratiser l'accès au luxe.</div></div>
+      <div class="membre-card"><div class="membre-avatar">SA</div><div class="membre-nom">Sophie A.</div><div class="membre-role">PARFUMEUSE</div><div class="membre-bio">Experte en olfaction, elle sélectionne chaque parfum référencé.</div></div>
+      <div class="membre-card"><div class="membre-avatar">TM</div><div class="membre-nom">Thomas M.</div><div class="membre-role">TECH & DATA</div><div class="membre-bio">Il développe les outils de comparaison des prix en temps réel.</div></div>
+    </div>
+  </div>
+  <div class="section" style="padding-top:0;">
+    <div class="section-title">Questions fréquentes</div>
+    <div class="faq">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">ScentFinder est-il gratuit ?<i class="ti ti-chevron-down"></i></div><div class="faq-a">Oui, totalement gratuit. ScentFinder se rémunère via des commissions d'affiliation sans surcoût pour vous.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Les prix affichés sont-ils fiables ?<i class="ti ti-chevron-down"></i></div><div class="faq-a">Chaque prix est vérifié quotidiennement. Nous travaillons uniquement avec des boutiques officielles agréées.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Comment fonctionnent les codes promo ?<i class="ti ti-chevron-down"></i></div><div class="faq-a">Copiez le code, rendez-vous sur la boutique partenaire et collez-le au moment du paiement.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Comment créer une alerte prix ?<i class="ti ti-chevron-down"></i></div><div class="faq-a">Section "Alertes", sélectionnez votre parfum, entrez votre prix cible et votre email. Vous serez notifié dès que le prix baisse.</div></div>
+    </div>
+  </div>
+  <div class="cta-section">
+    <div class="cta-title">Prêt à trouver votre <em>parfum idéal</em> ?</div>
+    <button class="cta-btn" onclick="showPage('accueil')"><i class="ti ti-search"></i> DÉCOUVRIR LES OFFRES</button>
+  </div>
+ <div class="footer" style="padding: 40px 0; text-align: center;">
+    <div class="footer-logo">✦ SCENTFINDER</div>
+    <div class="footer-links" style="margin-top: 20px;">
+        <a href="mentions-legales.html" style="margin: 0 15px; text-decoration: none; color: inherit;">Mentions Légales</a>
+        <a href="politique-confidentialite.html" style="margin: 0 15px; text-decoration: none; color: inherit;">Politique de Confidentialité</a>
+        <a href="#" style="margin: 0 15px; text-decoration: none; color: inherit;">Affiliation</a>
+        <a href="#" style="margin: 0 15px; text-decoration: none; color: inherit;">Contact</a>
+    </div>
+</div>
 <script>
-    function showPage(pageId) {
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.getElementById('page-' + pageId).classList.add('active');
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-            btn.classList.remove('active');
-            if(btn.innerText.toLowerCase().includes(pageId.replace('alertes','alertes').replace('marques','marques').replace('iris','iris'))) {
-                btn.classList.add('active');
-            }
-        });
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    }
+// ═══ DONNÉES ═══
+const parfumsData=[
+  {id:1,emoji:"🧴",brand:"Dior",name:"Sauvage EDP",vol:"100ml",cat:"homme",shops:[{n:"Amazon",p:87.00,orig:110},{n:"Sephora",p:89.99},{n:"Nocibé",p:94.50}],promo:"AMZ12",stars:5,reviews:2841},
+  {id:2,emoji:"🌸",brand:"Chanel",name:"N°5 EDP",vol:"50ml",cat:"femme",shops:[{n:"Feelunique",p:99.90,orig:120},{n:"Marionnaud",p:105.00},{n:"Sephora",p:112.00}],promo:"FEEL25",stars:5,reviews:4102},
+  {id:3,emoji:"☕",brand:"YSL",name:"Black Opium",vol:"90ml",cat:"femme",shops:[{n:"Amazon",p:72.00,orig:95},{n:"Sephora",p:79.00},{n:"Nocibé",p:81.50}],promo:"AMZ12",stars:4,reviews:1893},
+  {id:4,emoji:"🎷",brand:"Maison Margiela",name:"Jazz Club",vol:"100ml",cat:"mixte",shops:[{n:"Feelunique",p:139.00,orig:160},{n:"Amazon",p:145.50},{n:"Sephora",p:149.00}],promo:"FEEL25",stars:5,reviews:678},
+  {id:5,emoji:"💰",brand:"Paco Rabanne",name:"1 Million",vol:"100ml",cat:"homme",shops:[{n:"Amazon",p:64.90,orig:85},{n:"Nocibé",p:68.00},{n:"Sephora",p:72.00}],promo:"AMZ12",stars:4,reviews:3210},
+  {id:6,emoji:"🪵",brand:"Le Labo",name:"Santal 33",vol:"50ml",cat:"niche",shops:[{n:"Feelunique",p:185.00,orig:220},{n:"Sephora",p:198.00}],promo:"FEEL25",stars:5,reviews:421},
+];
+const top10=[
+  {rank:1,emoji:"🧴",brand:"Dior",name:"Sauvage EDP",vol:"100ml",cat:"homme",shop:"Amazon",price:87.00,orig:110,promo:"AMZ12",eco:21,hot:true},
+  {rank:2,emoji:"🌸",brand:"Chanel",name:"N°5 EDP",vol:"50ml",cat:"femme",shop:"Feelunique",price:99.90,orig:120,promo:"FEEL25",eco:17,hot:false},
+  {rank:3,emoji:"💰",brand:"Paco Rabanne",name:"1 Million",vol:"100ml",cat:"homme",shop:"Amazon",price:64.90,orig:85,promo:"AMZ12",eco:24,hot:true},
+  {rank:4,emoji:"☕",brand:"YSL",name:"Black Opium",vol:"90ml",cat:"femme",shop:"Amazon",price:72.00,orig:95,promo:"AMZ12",eco:24,hot:false},
+  {rank:5,emoji:"🎷",brand:"Maison Margiela",name:"Jazz Club",vol:"100ml",cat:"mixte",shop:"Feelunique",price:139.00,orig:160,promo:"FEEL25",eco:13,hot:false},
+  {rank:6,emoji:"🪵",brand:"Le Labo",name:"Santal 33",vol:"50ml",cat:"niche",shop:"Feelunique",price:185.00,orig:220,promo:"FEEL25",eco:16,hot:false},
+  {rank:7,emoji:"🌿",brand:"Byredo",name:"Gypsy Water",vol:"100ml",cat:"niche",shop:"Sephora",price:178.00,orig:210,promo:"SEPH20",eco:15,hot:false},
+  {rank:8,emoji:"🌺",brand:"Guerlain",name:"Mon Guerlain",vol:"50ml",cat:"femme",shop:"Marionnaud",price:68.00,orig:88,promo:"MARIO10",eco:23,hot:false},
+  {rank:9,emoji:"🍊",brand:"Hermès",name:"Terre d'Hermès",vol:"100ml",cat:"homme",shop:"Sephora",price:92.00,orig:115,promo:"SEPH20",eco:20,hot:false},
+  {rank:10,emoji:"🌙",brand:"Lancôme",name:"La Nuit Trésor",vol:"75ml",cat:"femme",shop:"Nocibé",price:58.00,orig:75,promo:"NOCI15",eco:23,hot:false},
+];
+const marques=[
+  {nom:"Dior",cat:"homme",prestige:true,parfums:[{emoji:"🧴",nom:"Sauvage EDP",vol:"100ml",price:87.00,orig:110,eco:21,promo:"AMZ12"},{emoji:"🌿",nom:"Fahrenheit",vol:"100ml",price:72.00,orig:90,eco:20,promo:"SEPH20"}]},
+  {nom:"Chanel",cat:"femme",prestige:true,parfums:[{emoji:"🌸",nom:"N°5 EDP",vol:"50ml",price:99.90,orig:120,eco:17,promo:"FEEL25"},{emoji:"🌺",nom:"Coco Mademoiselle",vol:"100ml",price:118.00,orig:145,eco:19,promo:"SEPH20"}]},
+  {nom:"YSL",cat:"femme",prestige:true,parfums:[{emoji:"☕",nom:"Black Opium",vol:"90ml",price:72.00,orig:95,eco:24,promo:"AMZ12"},{emoji:"🌙",nom:"Libre EDP",vol:"50ml",price:84.00,orig:105,eco:20,promo:"NOCI15"}]},
+  {nom:"Guerlain",cat:"femme",prestige:true,parfums:[{emoji:"💜",nom:"Mon Guerlain",vol:"50ml",price:68.00,orig:88,eco:23,promo:"MARIO10"},{emoji:"🍯",nom:"Shalimar",vol:"90ml",price:78.00,orig:98,eco:20,promo:"FEEL25"}]},
+  {nom:"Paco Rabanne",cat:"homme",prestige:false,parfums:[{emoji:"💰",nom:"1 Million",vol:"100ml",price:64.90,orig:85,eco:24,promo:"AMZ12"},{emoji:"👽",nom:"Invictus",vol:"100ml",price:59.00,orig:78,eco:24,promo:"NOCI15"}]},
+  {nom:"Hermès",cat:"homme",prestige:true,parfums:[{emoji:"🍊",nom:"Terre d'Hermès",vol:"100ml",price:92.00,orig:115,eco:20,promo:"SEPH20"},{emoji:"🌿",nom:"H24",vol:"100ml",price:88.00,orig:110,eco:20,promo:"FEEL25"}]},
+  {nom:"Le Labo",cat:"niche",prestige:true,parfums:[{emoji:"🪵",nom:"Santal 33",vol:"50ml",price:185.00,orig:220,eco:16,promo:"FEEL25"},{emoji:"🌹",nom:"Rose 31",vol:"50ml",price:175.00,orig:210,eco:17,promo:"FEEL25"}]},
+  {nom:"Byredo",cat:"niche",prestige:true,parfums:[{emoji:"🌿",nom:"Gypsy Water",vol:"100ml",price:178.00,orig:210,eco:15,promo:"SEPH20"},{emoji:"🖤",nom:"Blanche",vol:"50ml",price:165.00,orig:195,eco:15,promo:"FEEL25"}]},
+  {nom:"Maison Margiela",cat:"mixte",prestige:true,parfums:[{emoji:"🎷",nom:"Jazz Club",vol:"100ml",price:139.00,orig:160,eco:13,promo:"FEEL25"},{emoji:"☁️",nom:"Lazy Sunday Morning",vol:"100ml",price:135.00,orig:160,eco:16,promo:"SEPH20"}]},
+  {nom:"Lancôme",cat:"femme",prestige:false,parfums:[{emoji:"🌙",nom:"La Nuit Trésor",vol:"75ml",price:58.00,orig:75,eco:23,promo:"NOCI15"},{emoji:"🌸",nom:"La Vie est Belle",vol:"100ml",price:72.00,orig:92,eco:22,promo:"MARIO10"}]},
+];
+let alertes=[
+  {id:1,emoji:"🧴",brand:"Dior",name:"Sauvage EDP",vol:"100ml",current:87.00,target:80.00,triggered:false},
+  {id:2,emoji:"🌸",brand:"Chanel",name:"N°5 EDP",vol:"50ml",current:99.90,target:105.00,triggered:true},
+  {id:3,emoji:"☕",brand:"YSL",name:"Black Opium",vol:"90ml",current:72.00,target:70.00,triggered:false},
+];
 
-    function toggleFaq(el) {
-        const answer = el.nextElementSibling;
-        answer.classList.toggle('show');
-        el.classList.toggle('open');
-    }
+// ═══ NAVIGATION ═══
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  const btns=document.querySelectorAll('.nav-btn');
+  btns.forEach(b=>{if(b.textContent.toLowerCase().includes(id.substring(0,4))||b.onclick.toString().includes(id))b.classList.add('active');});
+  window.scrollTo(0,0);
+}
 
-    const chatWindow = document.getElementById('chatWindow');
-    function addMsg(type, text) {
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `msg ${type}`;
-        msgDiv.innerHTML = `<div class="msg-bubble ${type}">${text}</div>`;
-        chatWindow.appendChild(msgDiv);
-        chatWindow.scrollTop = chatWindow.scrollHeight;
-    }
+// ═══ TOAST ═══
+function toast(msg,id='toastAccueil'){
+  const t=document.getElementById(id);
+  if(!t)return;
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2200);
+}
 
-    function sendMsg() {
-        const input = document.getElementById('chatInput');
-        if(!input.value) return;
-        addMsg('user', input.value);
-        const val = input.value;
-        input.value = '';
-        setTimeout(() => {
-            addMsg('bot', "Je cherche les meilleures offres pour vous...");
-        }, 600);
-    }
+// ═══ ACCUEIL ═══
+let catAccueil='all';
+function renderAccueil(){
+  const q=document.getElementById('searchAccueil').value.toLowerCase();
+  const items=parfumsData.filter(d=>(catAccueil==='all'||d.cat===catAccueil)&&(d.name.toLowerCase().includes(q)||d.brand.toLowerCase().includes(q)));
+  document.getElementById('gridAccueil').innerHTML=items.map((d,i)=>{
+    const s=[...d.shops].sort((a,b)=>a.p-b.p);
+    const rows=s.map((sh,j)=>`<div class="price-row"><span class="shop-name">${sh.n}</span><div style="display:flex;gap:5px;align-items:center">${sh.orig?`<span class="price-old">${sh.orig.toFixed(2)}€</span>`:''}<span style="font-size:${j===0?'13':'12'}px;font-weight:${j===0?'500':'400'};color:${j===0?'var(--bx)':'#a08070'}">${sh.p.toFixed(2)}€</span></div></div>`).join('');
+    return`<div class="card"><div class="card-img">${d.emoji}${i===0?'<span class="best-badge">✦ TOP DEAL</span>':''}<span class="promo-badge">PROMO</span></div><div class="card-body"><div class="card-brand">${d.brand}</div><div class="card-name">${d.name}</div><div class="card-vol">${d.vol}</div><div class="stars-row"><span class="stars">${'★'.repeat(d.stars)+'☆'.repeat(5-d.stars)}</span><span class="reviews">(${d.reviews.toLocaleString('fr-FR')})</span></div><div class="prices">${rows}</div><div class="promo-tag"><span class="promo-tag-txt">Code promo disponible</span><span class="promo-tag-code" onclick="toast('Code ${d.promo} copié ✓')">${d.promo}</span></div><button class="go-btn">VOIR L'OFFRE <i class="ti ti-external-link"></i></button></div></div>`;
+  }).join('')||'<div style="grid-column:1/-1;padding:2rem;text-align:center;color:#a08070;font-family:Cormorant Garamond,serif;letter-spacing:1px;">Aucun parfum trouvé</div>';
+}
+document.getElementById('catsAccueil').addEventListener('click',e=>{
+  if(e.target.classList.contains('cat')){document.querySelectorAll('#catsAccueil .cat').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');catAccueil=e.target.dataset.c;renderAccueil();}
+});
+document.getElementById('searchAccueil').addEventListener('input',renderAccueil);
+renderAccueil();
 
-    window.onload = () => {
-        addMsg('bot', "Bonjour ! Je suis Iris. Comment puis-je vous aider ?");
-    };
+// ═══ TOP 10 ═══
+let filtreTop='all';
+function getTop(){return filtreTop==='all'?top10:top10.filter(p=>p.cat===filtreTop);}
+function renderTop(){
+  const d=getTop();
+  document.getElementById('podiumTop').innerHTML=d.slice(0,3).map((p,i)=>`<div class="podium-card${i===0?' gold':''}"><div class="podium-rank rank-${i+1}">${i+1}</div><div class="podium-img">${p.emoji}</div><div class="podium-body"><div class="podium-brand">${p.brand.toUpperCase()}</div><div class="podium-name">${p.name}</div>${p.hot?'<div style="margin-top:4px"><span class="badge-diamant"><i class="ti ti-diamond"></i> PRESTIGE</span></div>':''}<div class="podium-eco">− ${p.eco}% · économisez ${(p.orig-p.price).toFixed(0)}€</div><div style="display:flex;align-items:baseline;gap:5px;"><div class="podium-price">${p.price.toFixed(2)}€</div><div class="podium-old">${p.orig.toFixed(0)}€</div></div></div></div>`).join('');
+  document.getElementById('topList').innerHTML=d.slice(3).map(p=>`<div class="top-row${p.hot?' hot':''}"><div class="top-num${p.hot?' hot-num':''}">${p.rank}</div><div class="top-img">${p.emoji}</div><div class="top-info"><div class="top-brand">${p.brand.toUpperCase()}</div><div class="top-name">${p.name} · ${p.vol}</div><div class="top-shop">sur ${p.shop}</div></div><div class="top-right"><div style="display:flex;align-items:center;gap:5px;"><div class="top-price">${p.price.toFixed(2)}€</div>${p.hot?'<span class="badge-diamant"><i class="ti ti-diamond"></i> PRESTIGE</span>':''}</div><div class="top-old">${p.orig.toFixed(0)}€ · −${p.eco}%</div><span class="promo-pill" onclick="toast('Code ${p.promo} copié ✓','toastTop')">${p.promo}</span><button class="top-btn" onclick="toast('Redirection...','toastTop')">Y ALLER</button></div></div>`).join('');
+}
+document.getElementById('filterTop').addEventListener('click',e=>{
+  if(e.target.classList.contains('f-btn')){document.querySelectorAll('#filterTop .f-btn').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');filtreTop=e.target.dataset.f;renderTop();}
+});
+renderTop();
+
+// ═══ MARQUES ═══
+let catM='all',prixM='all',sortM='eco';
+function inPrix(p){if(prixM==='all')return true;if(prixM==='0-80')return p<=80;if(prixM==='80-150')return p>80&&p<=150;if(prixM==='150+')return p>150;return true;}
+function renderMarques(){
+  const q=document.getElementById('searchMarque').value.toLowerCase();
+  let res=marques.filter(m=>{if(catM!=='all'&&m.cat!==catM)return false;if(q&&!m.nom.toLowerCase().includes(q))return false;if(!inPrix(Math.min(...m.parfums.map(p=>p.price))))return false;return true;});
+  if(sortM==='eco')res.sort((a,b)=>Math.max(...b.parfums.map(p=>p.eco))-Math.max(...a.parfums.map(p=>p.eco)));
+  if(sortM==='price')res.sort((a,b)=>Math.min(...a.parfums.map(p=>p.price))-Math.min(...b.parfums.map(p=>p.price)));
+  if(sortM==='alpha')res.sort((a,b)=>a.nom.localeCompare(b.nom));
+  document.getElementById('countMarque').textContent=`${res.length} maison${res.length>1?'s':''} trouvée${res.length>1?'s':''}`;
+  document.getElementById('marqGrid').innerHTML=res.map(m=>`<div class="marque-card"><div class="marque-header"><div><div class="marque-name">${m.nom.toUpperCase()}</div><div class="marque-cat">${m.cat.toUpperCase()} · ${m.parfums.length} PARFUMS</div></div>${m.prestige?'<span class="marque-badge prestige"><i class="ti ti-diamond" style="font-size:10px"></i> PRESTIGE</span>':'<span class="marque-badge">ACCESSIBLES</span>'}</div><div class="marque-body"><div class="marque-stats"><div class="marque-stat"><div class="marque-stat-val">dès ${Math.min(...m.parfums.map(p=>p.price)).toFixed(0)}€</div><div class="marque-stat-lbl">PRIX D'ENTRÉE</div></div><div class="marque-stat"><div class="marque-stat-val">−${Math.max(...m.parfums.map(p=>p.eco))}%</div><div class="marque-stat-lbl">MEILLEURE REMISE</div></div><div class="marque-stat"><div class="marque-stat-val">${m.parfums.length}</div><div class="marque-stat-lbl">PARFUMS</div></div></div><div class="parfums-list">${m.parfums.map(p=>`<div class="parfum-row"><div class="parfum-left"><div style="font-size:1.1rem">${p.emoji}</div><div><div class="parfum-name">${p.nom}</div><div class="parfum-vol">${p.vol}</div></div></div><div class="parfum-right"><span class="parfum-eco">−${p.eco}%</span><span class="parfum-price">${p.price.toFixed(2)}€</span><button class="parfum-btn" onclick="toast('Redirection...','toastMarque')">Y ALLER</button></div></div>`).join('')}</div></div></div>`).join('')||'<div style="grid-column:1/-1;text-align:center;padding:2rem;color:#a08070;font-family:Cormorant Garamond,serif;">Aucune marque trouvée</div>';
+}
+document.getElementById('filterMarqueCat').addEventListener('click',e=>{if(e.target.classList.contains('f-btn')){document.querySelectorAll('#filterMarqueCat .f-btn').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');catM=e.target.dataset.c;renderMarques();}});
+document.getElementById('filterMarquePrix').addEventListener('click',e=>{if(e.target.classList.contains('f-btn')){document.querySelectorAll('#filterMarquePrix .f-btn').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');prixM=e.target.dataset.p;renderMarques();}});
+document.getElementById('searchMarque').addEventListener('input',renderMarques);
+document.getElementById('sortMarque').addEventListener('change',e=>{sortM=e.target.value;renderMarques();});
+renderMarques();
+
+// ═══ ALERTES ═══
+function pct(c,t){return Math.min(Math.round((t/c)*100),100);}
+function renderAlertes(){
+  document.getElementById('alerteList').innerHTML=alertes.map(a=>`<div class="alerte-card${a.triggered?' triggered':''}"><div class="alerte-left"><div class="alerte-img">${a.emoji}</div><div><div class="alerte-brand">${a.brand.toUpperCase()}</div><div class="alerte-name">${a.name}</div><div class="alerte-vol">${a.vol}</div></div></div><div class="alerte-right"><div class="alerte-target">CIBLE : ${a.target.toFixed(2)} €</div><div class="alerte-current">${a.current.toFixed(2)} €</div>${a.triggered?'<span class="alerte-badge-ok">✦ OFFRE ATTEINTE</span>':`<div class="progress-bar-wrap"><div class="progress-bar"><div class="progress-fill" style="width:${pct(a.current,a.target)}%"></div></div><div class="progress-txt">${pct(a.current,a.target)}% de l'objectif</div></div>`}<button class="alerte-del" onclick="suppAlerte(${a.id})">Supprimer</button></div></div>`).join('');
+  document.getElementById('statNb').textContent=alertes.length;
+}
+function suppAlerte(id){alertes=alertes.filter(a=>a.id!==id);renderAlertes();toast('Alerte supprimée','toastAlerte');}
+function creerAlerte(){
+  const parfum=document.getElementById('selParfum').value;
+  const prix=parseFloat(document.getElementById('prixCible').value);
+  const email=document.getElementById('emailInp').value;
+  if(!prix||prix<=0){toast('Veuillez entrer un prix cible valide','toastAlerte');return;}
+  if(!email||!email.includes('@')){toast('Veuillez entrer un email valide','toastAlerte');return;}
+  const em={"Dior Sauvage EDP":"🧴","Chanel N°5 EDP":"🌸","YSL Black Opium":"☕","Guerlain Mon Guerlain":"💜","Paco Rabanne 1 Million":"💰","Le Labo Santal 33":"🪵"};
+  const br={"Dior Sauvage EDP":"Dior","Chanel N°5 EDP":"Chanel","YSL Black Opium":"YSL","Guerlain Mon Guerlain":"Guerlain","Paco Rabanne 1 Million":"Paco Rabanne","Le Labo Santal 33":"Le Labo"};
+  alertes.push({id:Date.now(),emoji:em[parfum]||'🌸',brand:br[parfum]||parfum,name:parfum,vol:'50ml',current:prix+Math.round(Math.random()*20+5),target:prix,triggered:false});
+  renderAlertes();
+  document.getElementById('prixCible').value='';
+  document.getElementById('emailInp').value='';
+  toast('✦ Alerte créée avec succès !','toastAlerte');
+}
+document.querySelectorAll('.notif-opt').forEach(o=>o.addEventListener('click',()=>o.classList.toggle('on')));
+renderAlertes();
+
+// ═══ CHATBOT ═══
+const sugParfums={
+  floral:[{emoji:"🌸",nom:"Chanel N°5 EDP",price:"99,90€",shop:"Feelunique"},{emoji:"🌺",nom:"Guerlain Mon Guerlain",price:"68,00€",shop:"Marionnaud"}],
+  boise:[{emoji:"🪵",nom:"Le Labo Santal 33",price:"185,00€",shop:"Feelunique"},{emoji:"🍊",nom:"Hermès Terre d'Hermès",price:"92,00€",shop:"Sephora"}],
+  homme:[{emoji:"🧴",nom:"Dior Sauvage EDP",price:"87,00€",shop:"Amazon"},{emoji:"💰",nom:"Paco Rabanne 1 Million",price:"64,90€",shop:"Amazon"}],
+  budget:[{emoji:"🌙",nom:"Lancôme La Nuit Trésor",price:"58,00€",shop:"Nocibé"},{emoji:"💰",nom:"Paco Rabanne 1 Million",price:"64,90€",shop:"Amazon"}],
+  offre:[{emoji:"🧴",nom:"Dior Sauvage EDP",price:"87,00€",shop:"Amazon"},{emoji:"☕",nom:"YSL Black Opium",price:"72,00€",shop:"Amazon"}],
+};
+function buildCards(list){return list.map(p=>`<div class="parfum-suggest"><div class="ps-emoji">${p.emoji}</div><div><div class="ps-name">${p.nom}</div><div class="ps-price">dès ${p.price} · ${p.shop}</div></div><button class="ps-btn">VOIR</button></div>`).join('');}
+const repBotList=[
+  {kw:["offrir","cadeau","anniversaire"],txt:"Pour un cadeau, voici deux valeurs sûres très appréciées :",cards:sugParfums.offre},
+  {kw:["floral","fleuri","rose","jasmin","femme"],txt:"Pour un parfum floral féminin, voici mes recommandations :",cards:sugParfums.floral},
+  {kw:["boisé","bois","santal","oud"],txt:"Les parfums boisés ont une profondeur incomparable :",cards:sugParfums.boise},
+  {kw:["homme","masculin"],txt:"Pour un parfum masculin, voici les meilleures offres :",cards:sugParfums.homme},
+  {kw:["budget","moins de","70","80","60"],txt:"Voici deux parfums de qualité à prix accessible :",cards:sugParfums.budget},
+  {kw:["edp","edt","différence","concentration"],txt:"L'EDT contient 5-15% d'huiles essentielles (légère, 3-4h). L'EDP en contient 15-20% (plus intense, 6-8h). Pour un usage quotidien, l'EDT suffit. Pour une soirée, privilégiez l'EDP.",cards:null},
+  {kw:["bonjour","salut","bonsoir","coucou"],txt:"Bonjour ! Je suis Iris, votre conseillère IA en parfumerie. Comment puis-je vous aider aujourd'hui ?",cards:null},
+  {kw:["merci","super","parfait"],txt:"Merci pour votre confiance ! N'hésitez pas si vous avez d'autres questions. ✦",cards:null},
+  {kw:["prix","offre","promo","réduction"],txt:"Voici les meilleures offres certifiées du moment :",cards:sugParfums.offre},
+  {kw:["niche","artisanal","exclusif","luxe"],txt:"Les parfums de niche sont l'excellence de la parfumerie :",cards:sugParfums.boise},
+];
+const fallbacks=["Pouvez-vous préciser votre recherche ? Quel genre préférez-vous (homme, femme, mixte) ?","Quel est votre budget approximatif ?","Préférez-vous un parfum floral, boisé, oriental ou frais ?"];
+let fallIdx=0;
+function getRep(msg){const m=msg.toLowerCase();for(const r of repBotList){if(r.kw.some(k=>m.includes(k)))return r;}return{txt:fallbacks[fallIdx++%fallbacks.length],cards:null};}
+const now=()=>{const d=new Date();return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');};
+function addMsg(role,txt,cards=null){
+  const w=document.getElementById('chatWindow');
+  const div=document.createElement('div');div.className=`msg ${role}`;
+  div.innerHTML=`<div class="msg-avatar ${role}"><i class="ti ti-${role==='bot'?'sparkles':'user'}"></i></div><div><div class="msg-bubble ${role}">${txt.replace(/\n/g,'<br>')}${cards?buildCards(cards):''}</div><div class="msg-time${role==='bot'?' bot-time':''}">${now()}</div></div>`;
+  w.appendChild(div);w.scrollTop=w.scrollHeight;
+}
+function showTyping(){
+  const w=document.getElementById('chatWindow');const div=document.createElement('div');
+  div.className='msg bot';div.id='typing-ind';
+  div.innerHTML=`<div class="msg-avatar bot"><i class="ti ti-sparkles"></i></div><div class="typing"><span></span><span></span><span></span></div>`;
+  w.appendChild(div);w.scrollTop=w.scrollHeight;
+}
+function removeTyping(){const t=document.getElementById('typing-ind');if(t)t.remove();}
+function sendMsg(){
+  const inp=document.getElementById('chatInput');const msg=inp.value.trim();if(!msg)return;
+  inp.value='';addMsg('user',msg);showTyping();
+  setTimeout(()=>{removeTyping();const r=getRep(msg);addMsg('bot',r.txt,r.cards);},800+Math.random()*600);
+}
+function sendSug(btn){document.getElementById('chatInput').value=btn.textContent;sendMsg();}
+document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg();});
+addMsg('bot','Bienvenue sur ScentFinder ! Je suis <strong>Iris</strong>, votre conseillère IA en parfumerie de prestige. 🌸\n\nJe peux vous aider à trouver le parfum idéal, comparer les prix et vous indiquer les meilleures offres.\n\nQue recherchez-vous aujourd\'hui ?');
+
+// ═══ FAQ ═══
+function toggleFaq(el){
+  const a=el.nextElementSibling;const open=a.classList.contains('show');
+  document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('show'));
+  document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('open'));
+  if(!open){a.classList.add('show');el.classList.add('open');}
+}
 </script>
-
 </body>
 </html>
