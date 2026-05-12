@@ -32,12 +32,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .search-wrap input{background:transparent;border:none;outline:none;color:var(--cr);font-size:13px;flex:1;font-family:'DM Sans',sans-serif;}
 .search-wrap input::placeholder{color:#7a5a60;}
 .search-wrap i{color:var(--or);font-size:16px;}
-.promo-strip{background:var(--bx);padding:0.55rem 2rem;display:flex;align-items:center;gap:1rem;overflow-x:auto;scrollbar-width:none;}
-.promo-strip::-webkit-scrollbar{display:none;}
-.promo-item{display:flex;align-items:center;gap:8px;white-space:nowrap;}
-.promo-label{font-size:11px;color:var(--orl);letter-spacing:1px;}
-.promo-code{background:var(--or);color:var(--bxd);font-size:10px;padding:3px 9px;border-radius:4px;letter-spacing:1px;cursor:pointer;font-weight:600;}
-.promo-sep{color:var(--or);opacity:0.3;}
+
 .cats{display:flex;gap:0.5rem;padding:1rem 2rem 0.5rem;overflow-x:auto;scrollbar-width:none;}
 .cats::-webkit-scrollbar{display:none;}
 .cat{white-space:nowrap;padding:0.35rem 1rem;border-radius:50px;border:0.5px solid var(--orl);background:transparent;font-size:12px;cursor:pointer;color:#8a6050;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
@@ -51,7 +46,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .card:hover{transform:translateY(-3px);}
 .card-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--crd);position:relative;}
 .best-badge{position:absolute;top:8px;left:8px;background:var(--bxd);color:var(--or);font-size:9px;padding:3px 8px;border-radius:50px;letter-spacing:1px;}
-.promo-badge{position:absolute;top:8px;right:8px;background:var(--or);color:var(--bxd);font-size:9px;padding:3px 7px;border-radius:50px;font-weight:600;}
+
 .card-body{padding:0.8rem;}
 .card-brand{font-size:10px;color:var(--or);letter-spacing:2px;text-transform:uppercase;}
 .card-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--bx);margin-top:2px;}
@@ -64,9 +59,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .shop-name{font-size:11px;color:#a08070;}
 .price-best{font-size:13px;font-weight:500;color:var(--bx);}
 .price-old{font-size:10px;text-decoration:line-through;color:#c0a090;}
-.promo-tag{background:#fdf0e8;border:0.5px solid var(--or);border-radius:6px;padding:4px 8px;margin-top:6px;display:flex;justify-content:space-between;align-items:center;}
-.promo-tag-txt{font-size:10px;color:var(--bx);}
-.promo-tag-code{font-size:10px;font-weight:700;color:var(--bxd);background:var(--or);padding:2px 7px;border-radius:4px;letter-spacing:1px;cursor:pointer;}
+
 .go-btn{width:100%;margin-top:8px;background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:6px;padding:0.5rem;font-size:11px;cursor:pointer;font-family:'Cormorant Garamond',serif;letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:5px;}
 .podium{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;padding:0 2rem;margin-bottom:1rem;}
 .podium-card{background:var(--cr);border:0.5px solid var(--orl);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform 0.15s;position:relative;}
@@ -99,8 +92,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .top-price{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--bx);}
 .top-old{font-size:10px;text-decoration:line-through;color:#b0907a;}
 .top-btn{background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:6px;padding:4px 10px;font-size:10px;cursor:pointer;letter-spacing:1px;}
-.promo-pill{font-size:9px;background:var(--crd);border:0.5px solid var(--orl);color:var(--bx);padding:2px 7px;border-radius:50px;letter-spacing:1px;cursor:pointer;}
-.promo-pill:hover{background:var(--or);color:var(--bxd);}
+
 .form-card{background:var(--cr);border:0.5px solid var(--orl);border-radius:14px;padding:1.5rem;margin:1.2rem 2rem;}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
 .form-group{display:flex;flex-direction:column;gap:5px;}
@@ -301,20 +293,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     <div class="hero-eyebrow">✦ QUALITÉ SUPÉRIEURE ✦</div>
     <div class="hero-title">Le meilleur prix pour<br>votre <em>parfum de prestige</em></div>
     <div class="hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
-    <div class="hero-sub">OFFRES CERTIFIÉES · CODES PROMO EXCLUSIFS</div>
+    <div class="hero-sub">OFFRES CERTIFIÉES · PRIX MIS À JOUR QUOTIDIENNEMENT</div>
     <div class="search-wrap"><i class="ti ti-search"></i><input type="text" id="searchAccueil" placeholder="Dior Sauvage, Chanel N°5, Guerlain..."/></div>
   </div>
-  <div class="promo-strip">
-    <div class="promo-item"><span class="promo-label">Sephora</span><span class="promo-code" onclick="toast('Code SEPH20 copié ✓')">SEPH20 −20%</span></div>
-    <span class="promo-sep">|</span>
-    <div class="promo-item"><span class="promo-label">Nocibé</span><span class="promo-code" onclick="toast('Code NOCI15 copié ✓')">NOCI15 −15%</span></div>
-    <span class="promo-sep">|</span>
-    <div class="promo-item"><span class="promo-label">Feelunique</span><span class="promo-code" onclick="toast('Code FEEL25 copié ✓')">FEEL25 −25%</span></div>
-    <span class="promo-sep">|</span>
-    <div class="promo-item"><span class="promo-label">Amazon</span><span class="promo-code" onclick="toast('Code AMZ12 copié ✓')">AMZ12 −12%</span></div>
-    <span class="promo-sep">|</span>
-    <div class="promo-item"><span class="promo-label">Marionnaud</span><span class="promo-code" onclick="toast('Code MARIO10 copié ✓')">MARIO10 −10%</span></div>
-  </div>
+
   <div class="cats" id="catsAccueil">
     <button class="cat on" data-c="all">Tous</button>
     <button class="cat" data-c="homme">Homme</button>
@@ -766,7 +748,7 @@ function renderAccueil(){
   document.getElementById('gridAccueil').innerHTML=items.map((d,i)=>{
     const s=[...d.shops].sort((a,b)=>a.p-b.p);
     const rows=s.map((sh,j)=>`<div class="price-row"><span class="shop-name">${sh.n}</span><div style="display:flex;gap:5px;align-items:center">${sh.orig?`<span class="price-old">${sh.orig.toFixed(2)}€</span>`:''}<span style="font-size:${j===0?'13':'12'}px;font-weight:${j===0?'500':'400'};color:${j===0?'var(--bx)':'#a08070'}">${sh.p.toFixed(2)}€</span></div></div>`).join('');
-    return`<div class="card"><div class="card-img" style="background:var(--crd);padding:0;">${d.img?`<img src="${d.img}" alt="${d.name}" style="width:100%;height:100%;object-fit:cover;"/>`:''}${i===0?'<span class="best-badge">✦ TOP DEAL</span>':''}<span class="promo-badge">PROMO</span></div><div class="card-body"><div class="card-brand">${d.brand}</div><div class="card-name">${d.name}</div><div class="card-vol">${d.vol}</div><div class="stars-row"><span class="stars">${'★'.repeat(d.stars)+'☆'.repeat(5-d.stars)}</span><span class="reviews">(${d.reviews.toLocaleString('fr-FR')})</span></div><div class="prices">${rows}</div><div class="promo-tag"><span class="promo-tag-txt">Code promo disponible</span><span class="promo-tag-code" onclick="toast('Code ${d.promo} copié ✓')">${d.promo}</span></div><button class="go-btn" onclick="window.open('${d.url}','_blank')">VOIR L'OFFRE <i class="ti ti-external-link"></i></button></div></div>`;
+    return`<div class="card"><div class="card-img" style="background:var(--crd);padding:0;">${d.img?`<img src="${d.img}" alt="${d.name}" style="width:100%;height:100%;object-fit:cover;"/>`:''}${i===0?'<span class="best-badge">✦ TOP DEAL</span>':''}</div><div class="card-body"><div class="card-brand">${d.brand}</div><div class="card-name">${d.name}</div><div class="card-vol">${d.vol}</div><div class="stars-row"><span class="stars">${'★'.repeat(d.stars)+'☆'.repeat(5-d.stars)}</span><span class="reviews">(${d.reviews.toLocaleString('fr-FR')})</span></div><div class="prices">${rows}</div><button class="go-btn" onclick="window.open('${d.url}','_blank')">VOIR L'OFFRE <i class="ti ti-external-link"></i></button></div></div>`;
   }).join('')||'<div style="grid-column:1/-1;padding:2rem;text-align:center;color:#a08070;font-family:Cormorant Garamond,serif;letter-spacing:1px;">Aucun parfum trouvé</div>';
 }
 document.getElementById('catsAccueil').addEventListener('click',e=>{
@@ -779,7 +761,7 @@ function getTop(){return filtreTop==='all'?top10:top10.filter(p=>p.cat===filtreT
 function renderTop(){
   const d=getTop();
   document.getElementById('podiumTop').innerHTML=d.slice(0,3).map((p,i)=>`<div class="podium-card${i===0?' gold':''}"><div class="podium-rank rank-${i+1}">${i+1}</div><div class="podium-img" style="padding:0;overflow:hidden;">${p.img?`<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;"/>`:'📦'}</div><div class="podium-body"><div class="podium-brand">${p.brand.toUpperCase()}</div><div class="podium-name">${p.name}</div>${p.hot?'<div style="margin-top:4px"><span class="badge-diamant"><i class="ti ti-diamond"></i> PRESTIGE</span></div>':''}${p.orig?`<div class="podium-eco">économisez ${(p.orig-p.price).toFixed(0)}€</div>`:''}<div style="display:flex;align-items:baseline;gap:5px;"><div class="podium-price">${p.price.toFixed(2)}€</div><div class="podium-old">${p.orig.toFixed(0)}€</div></div></div></div>`).join('');
-  document.getElementById('topList').innerHTML=d.slice(3).map(p=>`<div class="top-row${p.hot?' hot':''}"><div class="top-num${p.hot?' hot-num':''}">${p.rank}</div><div class="top-img" style="padding:0;overflow:hidden;">${p.img?`<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;"/>`:'📦'}</div><div class="top-info"><div class="top-brand">${p.brand.toUpperCase()}</div><div class="top-name">${p.name} · ${p.vol}</div><div class="top-shop">sur ${p.shop}</div></div><div class="top-right"><div style="display:flex;align-items:center;gap:5px;"><div class="top-price">${p.price.toFixed(2)}€</div>${p.hot?'<span class="badge-diamant"><i class="ti ti-diamond"></i> PRESTIGE</span>':''}</div>${p.orig?`<div class="top-old">${p.orig.toFixed(0)}€</div>`:''}<span class="promo-pill" onclick="toast('Code ${p.promo} copié ✓','toastTop')">${p.promo}</span><button class="top-btn" onclick="if(p.url)window.open(p.url,'_blank')">Y ALLER</button></div></div>`).join('');
+  document.getElementById('topList').innerHTML=d.slice(3).map(p=>`<div class="top-row${p.hot?' hot':''}"><div class="top-num${p.hot?' hot-num':''}">${p.rank}</div><div class="top-img" style="padding:0;overflow:hidden;">${p.img?`<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;"/>`:'📦'}</div><div class="top-info"><div class="top-brand">${p.brand.toUpperCase()}</div><div class="top-name">${p.name} · ${p.vol}</div><div class="top-shop">sur ${p.shop}</div></div><div class="top-right"><div style="display:flex;align-items:center;gap:5px;"><div class="top-price">${p.price.toFixed(2)}€</div>${p.hot?'<span class="badge-diamant"><i class="ti ti-diamond"></i> PRESTIGE</span>':''}</div>${p.orig?`<div class="top-old">${p.orig.toFixed(0)}€</div>`:''}<button class="top-btn" onclick="if(p.url)window.open(p.url,'_blank')">Y ALLER</button></div></div>`).join('');
 }
 document.getElementById('filterTop').addEventListener('click',e=>{
   if(e.target.classList.contains('f-btn')){document.querySelectorAll('#filterTop .f-btn').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');filtreTop=e.target.dataset.f;renderTop();}
