@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,14 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --bx:#6B1A2A;--bxd:#4a0f1c;--bxl:#8B2438;
-  --or:#C9A84C;--orl:#e8d5a3;
-  --cr:#fdf8f2;--crd:#f5ede0;
-}
+:root{--bx:#6B1A2A;--bxd:#4a0f1c;--bxl:#8B2438;--or:#C9A84C;--orl:#e8d5a3;--cr:#fdf8f2;--crd:#f5ede0;}
 body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
-
-/* ═══ NAVIGATION ═══ */
 .nav{background:var(--cr);border-bottom:0.5px solid var(--orl);padding:0.8rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .logo-wrap{display:flex;align-items:center;gap:0.85rem;cursor:pointer;}
 .logo-oval{width:48px;height:58px;border:1px solid var(--bx);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--cr);}
@@ -25,15 +17,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .lf{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--or);}
 .logo-text .ln{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--bx);letter-spacing:4px;}
 .logo-text .lt{font-size:8px;color:var(--or);letter-spacing:3px;}
-.nav-links{display:flex;gap:0.4rem;}
+.nav-links{display:flex;gap:0.4rem;flex-wrap:wrap;}
 .nav-btn{background:transparent;border:0.5px solid var(--orl);color:var(--bx);padding:0.4rem 1rem;border-radius:50px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;letter-spacing:1px;}
 .nav-btn:hover,.nav-btn.active{background:var(--bx);color:var(--or);border-color:var(--bx);}
-
-/* ═══ PAGES ═══ */
-.page{display:none;}
-.page.active{display:block;}
-
-/* ═══ ACCUEIL ═══ */
+.page{display:none;}.page.active{display:block;}
 .hero{background:var(--bxd);padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;}
 .hero-eyebrow{font-size:9px;color:var(--or);letter-spacing:5px;}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;color:var(--cr);line-height:1.2;}
@@ -45,24 +32,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .search-wrap input{background:transparent;border:none;outline:none;color:var(--cr);font-size:13px;flex:1;font-family:'DM Sans',sans-serif;}
 .search-wrap input::placeholder{color:#7a5a60;}
 .search-wrap i{color:var(--or);font-size:16px;}
-
 .promo-strip{background:var(--bx);padding:0.55rem 2rem;display:flex;align-items:center;gap:1rem;overflow-x:auto;scrollbar-width:none;}
 .promo-strip::-webkit-scrollbar{display:none;}
 .promo-item{display:flex;align-items:center;gap:8px;white-space:nowrap;}
 .promo-label{font-size:11px;color:var(--orl);letter-spacing:1px;}
 .promo-code{background:var(--or);color:var(--bxd);font-size:10px;padding:3px 9px;border-radius:4px;letter-spacing:1px;cursor:pointer;font-weight:600;}
 .promo-sep{color:var(--or);opacity:0.3;}
-
 .cats{display:flex;gap:0.5rem;padding:1rem 2rem 0.5rem;overflow-x:auto;scrollbar-width:none;}
 .cats::-webkit-scrollbar{display:none;}
 .cat{white-space:nowrap;padding:0.35rem 1rem;border-radius:50px;border:0.5px solid var(--orl);background:transparent;font-size:12px;cursor:pointer;color:#8a6050;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
 .cat.on{background:var(--bx);border-color:var(--bx);color:var(--cr);}
 .cat:hover:not(.on){border-color:var(--bx);color:var(--bx);}
-
 .section-hd{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem 0.6rem;}
 .section-hd h2{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--bx);}
 .section-hd span{font-size:10px;color:var(--or);cursor:pointer;letter-spacing:2px;}
-
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem;padding:0 2rem;}
 .card{background:var(--cr);border:0.5px solid var(--orl);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform 0.15s;}
 .card:hover{transform:translateY(-3px);}
@@ -85,8 +68,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .promo-tag-txt{font-size:10px;color:var(--bx);}
 .promo-tag-code{font-size:10px;font-weight:700;color:var(--bxd);background:var(--or);padding:2px 7px;border-radius:4px;letter-spacing:1px;cursor:pointer;}
 .go-btn{width:100%;margin-top:8px;background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:6px;padding:0.5rem;font-size:11px;cursor:pointer;font-family:'Cormorant Garamond',serif;letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:5px;}
-
-/* ═══ TOP 10 ═══ */
 .podium{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;padding:0 2rem;margin-bottom:1rem;}
 .podium-card{background:var(--cr);border:0.5px solid var(--orl);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform 0.15s;position:relative;}
 .podium-card:hover{transform:translateY(-2px);}
@@ -103,7 +84,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .podium-price{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--bx);margin-top:4px;}
 .podium-old{font-size:10px;text-decoration:line-through;color:#b0907a;}
 .badge-diamant{display:inline-flex;align-items:center;gap:3px;background:var(--bxd);border:1px solid var(--or);color:var(--or);font-family:'Cormorant Garamond',serif;font-size:9px;padding:2px 7px 2px 5px;border-radius:50px;letter-spacing:1px;}
-
 .top-list{display:flex;flex-direction:column;gap:0.6rem;padding:0 2rem;}
 .top-row{background:var(--cr);border:0.5px solid var(--orl);border-radius:12px;padding:0.85rem 1rem;display:flex;align-items:center;gap:1rem;cursor:pointer;transition:transform 0.12s;}
 .top-row:hover{transform:translateX(3px);}
@@ -121,8 +101,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .top-btn{background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:6px;padding:4px 10px;font-size:10px;cursor:pointer;letter-spacing:1px;}
 .promo-pill{font-size:9px;background:var(--crd);border:0.5px solid var(--orl);color:var(--bx);padding:2px 7px;border-radius:50px;letter-spacing:1px;cursor:pointer;}
 .promo-pill:hover{background:var(--or);color:var(--bxd);}
-
-/* ═══ ALERTES ═══ */
 .form-card{background:var(--cr);border:0.5px solid var(--orl);border-radius:14px;padding:1.5rem;margin:1.2rem 2rem;}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
 .form-group{display:flex;flex-direction:column;gap:5px;}
@@ -157,8 +135,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .stat-card{background:var(--crd);border-radius:10px;padding:0.8rem;text-align:center;}
 .stat-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--bx);}
 .stat-label{font-size:10px;color:#a08070;letter-spacing:1px;margin-top:2px;}
-
-/* ═══ MARQUES ═══ */
 .marques-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;padding:0 2rem;}
 .marque-card{background:var(--cr);border:0.5px solid var(--orl);border-radius:14px;overflow:hidden;transition:transform 0.15s;}
 .marque-card:hover{transform:translateY(-2px);}
@@ -180,8 +156,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .parfum-price{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--bx);}
 .parfum-eco{font-size:10px;color:#2d8a4e;font-weight:500;}
 .parfum-btn{background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:5px;padding:3px 8px;font-size:10px;cursor:pointer;letter-spacing:1px;}
-
-/* ═══ CHATBOT ═══ */
 .chat-hero{background:var(--bxd);padding:1.2rem 2rem;display:flex;align-items:center;gap:1rem;}
 .bot-avatar{width:48px;height:48px;border-radius:50%;background:var(--bx);border:1.5px solid var(--or);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .bot-avatar i{font-size:22px;color:var(--or);}
@@ -227,8 +201,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .send-btn:hover{opacity:0.85;}
 .send-btn i{font-size:17px;}
 .powered{text-align:center;padding:0.5rem;font-size:10px;color:#b4a890;letter-spacing:1px;border-top:0.5px solid var(--orl);}
-
-/* ═══ À PROPOS ═══ */
 .manifeste{background:var(--bxd);border-radius:16px;padding:2rem;margin:0 2rem;position:relative;overflow:hidden;}
 .manifeste-deco{position:absolute;font-family:'Cormorant Garamond',serif;font-size:8rem;color:var(--or);opacity:0.06;top:-10px;left:10px;line-height:1;}
 .manifeste-txt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--orl);line-height:1.9;position:relative;}
@@ -257,8 +229,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .faq-q.open i{transform:rotate(180deg);}
 .faq-a{padding:0 1rem 0.9rem;font-size:12px;color:#8a6050;line-height:1.7;display:none;}
 .faq-a.show{display:block;}
-
-/* ═══ SECTION COMMUNE ═══ */
 .section{padding:1.5rem 2rem;}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--bx);margin-bottom:1rem;display:flex;align-items:center;gap:8px;}
 .section-title::after{content:'';flex:1;height:0.5px;background:var(--orl);}
@@ -274,14 +244,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .f-btn{white-space:nowrap;padding:0.35rem 0.85rem;border-radius:50px;border:0.5px solid var(--orl);background:transparent;font-size:11px;cursor:pointer;color:#8a6050;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
 .f-btn.on{background:var(--bx);border-color:var(--bx);color:var(--cr);}
 .f-btn:hover:not(.on){border-color:var(--bx);color:var(--bx);}
-
-/* ═══ TOAST & FOOTER ═══ */
 .toast{background:var(--bxd);color:var(--or);padding:0.5rem 1.4rem;border-radius:50px;font-size:12px;text-align:center;margin:0.5rem 2rem;display:none;font-family:'Cormorant Garamond',serif;letter-spacing:1px;border:0.5px solid var(--or);}
 .toast.show{display:block;}
 .footer{background:var(--bxd);padding:1.2rem 2rem;margin-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}
 .footer-logo{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--or);letter-spacing:4px;}
-.footer-links{display:flex;gap:1.2rem;}
-.footer-links a{font-size:11px;color:#8a6070;text-decoration:none;letter-spacing:1px;}
+.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;}
+.footer-links a{font-size:11px;color:#8a6070;text-decoration:none;letter-spacing:1px;cursor:pointer;}
 .footer-links a:hover{color:var(--or);}
 .cta-section{background:var(--bxd);padding:2rem;margin-top:1rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem;}
 .cta-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--cr);}
@@ -296,11 +264,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .notif-opt-txt{font-size:12px;color:var(--bx);}
 .notif-opt.on .notif-opt-txt{color:var(--or);}
 .notif-opt i{font-size:15px;color:var(--or);}
+
+/* ═══ POLITIQUE DE CONFIDENTIALITÉ ═══ */
+.rgpd-content{padding:2rem;max-width:800px;margin:0 auto;}
+.rgpd-content h2{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--bx);margin:1.5rem 0 0.75rem;padding-bottom:0.4rem;border-bottom:0.5px solid var(--orl);}
+.rgpd-content h2:first-child{margin-top:0;}
+.rgpd-content p{font-size:13px;color:#6a4a40;line-height:1.8;margin-bottom:0.75rem;}
+.rgpd-content ul{padding-left:1.2rem;margin-bottom:0.75rem;}
+.rgpd-content ul li{font-size:13px;color:#6a4a40;line-height:1.8;margin-bottom:0.3rem;}
+.rgpd-content strong{color:var(--bx);}
+.rgpd-content a{color:var(--or);text-decoration:none;}
+.rgpd-content a:hover{text-decoration:underline;}
+.rgpd-date{font-size:11px;color:#a08070;letter-spacing:1px;margin-bottom:1.5rem;}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════ NAVIGATION ═══════════════════════════════════ -->
 <nav class="nav">
   <div class="logo-wrap" onclick="showPage('accueil')">
     <div class="logo-oval"><span class="ls">S</span><span class="lf">F</span></div>
@@ -316,19 +295,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════ PAGE ACCUEIL ═══════════════════════════════════ -->
+<!-- PAGE ACCUEIL -->
 <div id="page-accueil" class="page active">
   <div class="hero">
     <div class="hero-eyebrow">✦ QUALITÉ SUPÉRIEURE ✦</div>
     <div class="hero-title">Le meilleur prix pour<br>votre <em>parfum de prestige</em></div>
     <div class="hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
     <div class="hero-sub">OFFRES CERTIFIÉES · CODES PROMO EXCLUSIFS</div>
-    <div class="search-wrap">
-      <i class="ti ti-search"></i>
-      <input type="text" id="searchAccueil" placeholder="Dior Sauvage, Chanel N°5, Guerlain..."/>
-    </div>
+    <div class="search-wrap"><i class="ti ti-search"></i><input type="text" id="searchAccueil" placeholder="Dior Sauvage, Chanel N°5, Guerlain..."/></div>
   </div>
-
   <div class="promo-strip">
     <div class="promo-item"><span class="promo-label">Sephora</span><span class="promo-code" onclick="toast('Code SEPH20 copié ✓')">SEPH20 −20%</span></div>
     <span class="promo-sep">|</span>
@@ -340,7 +315,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     <span class="promo-sep">|</span>
     <div class="promo-item"><span class="promo-label">Marionnaud</span><span class="promo-code" onclick="toast('Code MARIO10 copié ✓')">MARIO10 −10%</span></div>
   </div>
-
   <div class="cats" id="catsAccueil">
     <button class="cat on" data-c="all">Tous</button>
     <button class="cat" data-c="homme">Homme</button>
@@ -348,27 +322,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     <button class="cat" data-c="mixte">Mixte</button>
     <button class="cat" data-c="niche">Niche</button>
   </div>
-
-  <div class="section-hd">
-    <h2>Meilleures offres du moment</h2>
-    <span onclick="showPage('top10')">VOIR TOUT →</span>
-  </div>
-
+  <div class="section-hd"><h2>Meilleures offres du moment</h2><span onclick="showPage('top10')">VOIR TOUT →</span></div>
   <div class="grid" id="gridAccueil"></div>
   <div class="toast" id="toastAccueil"></div>
-
   <div class="footer">
     <div class="footer-logo">✦ SCENTFINDER</div>
     <div class="footer-links">
-      <a href="#" onclick="showPage('apropos')">À propos</a>
+      <a onclick="showPage('apropos')">À propos</a>
       <a href="#">Affiliation</a>
-      <a href="#">Contact</a> 
- <a href="mentions-legales.html">Mentions Légales</a>
+      <a href="#">Contact</a>
+      <a onclick="showPage('mentions')">Mentions Légales</a>
+      <a onclick="showPage('politique')">Politique de Confidentialité</a>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════ PAGE TOP 10 ═══════════════════════════════════ -->
+<!-- PAGE TOP 10 -->
 <div id="page-top10" class="page">
   <div class="page-hero">
     <div class="page-hero-eyebrow">✦ SÉLECTION DU JOUR ✦</div>
@@ -384,19 +353,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     <button class="f-btn" data-f="niche">Niche</button>
   </div>
   <div class="podium" id="podiumTop"></div>
-  <div class="section" style="padding-top:0;">
-    <div class="section-title">Classement complet</div>
-  </div>
+  <div class="section" style="padding-top:0;"><div class="section-title">Classement complet</div></div>
   <div class="top-list" id="topList"></div>
   <div class="toast" id="toastTop"></div>
   <div class="mise-a-jour">✦ Prix vérifiés et certifiés · Offres sous réserve de disponibilité</div>
   <div class="footer">
     <div class="footer-logo">✦ SCENTFINDER</div>
-    <div class="footer-links"><a href="#">Contact</a><a href="#">Affiliation</a></div>
+    <div class="footer-links"><a href="#">Contact</a><a href="#">Affiliation</a><a onclick="showPage('politique')">Confidentialité</a></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════ PAGE MARQUES ═══════════════════════════════════ -->
+<!-- PAGE MARQUES -->
 <div id="page-marques" class="page">
   <div class="page-hero">
     <div class="page-hero-eyebrow">✦ GRANDES MAISONS ✦</div>
@@ -434,10 +401,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
   <div class="count-bar" id="countMarque"></div>
   <div class="marques-grid" id="marqGrid"></div>
   <div class="toast" id="toastMarque"></div>
-  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a href="#">Contact</a></div></div>
+  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a href="#">Contact</a><a onclick="showPage('politique')">Confidentialité</a></div></div>
 </div>
 
-<!-- ═══════════════════════════════════ PAGE ALERTES ═══════════════════════════════════ -->
+<!-- PAGE ALERTES -->
 <div id="page-alertes" class="page">
   <div class="page-hero">
     <div class="page-hero-eyebrow">✦ NE MANQUEZ PLUS AUCUNE OFFRE ✦</div>
@@ -450,32 +417,25 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     <div class="stat-card"><div class="stat-val">€ 47</div><div class="stat-label">ÉCONOMIES RÉALISÉES</div></div>
     <div class="stat-card"><div class="stat-val">1</div><div class="stat-label">OFFRE DÉCLENCHÉE</div></div>
   </div>
-  <div class="section" style="padding-top:0;">
-    <div class="section-title">Créer une alerte</div>
-  </div>
+  <div class="section" style="padding-top:0;"><div class="section-title">Créer une alerte</div></div>
   <div class="form-card" style="margin-top:0;">
     <div class="form-grid">
-      <div class="form-group">
-        <div class="form-label">Parfum</div>
+      <div class="form-group"><div class="form-label">Parfum</div>
         <select class="form-select" id="selParfum">
           <option>Dior Sauvage EDP</option><option>Chanel N°5 EDP</option><option>YSL Black Opium</option>
           <option>Guerlain Mon Guerlain</option><option>Paco Rabanne 1 Million</option><option>Le Labo Santal 33</option>
         </select>
       </div>
-      <div class="form-group">
-        <div class="form-label">Volume</div>
+      <div class="form-group"><div class="form-label">Volume</div>
         <select class="form-select"><option>50 ml</option><option>100 ml</option><option>200 ml</option></select>
       </div>
-      <div class="form-group full">
-        <div class="form-label">Prix cible</div>
+      <div class="form-group full"><div class="form-label">Prix cible</div>
         <div class="price-input-wrap"><span>€</span><input type="number" placeholder="Ex : 75" id="prixCible"/></div>
       </div>
-      <div class="form-group full">
-        <div class="form-label">Email</div>
+      <div class="form-group full"><div class="form-label">Email</div>
         <input class="form-input" type="email" placeholder="votre@email.com" id="emailInp"/>
       </div>
-      <div class="form-group full">
-        <div class="form-label">Notification via</div>
+      <div class="form-group full"><div class="form-label">Notification via</div>
         <div class="notif-options">
           <label class="notif-opt on" id="opt-email"><i class="ti ti-mail"></i><span class="notif-opt-txt">Email</span></label>
           <label class="notif-opt" id="opt-sms"><i class="ti ti-device-mobile"></i><span class="notif-opt-txt">SMS</span></label>
@@ -485,15 +445,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     </div>
     <button class="submit-btn" onclick="creerAlerte()"><i class="ti ti-bell"></i> CRÉER MON ALERTE</button>
   </div>
-  <div class="section" style="padding-top:0;">
-    <div class="section-title">Mes alertes actives</div>
-  </div>
+  <div class="section" style="padding-top:0;"><div class="section-title">Mes alertes actives</div></div>
   <div class="alerte-list" id="alerteList"></div>
   <div class="toast" id="toastAlerte"></div>
-  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a href="#">Contact</a></div></div>
+  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a href="#">Contact</a><a onclick="showPage('politique')">Confidentialité</a></div></div>
 </div>
 
-<!-- ═══════════════════════════════════ PAGE CHATBOT ═══════════════════════════════════ -->
+<!-- PAGE CHATBOT -->
 <div id="page-chatbot" class="page">
   <div class="chat-hero">
     <div class="bot-avatar"><i class="ti ti-sparkles"></i></div>
@@ -519,7 +477,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
   <div class="powered">✦ Propulsé par l'intelligence artificielle · ScentFinder 2025</div>
 </div>
 
-<!-- ═══════════════════════════════════ PAGE À PROPOS ═══════════════════════════════════ -->
+<!-- PAGE À PROPOS -->
 <div id="page-apropos" class="page">
   <div class="page-hero">
     <div class="page-hero-eyebrow">✦ NOTRE HISTOIRE ✦</div>
@@ -574,17 +532,183 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     <div class="cta-title">Prêt à trouver votre <em>parfum idéal</em> ?</div>
     <button class="cta-btn" onclick="showPage('accueil')"><i class="ti ti-search"></i> DÉCOUVRIR LES OFFRES</button>
   </div>
- <div class="footer" style="padding: 40px 0; text-align: center;">
+  <div class="footer">
     <div class="footer-logo">✦ SCENTFINDER</div>
-    <div class="footer-links" style="margin-top: 20px;">
-        <a href="mentions-legales.html" style="margin: 0 15px; text-decoration: none; color: inherit;">Mentions Légales</a>
-        <a href="politique-confidentialite.html" style="margin: 0 15px; text-decoration: none; color: inherit;">Politique de Confidentialité</a>
-        <a href="#" style="margin: 0 15px; text-decoration: none; color: inherit;">Affiliation</a>
-        <a href="#" style="margin: 0 15px; text-decoration: none; color: inherit;">Contact</a>
+    <div class="footer-links">
+      <a href="#">Affiliation</a>
+      <a href="#">Contact</a>
+      <a onclick="showPage('mentions')">Mentions Légales</a>
+      <a onclick="showPage('politique')">Politique de Confidentialité</a>
     </div>
+  </div>
 </div>
+
+<!-- ═══════════════════════════════════ PAGE MENTIONS LÉGALES ═══════════════════════════════════ -->
+<div id="page-mentions" class="page">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">✦ LÉGAL ✦</div>
+    <div class="page-hero-title"><em>Mentions</em> Légales</div>
+    <div class="page-hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
+    <div class="page-hero-sub">Conformément à la loi n°2004-575 du 21 juin 2004</div>
+  </div>
+
+  <div class="rgpd-content">
+    <p class="rgpd-date">Dernière mise à jour : 12 mai 2025</p>
+
+    <h2>1. Éditeur du site</h2>
+    <p><strong>Nom :</strong> Nils Navarro<br>
+    <strong>Statut :</strong> Particulier / Auto-entrepreneur<br>
+    <strong>Adresse :</strong> 59 Rue Adolphe Pajeaud, 92160 Antony, France<br>
+    <strong>Email :</strong> <a href="mailto:nils.navarro@scentfinder.fr">nils.navarro@scentfinder.fr</a><br>
+    <strong>Site web :</strong> scentfinder.fr</p>
+
+    <h2>2. Hébergement</h2>
+    <p><strong>Hébergeur :</strong> Vercel, Inc.<br>
+    <strong>Adresse :</strong> 340 Pine Street, Suite 701, San Francisco, CA 94104, États-Unis<br>
+    <strong>Site :</strong> <a href="https://www.vercel.com" target="_blank">www.vercel.com</a></p>
+
+    <h2>3. Propriété intellectuelle</h2>
+    <p>L'ensemble du contenu du site ScentFinder (textes, graphismes, logo, icônes, images, structure) est la propriété exclusive de Nils Navarro, sauf mentions contraires.</p>
+    <p>Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable.</p>
+
+    <h2>4. Nature du site</h2>
+    <p>ScentFinder est un <strong>comparateur de prix indépendant</strong> spécialisé dans les parfums de prestige. Le site ne vend aucun produit directement. Les liens présents sur le site redirigent vers des boutiques partenaires tierces (Sephora, Nocibé, Amazon, Feelunique, Marionnaud).</p>
+    <p>ScentFinder participe à des programmes d'affiliation. À ce titre, certains liens peuvent générer une commission lorsqu'un achat est réalisé via ces liens, sans coût supplémentaire pour l'utilisateur.</p>
+
+    <h2>5. Exactitude des informations</h2>
+    <p>Les prix, disponibilités et codes promo affichés sur ScentFinder sont donnés à titre indicatif et peuvent être modifiés à tout moment par les boutiques partenaires. ScentFinder s'efforce de les maintenir à jour mais ne peut garantir leur exactitude en temps réel.</p>
+    <p>ScentFinder décline toute responsabilité en cas d'erreur ou d'omission dans les informations fournies, et en cas de dommage résultant de l'utilisation des informations présentes sur le site.</p>
+
+    <h2>6. Liens hypertextes</h2>
+    <p>Le site ScentFinder contient des liens vers des sites tiers. Ces liens sont fournis à titre informatif. ScentFinder n'exerce aucun contrôle sur le contenu de ces sites et décline toute responsabilité quant à leur contenu ou leur politique de confidentialité.</p>
+
+    <h2>7. Cookies</h2>
+    <p>Le site utilise des cookies pour améliorer l'expérience utilisateur et mesurer l'audience. Pour plus d'informations, consultez notre <a onclick="showPage('politique')" style="cursor:pointer;color:var(--or)">Politique de Confidentialité</a>.</p>
+
+    <h2>8. Droit applicable</h2>
+    <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, et après tentative de résolution amiable, les tribunaux français seront seuls compétents.</p>
+
+    <h2>9. Contact</h2>
+    <p>Pour toute question concernant ces mentions légales :<br>
+    <strong>Email :</strong> <a href="mailto:nils.navarro@scentfinder.fr">nils.navarro@scentfinder.fr</a><br>
+    <strong>Adresse :</strong> 59 Rue Adolphe Pajeaud, 92160 Antony, France</p>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">✦ SCENTFINDER</div>
+    <div class="footer-links">
+      <a onclick="showPage('accueil')">Accueil</a>
+      <a onclick="showPage('politique')">Confidentialité</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ PAGE POLITIQUE DE CONFIDENTIALITÉ ═══════════════════════════════════ -->
+<div id="page-politique" class="page">
+  <div class="page-hero">
+    <div class="page-hero-eyebrow">✦ LÉGAL ✦</div>
+    <div class="page-hero-title">Politique de <em>Confidentialité</em></div>
+    <div class="page-hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
+    <div class="page-hero-sub">Conformément au RGPD et à la loi Informatique et Libertés</div>
+  </div>
+
+  <div class="rgpd-content">
+    <p class="rgpd-date">Dernière mise à jour : 12 mai 2025</p>
+
+    <h2>1. Responsable du traitement</h2>
+    <p>Le site <strong>ScentFinder</strong> (scentfinder.fr) est édité par <strong>Nils Navarro</strong>, domicilié à Antony (92160), France. Pour toute question relative à vos données personnelles, vous pouvez nous contacter à : <a href="mailto:nils.navarro@scentfinder.fr">nils.navarro@scentfinder.fr</a></p>
+
+    <h2>2. Données collectées</h2>
+    <p>ScentFinder collecte uniquement les données strictement nécessaires à son fonctionnement :</p>
+    <ul>
+      <li><strong>Adresse email</strong> — lors de la création d'une alerte prix, afin de vous notifier des baisses de prix.</li>
+      <li><strong>Données de navigation</strong> — via des cookies d'analyse (pages visitées, durée de session) pour améliorer notre service.</li>
+      <li><strong>Données de clics affiliés</strong> — lorsque vous cliquez sur un lien partenaire, nos partenaires (Amazon, Sephora, Nocibé, etc.) peuvent collecter des données de navigation conformément à leurs propres politiques de confidentialité.</li>
+    </ul>
+    <p>Nous ne collectons jamais de données bancaires, de numéro de carte de crédit, ni de données sensibles.</p>
+
+    <h2>3. Finalités du traitement</h2>
+    <p>Vos données sont utilisées exclusivement pour :</p>
+    <ul>
+      <li>Vous envoyer des alertes prix par email lorsque vous en faites la demande</li>
+      <li>Analyser l'utilisation du site afin d'améliorer nos services</li>
+      <li>Générer des commissions d'affiliation via les liens partenaires</li>
+      <li>Respecter nos obligations légales</li>
+    </ul>
+
+    <h2>4. Base légale du traitement</h2>
+    <p>Le traitement de vos données repose sur :</p>
+    <ul>
+      <li><strong>Votre consentement</strong> — pour l'envoi d'alertes prix et l'utilisation de cookies non essentiels</li>
+      <li><strong>Notre intérêt légitime</strong> — pour l'analyse d'audience et l'amélioration du service</li>
+      <li><strong>L'exécution d'un contrat</strong> — pour la gestion de vos alertes prix</li>
+    </ul>
+
+    <h2>5. Cookies</h2>
+    <p>ScentFinder utilise des cookies pour améliorer votre expérience :</p>
+    <ul>
+      <li><strong>Cookies essentiels</strong> — indispensables au fonctionnement du site (pas de consentement requis)</li>
+      <li><strong>Cookies analytiques</strong> — pour mesurer l'audience (Google Analytics ou équivalent). Nécessitent votre consentement.</li>
+      <li><strong>Cookies d'affiliation</strong> — déposés par nos partenaires (Amazon, Awin, etc.) lorsque vous cliquez sur un lien. Soumis aux politiques de ces partenaires.</li>
+    </ul>
+    <p>Vous pouvez refuser les cookies non essentiels via les paramètres de votre navigateur ou via notre bandeau de consentement.</p>
+
+    <h2>6. Durée de conservation</h2>
+    <ul>
+      <li><strong>Alertes prix et emails</strong> — conservés jusqu'à votre demande de suppression ou 12 mois sans activité</li>
+      <li><strong>Données analytiques</strong> — conservées 26 mois maximum</li>
+      <li><strong>Cookies</strong> — durée maximale de 13 mois conformément aux recommandations CNIL</li>
+    </ul>
+
+    <h2>7. Partage des données</h2>
+    <p>ScentFinder ne vend jamais vos données personnelles à des tiers. Vos données peuvent être partagées uniquement avec :</p>
+    <ul>
+      <li>Nos prestataires techniques (hébergement, emails transactionnels) dans le cadre de contrats garantissant leur protection</li>
+      <li>Les autorités compétentes en cas d'obligation légale</li>
+    </ul>
+    <p>Nos partenaires affiliés (Amazon, Sephora, Nocibé, Feelunique, Marionnaud) sont responsables de leurs propres traitements de données lorsque vous visitez leurs sites via nos liens.</p>
+
+    <h2>8. Vos droits</h2>
+    <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+    <ul>
+      <li><strong>Droit d'accès</strong> — obtenir une copie de vos données</li>
+      <li><strong>Droit de rectification</strong> — corriger vos données inexactes</li>
+      <li><strong>Droit à l'effacement</strong> — demander la suppression de vos données</li>
+      <li><strong>Droit d'opposition</strong> — vous opposer à certains traitements</li>
+      <li><strong>Droit à la portabilité</strong> — récupérer vos données dans un format lisible</li>
+      <li><strong>Droit de retrait du consentement</strong> — à tout moment, sans affecter les traitements antérieurs</li>
+    </ul>
+    <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:nils.navarro@scentfinder.fr">nils.navarro@scentfinder.fr</a>. Nous vous répondrons dans un délai maximum de 30 jours.</p>
+    <p>Vous pouvez également introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) sur <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a>.</p>
+
+    <h2>9. Sécurité des données</h2>
+    <p>ScentFinder met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, perte ou altération. Notre site utilise le protocole HTTPS pour sécuriser toutes les communications.</p>
+
+    <h2>10. Liens externes</h2>
+    <p>Notre site contient des liens vers des sites partenaires (boutiques de parfums, plateformes d'affiliation). ScentFinder n'est pas responsable des pratiques de confidentialité de ces sites tiers. Nous vous encourageons à consulter leurs politiques de confidentialité respectives.</p>
+
+    <h2>11. Modifications</h2>
+    <p>Cette politique de confidentialité peut être mise à jour à tout moment. La date de dernière modification est indiquée en haut de cette page. En cas de modification substantielle, nous vous en informerons par email si vous avez créé une alerte prix.</p>
+
+    <h2>12. Contact</h2>
+    <p>Pour toute question concernant cette politique ou vos données personnelles :<br>
+    <strong>Email :</strong> <a href="mailto:nils.navarro@scentfinder.fr">nils.navarro@scentfinder.fr</a><br>
+    <strong>Site :</strong> scentfinder.fr<br>
+    <strong>Adresse :</strong> Antony, 92160, France</p>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">✦ SCENTFINDER</div>
+    <div class="footer-links">
+      <a onclick="showPage('accueil')">Accueil</a>
+      <a onclick="showPage('apropos')">À propos</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</div>
+
 <script>
-// ═══ DONNÉES ═══
 const parfumsData=[
   {id:1,emoji:"🧴",brand:"Dior",name:"Sauvage EDP",vol:"100ml",cat:"homme",shops:[{n:"Amazon",p:87.00,orig:110},{n:"Sephora",p:89.99},{n:"Nocibé",p:94.50}],promo:"AMZ12",stars:5,reviews:2841},
   {id:2,emoji:"🌸",brand:"Chanel",name:"N°5 EDP",vol:"50ml",cat:"femme",shops:[{n:"Feelunique",p:99.90,orig:120},{n:"Marionnaud",p:105.00},{n:"Sephora",p:112.00}],promo:"FEEL25",stars:5,reviews:4102},
@@ -622,26 +746,17 @@ let alertes=[
   {id:2,emoji:"🌸",brand:"Chanel",name:"N°5 EDP",vol:"50ml",current:99.90,target:105.00,triggered:true},
   {id:3,emoji:"☕",brand:"YSL",name:"Black Opium",vol:"90ml",current:72.00,target:70.00,triggered:false},
 ];
-
-// ═══ NAVIGATION ═══
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
-  const btns=document.querySelectorAll('.nav-btn');
-  btns.forEach(b=>{if(b.textContent.toLowerCase().includes(id.substring(0,4))||b.onclick.toString().includes(id))b.classList.add('active');});
+  document.querySelectorAll('.nav-btn').forEach(b=>{if(b.onclick&&b.onclick.toString().includes(id))b.classList.add('active');});
   window.scrollTo(0,0);
 }
-
-// ═══ TOAST ═══
 function toast(msg,id='toastAccueil'){
-  const t=document.getElementById(id);
-  if(!t)return;
-  t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2200);
+  const t=document.getElementById(id);if(!t)return;
+  t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);
 }
-
-// ═══ ACCUEIL ═══
 let catAccueil='all';
 function renderAccueil(){
   const q=document.getElementById('searchAccueil').value.toLowerCase();
@@ -657,8 +772,6 @@ document.getElementById('catsAccueil').addEventListener('click',e=>{
 });
 document.getElementById('searchAccueil').addEventListener('input',renderAccueil);
 renderAccueil();
-
-// ═══ TOP 10 ═══
 let filtreTop='all';
 function getTop(){return filtreTop==='all'?top10:top10.filter(p=>p.cat===filtreTop);}
 function renderTop(){
@@ -670,8 +783,6 @@ document.getElementById('filterTop').addEventListener('click',e=>{
   if(e.target.classList.contains('f-btn')){document.querySelectorAll('#filterTop .f-btn').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');filtreTop=e.target.dataset.f;renderTop();}
 });
 renderTop();
-
-// ═══ MARQUES ═══
 let catM='all',prixM='all',sortM='eco';
 function inPrix(p){if(prixM==='all')return true;if(prixM==='0-80')return p<=80;if(prixM==='80-150')return p>80&&p<=150;if(prixM==='150+')return p>150;return true;}
 function renderMarques(){
@@ -688,8 +799,6 @@ document.getElementById('filterMarquePrix').addEventListener('click',e=>{if(e.ta
 document.getElementById('searchMarque').addEventListener('input',renderMarques);
 document.getElementById('sortMarque').addEventListener('change',e=>{sortM=e.target.value;renderMarques();});
 renderMarques();
-
-// ═══ ALERTES ═══
 function pct(c,t){return Math.min(Math.round((t/c)*100),100);}
 function renderAlertes(){
   document.getElementById('alerteList').innerHTML=alertes.map(a=>`<div class="alerte-card${a.triggered?' triggered':''}"><div class="alerte-left"><div class="alerte-img">${a.emoji}</div><div><div class="alerte-brand">${a.brand.toUpperCase()}</div><div class="alerte-name">${a.name}</div><div class="alerte-vol">${a.vol}</div></div></div><div class="alerte-right"><div class="alerte-target">CIBLE : ${a.target.toFixed(2)} €</div><div class="alerte-current">${a.current.toFixed(2)} €</div>${a.triggered?'<span class="alerte-badge-ok">✦ OFFRE ATTEINTE</span>':`<div class="progress-bar-wrap"><div class="progress-bar"><div class="progress-fill" style="width:${pct(a.current,a.target)}%"></div></div><div class="progress-txt">${pct(a.current,a.target)}% de l'objectif</div></div>`}<button class="alerte-del" onclick="suppAlerte(${a.id})">Supprimer</button></div></div>`).join('');
@@ -712,8 +821,6 @@ function creerAlerte(){
 }
 document.querySelectorAll('.notif-opt').forEach(o=>o.addEventListener('click',()=>o.classList.toggle('on')));
 renderAlertes();
-
-// ═══ CHATBOT ═══
 const sugParfums={
   floral:[{emoji:"🌸",nom:"Chanel N°5 EDP",price:"99,90€",shop:"Feelunique"},{emoji:"🌺",nom:"Guerlain Mon Guerlain",price:"68,00€",shop:"Marionnaud"}],
   boise:[{emoji:"🪵",nom:"Le Labo Santal 33",price:"185,00€",shop:"Feelunique"},{emoji:"🍊",nom:"Hermès Terre d'Hermès",price:"92,00€",shop:"Sephora"}],
@@ -759,8 +866,6 @@ function sendMsg(){
 function sendSug(btn){document.getElementById('chatInput').value=btn.textContent;sendMsg();}
 document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg();});
 addMsg('bot','Bienvenue sur ScentFinder ! Je suis <strong>Iris</strong>, votre conseillère IA en parfumerie de prestige. 🌸\n\nJe peux vous aider à trouver le parfum idéal, comparer les prix et vous indiquer les meilleures offres.\n\nQue recherchez-vous aujourd\'hui ?');
-
-// ═══ FAQ ═══
 function toggleFaq(el){
   const a=el.nextElementSibling;const open=a.classList.contains('show');
   document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('show'));
