@@ -44,64 +44,30 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .search-wrap input::placeholder{color:#7a5a60;}
 .search-wrap i{color:var(--or);font-size:16px;}
 
-.promo-strip{background:var(--bx);padding:0.55rem 2rem;display:flex;align-items:center;gap:1rem;overflow-x:auto;scrollbar-width:none;}
-.promo-strip::-webkit-scrollbar{display:none;}
-.promo-item{display:flex;align-items:center;gap:8px;white-space:nowrap;}
-.promo-label{font-size:11px;color:var(--orl);letter-spacing:1px;}
-.promo-code{background:var(--or);color:var(--bxd);font-size:10px;padding:3px 9px;border-radius:4px;letter-spacing:1px;cursor:pointer;font-weight:600;}
-.promo-sep{color:var(--or);opacity:0.3;}
-
-.cats{display:flex;gap:0.5rem;padding:1rem 2rem 0.5rem;overflow-x:auto;scrollbar-width:none;}
-.cats::-webkit-scrollbar{display:none;}
-.cat{white-space:nowrap;padding:0.35rem 1rem;border-radius:50px;border:0.5px solid var(--orl);background:transparent;font-size:12px;cursor:pointer;color:#8a6050;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
-.cat.on{background:var(--bx);border-color:var(--bx);color:var(--cr);}
-.cat:hover:not(.on){border-color:var(--bx);color:var(--bx);}
-
 .section-hd{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem 0.6rem;}
 .section-hd h2{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--bx);}
-.section-hd span{font-size:10px;color:var(--or);cursor:pointer;letter-spacing:2px;}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem;padding:0 2rem;}
 .card{background:var(--cr);border:0.5px solid var(--orl);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform 0.15s;}
 .card:hover{transform:translateY(-3px);}
 .card-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--crd);position:relative;}
-.best-badge{position:absolute;top:8px;left:8px;background:var(--bxd);color:var(--or);font-size:9px;padding:3px 8px;border-radius:50px;letter-spacing:1px;}
-.promo-badge{position:absolute;top:8px;right:8px;background:var(--or);color:var(--bxd);font-size:9px;padding:3px 7px;border-radius:50px;font-weight:600;}
 .card-body{padding:0.8rem;}
 .card-brand{font-size:10px;color:var(--or);letter-spacing:2px;text-transform:uppercase;}
 .card-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--bx);margin-top:2px;}
-.card-vol{font-size:11px;color:#a08070;}
-.stars-row{display:flex;align-items:center;gap:4px;margin-top:3px;}
-.stars{color:var(--or);font-size:11px;}
-.reviews{font-size:11px;color:#a08070;}
 .prices{margin-top:8px;border-top:0.5px solid var(--orl);padding-top:8px;}
-.price-row{display:flex;justify-content:space-between;align-items:center;padding:2px 0;}
-.shop-name{font-size:11px;color:#a08070;}
+.price-row{display:flex;justify-content:space-between;align-items:center;}
 .price-best{font-size:13px;font-weight:500;color:var(--bx);}
-.price-old{font-size:10px;text-decoration:line-through;color:#c0a090;}
-.promo-tag{background:#fdf0e8;border:0.5px solid var(--or);border-radius:6px;padding:4px 8px;margin-top:6px;display:flex;justify-content:space-between;align-items:center;}
-.promo-tag-txt{font-size:10px;color:var(--bx);}
-.promo-tag-code{font-size:10px;font-weight:700;color:var(--bxd);background:var(--or);padding:2px 7px;border-radius:4px;letter-spacing:1px;cursor:pointer;}
-.go-btn{width:100%;margin-top:8px;background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:6px;padding:0.5rem;font-size:11px;cursor:pointer;font-family:'Cormorant Garamond',serif;letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:5px;}
 
-/* ═══ FOOTER & ÉQUIPE FIX ═══ */
-.footer{background:var(--bxd);padding:1.5rem 2rem;margin-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top: 1px solid var(--or);}
+/* ═══ FOOTER ═══ */
+.footer{background:var(--bxd);padding:1.5rem 2rem;margin-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--or);}
 .footer-logo{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--or);letter-spacing:4px;}
 .footer-links{display:flex;gap:1.5rem;align-items:center;}
-.footer-links a{font-size:11px;color:#FFFFFF !important;text-decoration:none;letter-spacing:1px;font-weight:500;text-shadow: 0px 1px 2px rgba(0,0,0,0.5);}
+.footer-links a{font-size:11px;color:#FFFFFF !important;text-decoration:none;letter-spacing:1px;}
 .footer-links a:hover{color:var(--or) !important;}
 
-.equipe{display:flex;justify-content:center;padding:0 2rem;}
-.membre-card{background:var(--cr);border:0.5px solid var(--orl);border-radius:12px;padding:1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.5rem;max-width:250px;}
-.membre-avatar{width:60px;height:60px;border-radius:50%;background:var(--bxd);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--or);border:1px solid var(--or);}
-.membre-nom{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--bx);}
-.membre-role{font-size:10px;color:var(--or);letter-spacing:1px;text-transform:uppercase;}
-.membre-bio{font-size:12px;color:#a08070;line-height:1.5;}
-
-/* ═══ AUTRES SECTIONS ═══ */
-.section{padding:1.5rem 2rem;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--bx);margin-bottom:1rem;display:flex;align-items:center;gap:8px;}
-.section-title::after{content:'';flex:1;height:0.5px;background:var(--orl);}
+/* ═══ ÉQUIPE ═══ */
+.membre-card{background:var(--cr);border:0.5px solid var(--orl);border-radius:12px;padding:1.5rem;text-align:center;margin: 2rem auto;max-width:250px;}
+.membre-avatar{width:60px;height:60px;border-radius:50%;background:var(--bxd);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:var(--or);font-weight:bold;}
 </style>
 </head>
 <body>
@@ -113,9 +79,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
   </div>
   <div class="nav-links">
     <button class="nav-btn active" onclick="showPage('accueil')">Accueil</button>
-    <button class="nav-btn" onclick="showPage('top10')">Top 10</button>
-    <button class="nav-btn" onclick="showPage('marques')">Marques</button>
-    <button class="nav-btn" onclick="showPage('alertes')">Alertes</button>
     <button class="nav-btn" onclick="showPage('apropos')">À propos</button>
   </div>
 </nav>
@@ -123,55 +86,53 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 <!-- PAGE ACCUEIL -->
 <div id="page-accueil" class="page active">
   <div class="hero">
-    <div class="hero-eyebrow">✦ QUALITÉ SUPÉRIEURE ✦</div>
     <div class="hero-title">Le meilleur prix pour<br>votre <em>parfum de prestige</em></div>
-    <div class="hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
-    <div class="hero-sub">OFFRES CERTIFIÉES · CODES PROMO EXCLUSIFS</div>
     <div class="search-wrap">
       <i class="ti ti-search"></i>
-      <input type="text" placeholder="Dior Sauvage, Chanel N°5..."/>
+      <input type="text" placeholder="Rechercher un parfum..."/>
     </div>
   </div>
 
   <div class="section-hd">
-    <h2>Meilleures offres du moment</h2>
+    <h2>Nos Parfums</h2>
   </div>
-  <div class="grid" id="gridAccueil">
-      <!-- Les cartes s'affichent ici via JS -->
+
+  <!-- GRILLE DES PRODUITS (Tes produits restent ici) -->
+  <div class="grid">
+    <div class="card">
+      <div class="card-img">🧴</div>
+      <div class="card-body">
+        <div class="card-brand">DIOR</div>
+        <div class="card-name">Sauvage</div>
+        <div class="prices"><div class="price-row"><span class="price-best">89,00 €</span></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img">✨</div>
+      <div class="card-body">
+        <div class="card-brand">CHANEL</div>
+        <div class="card-name">N°5</div>
+        <div class="prices"><div class="price-row"><span class="price-best">120,00 €</span></div></div>
+      </div>
+    </div>
+    <!-- Ajoute tes autres produits ici -->
   </div>
 
   <div class="footer">
     <div class="footer-logo">✦ SCENTFINDER</div>
     <div class="footer-links">
-      <a href="#" onclick="showPage('apropos')">À propos</a>
       <a href="mentions-legales.html">Mentions Légales</a>
       <a href="politique-confidentialite.html">Politique de Confidentialité</a>
-      <a href="#">Contact</a> 
     </div>
   </div>
 </div>
 
 <!-- PAGE À PROPOS -->
 <div id="page-apropos" class="page">
-    <div class="section">
-        <div class="section-title">L'équipe</div>
-        <div class="equipe">
-            <div class="membre-card">
-                <div class="membre-avatar">N</div>
-                <div class="membre-nom">Nils</div>
-                <div class="membre-role">Fondateur</div>
-                <div class="membre-bio">Passionné de parfumerie et de nouvelles technologies, il a créé ScentFinder pour démocratiser l'accès au luxe.</div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="footer">
-        <div class="footer-logo">✦ SCENTFINDER</div>
-        <div class="footer-links">
-            <a href="#" onclick="showPage('accueil')">Accueil</a>
-            <a href="mentions-legales.html">Mentions Légales</a>
-            <a href="politique-confidentialite.html">Politique de Confidentialité</a>
-        </div>
+    <div class="membre-card">
+        <div class="membre-avatar">N</div>
+        <div class="membre-nom">Nils</div>
+        <p>Fondateur de ScentFinder</p>
     </div>
 </div>
 
@@ -179,9 +140,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + pageId).classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
 }
-// Ajoute tes scripts de données ici
 </script>
 
 </body>
