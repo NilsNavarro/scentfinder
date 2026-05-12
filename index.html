@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>ScentFinder — Comparateur de Parfums de Prestige</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<link rel="stylesheet" href="https://cdn. Taylor/icons-webfont@latest/tabler-icons.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -250,6 +250,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .membre-bio{font-size:11px;color:#a08070;line-height:1.5;}
 .faq{display:flex;flex-direction:column;gap:0.5rem;padding:0 2rem;}
 .faq-item{background:var(--cr);border:0.5px solid var(--orl);border-radius:10px;overflow:hidden;}
+.faq-item:last-child { margin-bottom: 2rem; }
 .faq-q{padding:0.9rem 1rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--bx);}
 .faq-q i{color:var(--or);font-size:16px;transition:transform 0.2s;}
 .faq-q.open i{transform:rotate(180deg);}
@@ -294,6 +295,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .notif-opt-txt{font-size:12px;color:var(--bx);}
 .notif-opt.on .notif-opt-txt{color:var(--or);}
 .notif-opt i{font-size:15px;color:var(--or);}
+
+/* CSS POUR LA NOUVELLE PAGE POLITIQUE */
+.legal-content { max-width: 800px; margin: 0 auto; padding: 2rem; color: var(--bx); }
+.legal-content h2 { font-family: 'Cormorant Garamond', serif; margin: 1.5rem 0 0.8rem; border-bottom: 0.5px solid var(--orl); padding-bottom: 0.3rem; }
+.legal-content p { font-size: 14px; line-height: 1.7; margin-bottom: 1rem; color: #8a6050; }
 </style>
 </head>
 <body>
@@ -461,19 +467,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
                 <div class="promo-pill">CODE : NOEL24</div>
             </div>
         </div>
-        <div class="top-row">
-            <div class="top-num">5</div>
-            <div class="top-img">👔</div>
-            <div class="top-info">
-                <div class="top-brand">Terre d'Hermès</div>
-                <div class="top-name">Parfum Pureté</div>
-                <div class="top-shop">Meilleur prix chez Sephora</div>
-            </div>
-            <div class="top-right">
-                <div class="top-price">112,50€</div>
-                <button class="top-btn">VOIR</button>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -482,250 +475,50 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
         <div class="page-hero-eyebrow">SMART SHOPPING</div>
         <h1 class="page-hero-title">Vos <em>Alertes Prix</em></h1>
         <div class="page-hero-divider"><span></span><i class="ti ti-bell-ringing" style="color:var(--or);font-size:14px;"></i><span></span></div>
-        <p class="page-hero-sub">NOUS VOUS PRÉVENONS DÈS QUE VOTRE PARFUM BAISSE</p>
     </div>
-
     <div class="form-card">
-        <div class="section-hd" style="padding:0 0 1rem;"><h2>Créer une nouvelle alerte</h2></div>
+        <div class="section-hd" style="padding:0 0 1rem;"><h2>Créer une alerte</h2></div>
         <div class="form-grid">
-            <div class="form-group full">
-                <label class="form-label">Parfum recherché</label>
-                <input type="text" class="form-input" placeholder="Ex: Bleu de Chanel, J'adore...">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Contenance</label>
-                <select class="form-select">
-                    <option>50 ml</option>
-                    <option selected>100 ml</option>
-                    <option>200 ml</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="form-label">Prix cible</label>
-                <div class="price-input-wrap">
-                    <input type="number" placeholder="85">
-                    <span>€</span>
-                </div>
-            </div>
-            <div class="form-group full">
-                <label class="form-label">Options de notification</label>
-                <div class="notif-options">
-                    <div class="notif-opt on"><i class="ti ti-mail"></i> <span class="notif-opt-txt">Email</span></div>
-                    <div class="notif-opt"><i class="ti ti-device-mobile"></i> <span class="notif-opt-txt">Push</span></div>
-                </div>
-            </div>
-        </div>
-        <button class="submit-btn"><i class="ti ti-plus"></i> ACTIVER L'ALERTE</button>
-    </div>
-
-    <div class="section-hd"><h2>Alertes Actives (2)</h2></div>
-    
-    <div class="alerte-list">
-        <div class="alerte-card triggered">
-            <div class="alerte-left">
-                <div class="alerte-img">⚡</div>
-                <div>
-                    <div class="alerte-brand">Dior</div>
-                    <div class="alerte-name">Sauvage Elixir</div>
-                    <div class="alerte-vol">60ml</div>
-                </div>
-            </div>
-            <div class="alerte-right">
-                <div class="alerte-badge-ok">PRIX ATTEINT !</div>
-                <div class="alerte-current">123,75€</div>
-                <div class="alerte-target">Cible: 125€</div>
-            </div>
-        </div>
-
-        <div class="alerte-card">
-            <div class="alerte-left">
-                <div class="alerte-img">🕒</div>
-                <div>
-                    <div class="alerte-brand">Armani</div>
-                    <div class="alerte-name">Acqua di Gio</div>
-                    <div class="alerte-vol">100ml</div>
-                </div>
-            </div>
-            <div class="alerte-right">
-                <div class="progress-bar-wrap">
-                    <div class="progress-bar"><div class="progress-fill" style="width:75%;"></div></div>
-                    <div class="progress-txt">-12€ restants</div>
-                </div>
-                <div class="alerte-current">92,00€</div>
-                <button class="alerte-del">Supprimer</button>
-            </div>
+            <div class="form-group full"><input type="text" class="form-input" placeholder="Parfum..."></div>
+            <div class="form-group"><input type="number" class="form-input" placeholder="Prix cible..."></div>
+            <button class="submit-btn">ACTIVER</button>
         </div>
     </div>
 </div>
 
 <div id="page-marques" class="page">
-    <div class="page-hero">
-        <div class="page-hero-eyebrow">UNIVERS</div>
-        <h1 class="page-hero-title">Les plus grandes <em>Maisons</em></h1>
-        <div class="page-hero-divider"><span></span><i class="ti ti-building-castle" style="color:var(--or);font-size:14px;"></i><span></span></div>
-        <p class="page-hero-sub">DÉCOUVREZ LES CATALOGUES ET LES MEILLEURES OFFRES PAR MARQUE</p>
-    </div>
-
-    <div class="filters-bar">
-        <button class="f-btn on">Toutes les Maisons</button>
-        <button class="f-btn">Luxe Prestige</button>
-        <button class="f-btn">Haute Parfumerie</button>
-        <button class="f-btn">Niche Créateurs</button>
-    </div>
-
+    <div class="page-hero"><h1 class="page-hero-title">Les <em>Maisons</em></h1></div>
     <div class="marques-grid">
-        <div class="marque-card">
-            <div class="marque-header">
-                <div>
-                    <div class="marque-name">DIOR</div>
-                    <div class="marque-cat">Prestige Français</div>
-                </div>
-                <span class="marque-badge prestige">PRESTIGE</span>
-            </div>
-            <div class="marque-body">
-                <div class="marque-stats">
-                    <div><div class="marque-stat-val">124</div><div class="marque-stat-lbl">Fragrances</div></div>
-                    <div><div class="marque-stat-val">8</div><div class="marque-stat-lbl">Nouveautés</div></div>
-                    <div><div class="marque-stat-val">12%</div><div class="marque-stat-lbl">Remise Moy.</div></div>
-                </div>
-                <div class="parfums-list">
-                    <div class="parfum-row">
-                        <div class="parfum-left">
-                            <div class="parfum-name">Sauvage</div>
-                            <div class="parfum-vol">100ml</div>
-                        </div>
-                        <div class="parfum-right">
-                            <span class="parfum-price">84,20€</span>
-                            <button class="parfum-btn">VOIR</button>
-                        </div>
-                    </div>
-                    <div class="parfum-row">
-                        <div class="parfum-left">
-                            <div class="parfum-name">J'adore</div>
-                            <div class="parfum-vol">50ml</div>
-                        </div>
-                        <div class="parfum-right">
-                            <span class="parfum-price">92,50€</span>
-                            <button class="parfum-btn">VOIR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="marque-card">
-            <div class="marque-header">
-                <div>
-                    <div class="marque-name">HERMÈS</div>
-                    <div class="marque-cat">Maison de Luxe</div>
-                </div>
-                <span class="marque-badge">LUXE</span>
-            </div>
-            <div class="marque-body">
-                <div class="marque-stats">
-                    <div><div class="marque-stat-val">68</div><div class="marque-stat-lbl">Fragrances</div></div>
-                    <div><div class="marque-stat-val">3</div><div class="marque-stat-lbl">Nouveautés</div></div>
-                    <div><div class="marque-stat-val">5%</div><div class="marque-stat-lbl">Remise Moy.</div></div>
-                </div>
-                <div class="parfums-list">
-                    <div class="parfum-row">
-                        <div class="parfum-left">
-                            <div class="parfum-name">Terre d'Hermès</div>
-                            <div class="parfum-vol">100ml</div>
-                        </div>
-                        <div class="parfum-right">
-                            <span class="parfum-price">102,00€</span>
-                            <button class="parfum-btn">VOIR</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="marque-card"><div class="marque-header"><div class="marque-name">DIOR</div></div></div>
     </div>
 </div>
 
 <div id="page-iris" class="page">
     <div class="chat-hero">
         <div class="bot-avatar"><i class="ti ti-sparkles"></i></div>
-        <div>
-            <div class="bot-name">Iris — Votre Conseillère IA</div>
-            <div class="bot-status"><span class="status-dot"></span> <span class="status-txt">En ligne pour vous aider</span></div>
-        </div>
-        <div class="bot-badge"><i class="ti ti-award"></i> EXPERT</div>
+        <div class="bot-name">Iris — Votre Conseillère IA</div>
     </div>
-
-    <div class="suggestions">
-        <button class="sug-btn" onclick="sendSug(this)">Un parfum pour l'hiver ?</button>
-        <button class="sug-btn" onclick="sendSug(this)">Quoi de neuf chez Dior ?</button>
-        <button class="sug-btn" onclick="sendSug(this)">Moins de 80€ avec du bois ?</button>
-        <button class="sug-btn" onclick="sendSug(this)">Équivalent à Sauvage ?</button>
-    </div>
-
-    <div class="chat-window" id="chatWindow">
-        </div>
-
+    <div class="chat-window" id="chatWindow"></div>
     <div class="chat-input-bar">
-        <input type="text" class="chat-input" id="chatInput" placeholder="Posez votre question à Iris...">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Posez votre question...">
         <button class="send-btn" onclick="sendMsg()"><i class="ti ti-send"></i></button>
     </div>
-    <div class="powered">PROPULSÉ PAR L'INTELLIGENCE ARTIFICIELLE SCENTFINDER</div>
 </div>
 
 <div id="page-apropos" class="page">
     <div class="page-hero">
-        <div class="page-hero-eyebrow">NOTRE MISSION</div>
-        <h1 class="page-hero-title">L'Art de <em>Dénicher</em></h1>
-        <div class="page-hero-divider"><span></span><i class="ti ti-feather" style="color:var(--or);font-size:14px;"></i><span></span></div>
-        <p class="page-hero-sub">L'HISTOIRE ET LES VALEURS DE SCENTFINDER</p>
+        <h1 class="page-hero-title">À <em>Propos</em></h1>
     </div>
-
     <div class="section">
         <div class="manifeste">
-            <div class="manifeste-deco">“</div>
-            <p class="manifeste-txt">
-                Nous croyons que le parfum est bien plus qu'une simple odeur : c'est une <em>signature</em>, une émotion, un souvenir. 
-                ScentFinder est né d'une volonté simple : rendre la parfumerie de prestige accessible en centralisant les meilleures offres
-                et en offrant des conseils d'experts grâce à l'IA.
-            </p>
-            <div class="manifeste-sign">— L'Équipe ScentFinder</div>
+            <p class="manifeste-txt">ScentFinder est né d'une passion pour les parfums et le juste prix.</p>
         </div>
     </div>
-
-    <div class="section-title">Nos Valeurs</div>
-    <div class="valeurs">
-        <div class="valeur-card">
-            <div class="valeur-icon"><i class="ti ti-shield-check"></i></div>
-            <div class="valeur-title">Transparence</div>
-            <div class="valeur-txt">Des prix réels, actualisés en direct sans frais cachés.</div>
-        </div>
-        <div class="valeur-card">
-            <div class="valeur-icon"><i class="ti ti-heart"></i></div>
-            <div class="valeur-title">Passion</div>
-            <div class="valeur-txt">Amoureux de la haute parfumerie et du savoir-faire.</div>
-        </div>
-        <div class="valeur-card">
-            <div class="valeur-icon"><i class="ti ti-device-laptop"></i></div>
-            <div class="valeur-title">Innovation</div>
-            <div class="valeur-txt">L'IA au service de votre prochain coup de cœur.</div>
-        </div>
-    </div>
-
-    <div class="section-title">En quelques chiffres</div>
-    <div class="chiffres">
-        <div class="chiffre-card"><div class="chiffre-val">2.5k</div><div class="chiffre-lbl">Fragrances</div></div>
-        <div class="chiffre-card"><div class="chiffre-val">150+</div><div class="chiffre-lbl">Maisons</div></div>
-        <div class="chiffre-card"><div class="chiffre-val">12</div><div class="chiffre-lbl">Partenaires</div></div>
-    </div>
-
     <div class="section-title">FAQ</div>
     <div class="faq">
         <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">D'où proviennent les prix affichés ? <i class="ti ti-chevron-down"></i></div>
-            <div class="faq-a">Nous scannons en temps réel les sites officiels des marques ainsi que les grandes enseignes (Sephora, Nocibé, Marionnaud, etc.) pour vous garantir l'information la plus juste.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">Les codes promos sont-ils vérifiés ? <i class="ti ti-chevron-down"></i></div>
-            <div class="faq-a">Oui, notre équipe et nos algorithmes testent quotidiennement les codes pour s'assurer de leur validité avant de les afficher.</div>
+            <div class="faq-q" onclick="toggleFaq(this)">Comment ça marche ? <i class="ti ti-chevron-down"></i></div>
+            <div class="faq-a">Nous comparons les prix en temps réel.</div>
         </div>
     </div>
 </div>
@@ -734,26 +527,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     <div class="page-hero">
         <div class="page-hero-eyebrow">LÉGAL</div>
         <h1 class="page-hero-title">Politique de <em>Confidentialité</em></h1>
-        <div class="page-hero-divider"><span></span><i class="ti ti-lock" style="color:var(--or);font-size:14px;"></i><span></span></div>
-        <p class="page-hero-sub">VOTRE PROTECTION EST NOTRE PRIORITÉ</p>
     </div>
-
-    <div class="section">
-        <div class="manifeste">
-            <p class="manifeste-txt" style="font-style: normal; font-size: 0.95rem;">
-                Chez <strong>ScentFinder</strong>, nous accordons une importance capitale à la protection de vos données personnelles. Cette politique détaille comment nous traitons vos informations :<br><br>
-                <strong>1. Collecte des données :</strong> Nous collectons uniquement les informations nécessaires au bon fonctionnement de nos services (recherches, alertes prix).<br>
-                <strong>2. Utilisation :</strong> Vos données sont utilisées pour personnaliser votre expérience et vous envoyer les alertes que vous avez configurées.<br>
-                <strong>3. Protection :</strong> Vos informations sont stockées de manière sécurisée et ne sont jamais revendues à des tiers.<br>
-                <strong>4. Vos droits :</strong> Vous disposez d'un droit d'accès, de modification et de suppression de vos données à tout moment via les réglages de votre compte ou en nous contactant.
-            </p>
-        </div>
+    <div class="legal-content">
+        <h2>1. Collecte des données</h2>
+        <p>Nous collectons les données techniques nécessaires à la navigation et, si vous créez une alerte, votre adresse email pour vous notifier des changements de prix.</p>
+        <h2>2. Utilisation des données</h2>
+        <p>Vos informations ne sont jamais revendues à des tiers. Elles servent uniquement à assurer le service ScentFinder.</p>
+        <h2>3. Vos droits</h2>
+        <p>Conformément au RGPD, vous disposez d'un droit d'accès et de suppression de vos données sur simple demande.</p>
     </div>
-</div>
-
-<div class="cta-section">
-    <h3 class="cta-title">Ne ratez plus aucune <em>bonne affaire</em></h3>
-    <button class="cta-btn"><i class="ti ti-mail"></i> S'INSCRIRE À LA NEWSLETTER</button>
 </div>
 
 <footer class="footer">
@@ -766,143 +548,50 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     </div>
 </footer>
 
-<div id="toast" class="toast">Code promo copié avec succès ! ✨</div>
+<div id="toast" class="toast">Code copié !</div>
 
 <script>
     function showPage(pageId) {
-        // Masquer toutes les pages
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        // Afficher la page demandée
         document.getElementById('page-' + pageId).classList.add('active');
-        
-        // Gérer les boutons de navigation
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.classList.remove('active');
-            if(btn.innerText.toLowerCase().includes(pageId.replace('page-',''))) {
+            if(btn.innerText.toLowerCase().includes(pageId.replace('alertes','alertes').replace('marques','marques').replace('iris','iris'))) {
                 btn.classList.add('active');
             }
         });
-
-        // Scroll to top
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    // Gestion FAQ
     function toggleFaq(el) {
         const answer = el.nextElementSibling;
-        const icon = el.querySelector('i');
-        const isOpen = answer.classList.contains('show');
-        
-        // Fermer les autres
-        document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('show'));
-        document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
-
-        if(!isOpen) {
-            answer.classList.add('show');
-            el.classList.add('open');
-        }
+        answer.classList.toggle('show');
+        el.classList.toggle('open');
     }
 
-    // Simulation Chat Iris
     const chatWindow = document.getElementById('chatWindow');
-    
-    function addMsg(type, text, options = null) {
+    function addMsg(type, text) {
         const msgDiv = document.createElement('div');
         msgDiv.className = `msg ${type}`;
-        
-        const avatar = type === 'bot' ? '<i class="ti ti-sparkles"></i>' : '<i class="ti ti-user"></i>';
-        
-        msgDiv.innerHTML = `
-            <div class="msg-avatar ${type}">${avatar}</div>
-            <div class="msg-bubble ${type}">
-                ${text}
-                ${options ? options : ''}
-            </div>
-        `;
-        
+        msgDiv.innerHTML = `<div class="msg-bubble ${type}">${text}</div>`;
         chatWindow.appendChild(msgDiv);
         chatWindow.scrollTop = chatWindow.scrollHeight;
     }
 
-    function showTyping() {
-        const div = document.createElement('div');
-        div.className = 'msg bot';
-        div.id = 'typing-ind';
-        div.innerHTML = `
-            <div class="msg-avatar bot"><i class="ti ti-sparkles"></i></div>
-            <div class="typing"><span></span><span></span><span></span></div>
-        `;
-        chatWindow.appendChild(div);
-        chatWindow.scrollTop = chatWindow.scrollHeight;
-    }
-
-    function removeTyping() {
-        const t = document.getElementById('typing-ind');
-        if(t) t.remove();
-    }
-
     function sendMsg() {
         const input = document.getElementById('chatInput');
-        const msg = input.value.trim();
-        if(!msg) return;
-
+        if(!input.value) return;
+        addMsg('user', input.value);
+        const val = input.value;
         input.value = '';
-        addMsg('user', msg);
-        
-        showTyping();
-        
         setTimeout(() => {
-            removeTyping();
-            const response = getBotResponse(msg);
-            addMsg('bot', response.text, response.cards);
-        }, 800 + Math.random() * 600);
+            addMsg('bot', "Je cherche les meilleures offres pour vous...");
+        }, 600);
     }
 
-    function sendSug(btn) {
-        document.getElementById('chatInput').value = btn.innerText;
-        sendMsg();
-    }
-
-    function getBotResponse(input) {
-        const lower = input.toLowerCase();
-        if(lower.includes('hiver')) {
-            return {
-                text: "Pour l'hiver, je vous suggère des fragrances chaleureuses et intenses. Voici une option très populaire :",
-                cards: `
-                    <div class="parfum-suggest">
-                        <span class="ps-emoji">🔥</span>
-                        <div>
-                            <div class="ps-name">Tobacco Vanille</div>
-                            <div class="ps-price">Dès 145€</div>
-                        </div>
-                        <button class="ps-btn">VOIR</button>
-                    </div>`
-            };
-        }
-        return {
-            text: "C'est une excellente question. En tant qu'IA, je peux comparer des milliers de prix pour vous aider. Souhaitez-vous que je cherche les meilleures promos actuelles ?",
-            cards: null
-        };
-    }
-
-    // Event listeners
-    document.getElementById('chatInput').addEventListener('keydown', (e) => {
-        if(e.key === 'Enter') sendMsg();
-    });
-
-    // Initialisation
     window.onload = () => {
-        addMsg('bot', "Bienvenue sur ScentFinder ! Je suis <strong>Iris</strong>, votre conseillère IA. Comment puis-je vous aider dans votre quête du parfum parfait ?");
+        addMsg('bot', "Bonjour ! Je suis Iris. Comment puis-je vous aider ?");
     };
-
-    // Toast
-    document.querySelectorAll('.promo-tag-code, .promo-code').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const t = document.getElementById('toast');
-            t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 3000);
-        });
-    });
 </script>
 
 </body>
