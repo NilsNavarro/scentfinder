@@ -311,10 +311,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
   </div>
   <div class="nav-links">
     <button class="nav-btn active" onclick="showPage('accueil')">Accueil</button>
-    <button class="nav-btn" onclick="showPage('top10')">Top 10</button>
     <button class="nav-btn" onclick="showPage('marques')">Marques</button>
-    <button class="nav-btn" onclick="showPage('alertes')">Alertes</button>
-    <button class="nav-btn" onclick="showPage('chatbot')">Iris IA</button>
     <button class="nav-btn" onclick="showPage('apropos')">À propos</button>
   </div>
 </nav>
@@ -343,34 +340,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     <div class="footer-links">
       <a onclick="showPage('apropos')">À propos</a><a href="#">Affiliation</a><a href="#">Contact</a>
       <a onclick="showPage('mentions')">Mentions Légales</a><a onclick="showPage('politique')">Confidentialité</a>
-    </div>
-  </div>
-</div>
 
 <!-- PAGE DETAIL PARFUM -->
 <div id="page-detail" class="page">
   <div id="detail-content"></div>
-</div>
-
-<!-- PAGE TOP 10 -->
-<div id="page-top10" class="page">
-  <div class="page-hero">
-    <div class="page-hero-eyebrow">✦ SÉLECTION DU JOUR ✦</div>
-    <div class="page-hero-title">Top 10 des <em>meilleures offres</em></div>
-    <div class="page-hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
-    <div class="page-hero-sub"><i class="ti ti-refresh"></i> Mis à jour aujourd'hui à 08h00</div>
-  </div>
-  <div class="filters-bar" id="filterTop">
-    <button class="f-btn on" data-f="all">Tous</button>
-    <button class="f-btn" data-f="homme">Homme</button>
-    <button class="f-btn" data-f="femme">Femme</button>
-    <button class="f-btn" data-f="mixte">Mixte</button>
-    <button class="f-btn" data-f="niche">Niche</button>
-  </div>
-  <div class="podium" id="podiumTop"></div>
-  <div class="section" style="padding-top:0;"><div class="section-title">Classement complet</div></div>
-  <div class="top-list" id="topList"></div>
-  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a href="#">Contact</a><a onclick="showPage('politique')">Confidentialité</a></div></div>
 </div>
 
 <!-- PAGE MARQUES -->
@@ -406,78 +379,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
   <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a href="#">Contact</a><a onclick="showPage('politique')">Confidentialité</a></div></div>
 </div>
 
-<!-- PAGE ALERTES -->
-<div id="page-alertes" class="page">
-  <div class="page-hero">
-    <div class="page-hero-eyebrow">✦ NE MANQUEZ PLUS AUCUNE OFFRE ✦</div>
-    <div class="page-hero-title">Alertes <em>prix personnalisées</em></div>
-    <div class="page-hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
-    <div class="page-hero-sub">Soyez notifié dès que le prix passe sous votre budget</div>
-  </div>
-  <div class="stats-row">
-    <div class="stat-card"><div class="stat-val" id="statNb">3</div><div class="stat-label">ALERTES ACTIVES</div></div>
-    <div class="stat-card"><div class="stat-val">€ 47</div><div class="stat-label">ÉCONOMIES RÉALISÉES</div></div>
-    <div class="stat-card"><div class="stat-val">1</div><div class="stat-label">OFFRE DÉCLENCHÉE</div></div>
-  </div>
-  <div class="section" style="padding-top:0;"><div class="section-title">Créer une alerte</div></div>
-  <div class="form-card" style="margin-top:0;">
-    <div class="form-grid">
-      <div class="form-group"><div class="form-label">Parfum</div>
-        <select class="form-select" id="selParfum">
-          <option>Dior Sauvage EDP</option><option>Chanel N°5 EDP</option><option>YSL Black Opium</option>
-          <option>Guerlain Mon Guerlain</option><option>Paco Rabanne 1 Million</option><option>Le Labo Santal 33</option>
-        </select>
-      </div>
-      <div class="form-group"><div class="form-label">Volume</div>
-        <select class="form-select"><option>50 ml</option><option>100 ml</option><option>200 ml</option></select>
-      </div>
-      <div class="form-group full"><div class="form-label">Prix cible</div>
-        <div class="price-input-wrap"><span>€</span><input type="number" placeholder="Ex : 75" id="prixCible"/></div>
-      </div>
-      <div class="form-group full"><div class="form-label">Email</div>
-        <input class="form-input" type="email" placeholder="votre@email.com" id="emailInp"/>
-      </div>
-      <div class="form-group full"><div class="form-label">Notification via</div>
-        <div class="notif-options">
-          <label class="notif-opt on" id="opt-email"><i class="ti ti-mail"></i><span class="notif-opt-txt">Email</span></label>
-          <label class="notif-opt" id="opt-sms"><i class="ti ti-device-mobile"></i><span class="notif-opt-txt">SMS</span></label>
-          <label class="notif-opt" id="opt-push"><i class="ti ti-bell"></i><span class="notif-opt-txt">Push</span></label>
-        </div>
-      </div>
-    </div>
-    <button class="submit-btn" onclick="creerAlerte()"><i class="ti ti-bell"></i> CRÉER MON ALERTE</button>
-  </div>
-  <div class="section" style="padding-top:0;"><div class="section-title">Mes alertes actives</div></div>
-  <div class="alerte-list" id="alerteList"></div>
-  <div class="toast" id="toastAlerte"></div>
-  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a href="#">Contact</a><a onclick="showPage('politique')">Confidentialité</a></div></div>
-</div>
 
-<!-- PAGE CHATBOT -->
-<div id="page-chatbot" class="page">
-  <div class="chat-hero">
-    <div class="bot-avatar"><i class="ti ti-sparkles"></i></div>
-    <div>
-      <div class="bot-name">Iris — Conseillère IA</div>
-      <div class="bot-status"><div class="status-dot"></div><div class="status-txt">EN LIGNE · RÉPOND EN QUELQUES SECONDES</div></div>
-    </div>
-    <div class="bot-badge"><i class="ti ti-diamond" style="font-size:10px"></i> IA PRESTIGE</div>
-  </div>
-  <div class="suggestions">
-    <button class="sug-btn" onclick="sendSug(this)">Quel parfum pour offrir ?</button>
-    <button class="sug-btn" onclick="sendSug(this)">Parfum floral femme</button>
-    <button class="sug-btn" onclick="sendSug(this)">Meilleure offre du moment</button>
-    <button class="sug-btn" onclick="sendSug(this)">Parfum boisé homme</button>
-    <button class="sug-btn" onclick="sendSug(this)">Budget 70€ max</button>
-    <button class="sug-btn" onclick="sendSug(this)">Différence EDP et EDT ?</button>
-  </div>
-  <div class="chat-window" id="chatWindow"></div>
-  <div class="chat-input-bar">
-    <input class="chat-input" id="chatInput" type="text" placeholder="Posez votre question à Iris..."/>
-    <button class="send-btn" onclick="sendMsg()"><i class="ti ti-send"></i></button>
-  </div>
-  <div class="powered">✦ Propulsé par l'intelligence artificielle · ScentFinder 2025</div>
-</div>
 
 <!-- PAGE À PROPOS -->
 <div id="page-apropos" class="page">
@@ -841,14 +743,51 @@ const top10=[
   {rank:9,img:"https://img01.ztat.net/article/spp-media-p1/114b06c8786f4c01b41b40d6bc71ba22/48739a49670d4139996caa49024a4cdf.jpg?imwidth=1800&filter=packshot",brand:"Maison Margiela",name:"Jazz Club",vol:"100ml",cat:"mixte",url:"https://amzn.to/4eCXH2X",shop:"Amazon",price:159.90,orig:185,hot:false},
 ];
 const marques=[
-  {nom:"Dior",cat:"homme",prestige:true,parfums:[{emoji:"🧴",nom:"Sauvage EDP",vol:"100ml",price:87.00,orig:110,eco:21,promo:"AMZ12"},{emoji:"🌿",nom:"Fahrenheit",vol:"100ml",price:72.00,orig:90,eco:20,promo:"SEPH20"}]},
-  {nom:"Chanel",cat:"femme",prestige:true,parfums:[{emoji:"🌸",nom:"N°5 EDP",vol:"50ml",price:99.90,orig:120,eco:17,promo:"FEEL25"},{emoji:"🌺",nom:"Coco Mademoiselle",vol:"100ml",price:118.00,orig:145,eco:19,promo:"SEPH20"}]},
-  {nom:"YSL",cat:"femme",prestige:true,parfums:[{emoji:"☕",nom:"Black Opium",vol:"90ml",price:72.00,orig:95,eco:24,promo:"AMZ12"},{emoji:"🌙",nom:"Libre EDP",vol:"50ml",price:84.00,orig:105,eco:20,promo:"NOCI15"}]},
-  {nom:"Guerlain",cat:"femme",prestige:true,parfums:[{emoji:"💜",nom:"Mon Guerlain",vol:"50ml",price:68.00,orig:88,eco:23,promo:"MARIO10"},{emoji:"🍯",nom:"Shalimar",vol:"90ml",price:78.00,orig:98,eco:20,promo:"FEEL25"}]},
-  {nom:"Paco Rabanne",cat:"homme",prestige:false,parfums:[{emoji:"💰",nom:"1 Million",vol:"100ml",price:64.90,orig:85,eco:24,promo:"AMZ12"},{emoji:"👽",nom:"Invictus",vol:"100ml",price:59.00,orig:78,eco:24,promo:"NOCI15"}]},
-  {nom:"Hermès",cat:"homme",prestige:true,parfums:[{emoji:"🍊",nom:"Terre d'Hermès",vol:"100ml",price:92.00,orig:115,eco:20,promo:"SEPH20"},{emoji:"🌿",nom:"H24",vol:"100ml",price:88.00,orig:110,eco:20,promo:"FEEL25"}]},
-  {nom:"Le Labo",cat:"niche",prestige:true,parfums:[{emoji:"🪵",nom:"Santal 33",vol:"50ml",price:185.00,orig:220,eco:16,promo:"FEEL25"},{emoji:"🌹",nom:"Rose 31",vol:"50ml",price:175.00,orig:210,eco:17,promo:"FEEL25"}]},
-  {nom:"Maison Margiela",cat:"mixte",prestige:true,parfums:[{emoji:"🎷",nom:"Jazz Club",vol:"100ml",price:139.00,orig:160,eco:13,promo:"FEEL25"},{emoji:"☁️",nom:"Lazy Sunday Morning",vol:"100ml",price:135.00,orig:160,eco:16,promo:"SEPH20"}]},
+  {nom:"Azzaro",cat:"homme",prestige:false,parfums:[
+    {emoji:"💫",nom:"The Most Wanted EDP Intense",vol:"100ml",price:69.90,orig:78.29,eco:11},
+    {emoji:"💫",nom:"The Most Wanted Parfum",vol:"50ml",price:46.13,orig:59.90,eco:23},
+    {emoji:"💫",nom:"Wanted EDT",vol:"100ml",price:64.50,orig:72.75,eco:11},
+    {emoji:"💫",nom:"Chrome EDT",vol:"100ml",price:54.90,orig:56.49,eco:3},
+    {emoji:"💫",nom:"Wanted Forever Elixir",vol:"50ml",price:69.90,orig:99.95,eco:30},
+    {emoji:"💫",nom:"The Most Wanted EDT Intense",vol:"50ml",price:49.90,orig:97.90,eco:49},
+    {emoji:"💫",nom:"Pour Homme EDT",vol:"100ml",price:49.19,orig:49.19,eco:0},
+    {emoji:"💫",nom:"Sport EDT",vol:"75ml",price:31.23,orig:31.23,eco:0},
+    {emoji:"💫",nom:"Pour Elle EDP",vol:"100ml",price:39.00,orig:39.00,eco:0},
+  ]},
+  {nom:"Giorgio Armani",cat:"homme",prestige:true,parfums:[
+    {emoji:"💧",nom:"Acqua di Giò EDT",vol:"50ml",price:54.90,orig:54.90,eco:0},
+    {emoji:"💧",nom:"Acqua di Giò EDP",vol:"50ml",price:66.50,orig:66.50,eco:0},
+    {emoji:"💧",nom:"Acqua di Giò Profondo EDP",vol:"50ml",price:64.90,orig:64.90,eco:0},
+    {emoji:"💧",nom:"Acqua di Giò Profondo EDT",vol:"50ml",price:54.50,orig:54.50,eco:0},
+    {emoji:"🖤",nom:"Code EDT",vol:"50ml",price:54.90,orig:54.90,eco:0},
+    {emoji:"🖤",nom:"Code EDP",vol:"50ml",price:64.90,orig:64.90,eco:0},
+    {emoji:"💪",nom:"Stronger With You EDT",vol:"50ml",price:56.50,orig:56.50,eco:0},
+    {emoji:"💪",nom:"Stronger With You Intensely",vol:"50ml",price:54.90,orig:54.90,eco:0},
+    {emoji:"💪",nom:"Stronger With You Parfum",vol:"100ml",price:94.90,orig:94.90,eco:0},
+  ]},
+  {nom:"Xerjoff",cat:"niche",prestige:true,parfums:[
+    {emoji:"✨",nom:"V Coro EPV",vol:"100ml",price:310.00,orig:310.00,eco:0},
+    {emoji:"✨",nom:"Alexandria II",vol:"100ml",price:545.00,orig:545.00,eco:0},
+    {emoji:"✨",nom:"Naxos",vol:"100ml",price:245.00,orig:245.00,eco:0},
+    {emoji:"✨",nom:"More Than Words",vol:"100ml",price:290.00,orig:290.00,eco:0},
+    {emoji:"✨",nom:"Erba Pura V",vol:"100ml",price:245.00,orig:245.00,eco:0},
+  ]},
+  {nom:"Maison Margiela",cat:"mixte",prestige:true,parfums:[
+    {emoji:"🎷",nom:"Jazz Club",vol:"100ml",price:149.00,orig:159.90,eco:7},
+  ]},
+  {nom:"Hermès",cat:"homme",prestige:true,parfums:[
+    {emoji:"🍊",nom:"Terre d'Hermès Intense",vol:"100ml",price:97.95,orig:112.26,eco:13},
+  ]},
+  {nom:"Dolce & Gabbana",cat:"homme",prestige:false,parfums:[
+    {emoji:"🌿",nom:"The One EDT",vol:"30ml",price:53.18,orig:53.18,eco:0},
+  ]},
+  {nom:"Diesel",cat:"homme",prestige:false,parfums:[
+    {emoji:"💪",nom:"Only The Brave EDT",vol:"125ml",price:53.01,orig:66.00,eco:20},
+    {emoji:"🔊",nom:"Sound Of The Brave EDT",vol:"200ml",price:120.00,orig:120.00,eco:0},
+  ]},
+  {nom:"Guess",cat:"femme",prestige:false,parfums:[
+    {emoji:"🌸",nom:"Seductive EDT",vol:"75ml",price:24.90,orig:24.90,eco:0},
+  ]},
 ];
 let alertes=[
   {id:1,emoji:"🧴",brand:"Dior",name:"Sauvage EDP",vol:"100ml",current:87.00,target:80.00,triggered:false},
