@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>ScentFinder — Comparateur de Parfums de Prestige</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%234a0f1c'/%3E%3Cellipse cx='32' cy='32' rx='20' ry='24' fill='none' stroke='%23C9A84C' stroke-width='1.5'/%3E%3Ctext x='32' y='28' text-anchor='middle' font-family='Georgia,serif' font-size='14' font-weight='bold' fill='%234a0f1c' style='font-style:normal' letter-spacing='1'%3E%3Ctspan fill='%23C9A84C' font-size='17' dy='0'%3ES%3C/tspan%3E%3Ctspan fill='%23C9A84C' font-size='17' font-style='italic'%3EF%3C/tspan%3E%3C/text%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='6' fill='%23C9A84C' letter-spacing='2'%3ESCENTFINDER%3C/text%3E%3C/svg%3E"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%234a0f1c'/%3E%3Cellipse cx='32' cy='32' rx='20' ry='24' fill='none' stroke='%23C9A84C' stroke-width='1.5'/%3E%3Ctext x='32' y='37' text-anchor='middle' font-family='Georgia,serif' font-size='22' fill='%23C9A84C'%3ES%3Ctspan font-style='italic'%3EF%3C/tspan%3E%3C/text%3E%3C/svg%3E"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -40,11 +40,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .cat:hover:not(.on){border-color:var(--bx);color:var(--bx);}
 .section-hd{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem 0.6rem;}
 .section-hd h2{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--bx);}
-.section-hd span{font-size:10px;color:var(--or);cursor:pointer;letter-spacing:2px;}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem;padding:0 2rem;}
 .card{background:var(--cr);border:0.5px solid var(--orl);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform 0.15s;}
 .card:hover{transform:translateY(-3px);}
-.card-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--crd);position:relative;}
+.card-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:var(--crd);position:relative;}
 .best-badge{position:absolute;top:8px;left:8px;background:var(--bxd);color:var(--or);font-size:9px;padding:3px 8px;border-radius:50px;letter-spacing:1px;}
 .card-body{padding:0.8rem;}
 .card-brand{font-size:10px;color:var(--or);letter-spacing:2px;text-transform:uppercase;}
@@ -54,70 +53,28 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .price-row{display:flex;justify-content:space-between;align-items:center;padding:2px 0;}
 .shop-name{font-size:11px;color:#a08070;}
 .go-btn{width:100%;margin-top:8px;background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:6px;padding:0.5rem;font-size:11px;cursor:pointer;font-family:'Cormorant Garamond',serif;letter-spacing:2px;display:flex;align-items:center;justify-content:center;gap:5px;}
-.podium{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;padding:0 2rem;margin-bottom:1rem;}
-.podium-card{background:var(--cr);border:0.5px solid var(--orl);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform 0.15s;position:relative;}
-.podium-card:hover{transform:translateY(-2px);}
-.podium-card.gold{border:1.5px solid var(--or);}
-.podium-rank{position:absolute;top:8px;left:8px;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;}
-.rank-1{background:var(--or);color:var(--bxd);}
-.rank-2{background:#C0C0C0;color:#3a3a3a;}
-.rank-3{background:#CD7F32;color:#fff;}
-.podium-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:var(--crd);}
-.podium-body{padding:0.7rem;}
-.podium-brand{font-size:9px;color:var(--or);letter-spacing:2px;}
-.podium-name{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--bx);}
-.podium-eco{font-size:10px;color:#2d8a4e;margin-top:3px;}
-.podium-price{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--bx);margin-top:4px;}
-.podium-old{font-size:10px;text-decoration:line-through;color:#b0907a;}
-.badge-diamant{display:inline-flex;align-items:center;gap:3px;background:var(--bxd);border:1px solid var(--or);color:var(--or);font-family:'Cormorant Garamond',serif;font-size:9px;padding:2px 7px 2px 5px;border-radius:50px;letter-spacing:1px;}
-.top-list{display:flex;flex-direction:column;gap:0.6rem;padding:0 2rem;}
-.top-row{background:var(--cr);border:0.5px solid var(--orl);border-radius:12px;padding:0.85rem 1rem;display:flex;align-items:center;gap:1rem;cursor:pointer;transition:transform 0.12s;}
-.top-row:hover{transform:translateX(3px);}
-.top-row.hot{border-color:var(--or);background:#fdf6e8;}
-.top-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--orl);min-width:28px;text-align:center;}
-.top-num.hot-num{color:var(--or);}
-.top-img{width:44px;height:44px;background:var(--crd);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:0.5px solid var(--orl);flex-shrink:0;}
-.top-info{flex:1;min-width:0;}
-.top-brand{font-size:9px;color:var(--or);letter-spacing:2px;}
-.top-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--bx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.top-shop{font-size:10px;color:#a08070;}
-.top-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
-.top-price{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--bx);}
-.top-old{font-size:10px;text-decoration:line-through;color:#b0907a;}
-.top-btn{background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:6px;padding:4px 10px;font-size:10px;cursor:pointer;letter-spacing:1px;}
-.form-card{background:var(--cr);border:0.5px solid var(--orl);border-radius:14px;padding:1.5rem;margin:1.2rem 2rem;}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
-.form-group{display:flex;flex-direction:column;gap:5px;}
-.form-group.full{grid-column:1/-1;}
-.form-label{font-size:10px;color:var(--or);letter-spacing:2px;text-transform:uppercase;}
-.form-input{background:var(--crd);border:0.5px solid var(--orl);border-radius:8px;padding:0.6rem 0.9rem;font-size:13px;color:var(--bx);font-family:'DM Sans',sans-serif;outline:none;}
-.form-input:focus{border-color:var(--or);}
-.form-select{background:var(--crd);border:0.5px solid var(--orl);border-radius:8px;padding:0.6rem 0.9rem;font-size:13px;color:var(--bx);font-family:'DM Sans',sans-serif;outline:none;cursor:pointer;}
-.price-input-wrap{display:flex;align-items:center;gap:6px;background:var(--crd);border:0.5px solid var(--orl);border-radius:8px;padding:0.6rem 0.9rem;}
-.price-input-wrap span{font-size:13px;color:#a08070;}
-.price-input-wrap input{background:transparent;border:none;outline:none;font-size:13px;color:var(--bx);font-family:'DM Sans',sans-serif;width:100%;}
-.submit-btn{width:100%;background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:8px;padding:0.75rem;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:2px;cursor:pointer;margin-top:1rem;display:flex;align-items:center;justify-content:center;gap:8px;}
-.alerte-list{display:flex;flex-direction:column;gap:0.6rem;padding:0 2rem;}
-.alerte-card{background:var(--cr);border:0.5px solid var(--orl);border-radius:12px;padding:0.9rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
-.alerte-card.triggered{border-color:var(--or);background:#fdf6e8;}
-.alerte-left{display:flex;align-items:center;gap:10px;}
-.alerte-img{width:42px;height:42px;background:var(--crd);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:0.5px solid var(--orl);}
-.alerte-brand{font-size:10px;color:var(--or);letter-spacing:2px;}
-.alerte-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--bx);}
-.alerte-vol{font-size:11px;color:#a08070;}
-.alerte-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
-.alerte-target{font-size:10px;color:#a08070;letter-spacing:1px;}
-.alerte-current{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--bx);}
-.alerte-badge-ok{font-size:9px;background:var(--or);color:var(--bxd);padding:2px 8px;border-radius:50px;font-weight:600;letter-spacing:1px;}
-.alerte-del{background:transparent;border:0.5px solid #e0c8c8;color:#c09090;border-radius:6px;padding:3px 8px;font-size:11px;cursor:pointer;margin-top:4px;}
-.progress-bar-wrap{width:100px;margin-top:4px;}
-.progress-bar{height:3px;background:var(--orl);border-radius:2px;overflow:hidden;}
-.progress-fill{height:100%;background:var(--or);border-radius:2px;}
-.progress-txt{font-size:9px;color:#a08070;margin-top:2px;text-align:right;}
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin:0 2rem 1.2rem;}
-.stat-card{background:var(--crd);border-radius:10px;padding:0.8rem;text-align:center;}
-.stat-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--bx);}
-.stat-label{font-size:10px;color:#a08070;letter-spacing:1px;margin-top:2px;}
+.section{padding:1.5rem 2rem;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--bx);margin-bottom:1rem;display:flex;align-items:center;gap:8px;}
+.section-title::after{content:'';flex:1;height:0.5px;background:var(--orl);}
+.page-hero{background:var(--bxd);padding:2rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.6rem;}
+.page-hero-eyebrow{font-size:9px;color:var(--or);letter-spacing:5px;}
+.page-hero-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--cr);font-weight:400;}
+.page-hero-title em{color:var(--or);font-style:italic;}
+.page-hero-divider{display:flex;align-items:center;gap:8px;width:160px;}
+.page-hero-divider span{flex:1;height:0.5px;background:var(--or);opacity:0.4;}
+.page-hero-sub{font-size:11px;color:#a08070;letter-spacing:1px;}
+.filters-bar{padding:1rem 2rem 0.5rem;display:flex;gap:0.5rem;overflow-x:auto;scrollbar-width:none;}
+.f-btn{white-space:nowrap;padding:0.35rem 0.85rem;border-radius:50px;border:0.5px solid var(--orl);background:transparent;font-size:11px;cursor:pointer;color:#8a6050;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
+.f-btn.on{background:var(--bx);border-color:var(--bx);color:var(--cr);}
+.f-btn:hover:not(.on){border-color:var(--bx);color:var(--bx);}
+.toast{background:var(--bxd);color:var(--or);padding:0.5rem 1.4rem;border-radius:50px;font-size:12px;text-align:center;margin:0.5rem 2rem;display:none;font-family:'Cormorant Garamond',serif;letter-spacing:1px;border:0.5px solid var(--or);}
+.toast.show{display:block;}
+.footer{background:var(--bxd);padding:1.2rem 2rem;margin-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--or);letter-spacing:4px;}
+.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;}
+.footer-links a{font-size:11px;color:#8a6070;text-decoration:none;letter-spacing:1px;cursor:pointer;}
+.footer-links a:hover{color:var(--or);}
+.count-bar{padding:0.5rem 2rem;font-size:11px;color:#a08070;letter-spacing:1px;}
 .marques-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;padding:0 2rem;}
 .marque-card{background:var(--cr);border:0.5px solid var(--orl);border-radius:14px;overflow:hidden;transition:transform 0.15s;}
 .marque-card:hover{transform:translateY(-2px);}
@@ -125,7 +82,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .marque-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--cr);letter-spacing:2px;}
 .marque-cat{font-size:9px;color:var(--or);letter-spacing:2px;margin-top:2px;}
 .marque-badge{font-size:9px;background:transparent;border:1px solid var(--or);color:var(--or);padding:3px 9px;border-radius:50px;letter-spacing:1px;font-family:'Cormorant Garamond',serif;}
-.marque-badge.prestige{background:var(--or);color:var(--bxd);border-color:var(--or);}
+.marque-badge.prestige{background:var(--or);color:var(--bxd);}
 .marque-body{padding:0.9rem 1.2rem;}
 .marque-stats{display:flex;gap:1rem;margin-bottom:0.75rem;}
 .marque-stat-val{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--bx);}
@@ -138,46 +95,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .parfum-right{display:flex;align-items:center;gap:6px;}
 .parfum-price{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--bx);}
 .parfum-eco{font-size:10px;color:#2d8a4e;font-weight:500;}
-.parfum-btn{background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:5px;padding:3px 8px;font-size:10px;cursor:pointer;letter-spacing:1px;}
-.chat-hero{background:var(--bxd);padding:1.2rem 2rem;display:flex;align-items:center;gap:1rem;}
-.bot-avatar{width:48px;height:48px;border-radius:50%;background:var(--bx);border:1.5px solid var(--or);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.bot-avatar i{font-size:22px;color:var(--or);}
-.bot-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--cr);letter-spacing:1px;}
-.bot-status{display:flex;align-items:center;gap:5px;margin-top:2px;}
-.status-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;}
-.status-txt{font-size:10px;color:#a08070;letter-spacing:1px;}
-.bot-badge{margin-left:auto;background:transparent;border:1px solid var(--or);color:var(--or);font-size:9px;padding:3px 9px;border-radius:50px;font-family:'Cormorant Garamond',serif;letter-spacing:1px;display:flex;align-items:center;gap:4px;}
-.suggestions{padding:0.75rem 2rem;display:flex;gap:0.5rem;overflow-x:auto;scrollbar-width:none;border-bottom:0.5px solid var(--orl);}
-.sug-btn{white-space:nowrap;padding:0.35rem 0.9rem;border-radius:50px;border:0.5px solid var(--orl);background:var(--crd);font-size:11px;cursor:pointer;color:var(--bx);font-family:'DM Sans',sans-serif;transition:all 0.15s;flex-shrink:0;}
-.sug-btn:hover{background:var(--bx);color:var(--or);border-color:var(--bx);}
-.chat-window{height:420px;overflow-y:auto;padding:1.2rem 2rem;display:flex;flex-direction:column;gap:1rem;scrollbar-width:thin;}
-.msg{display:flex;gap:8px;align-items:flex-end;max-width:85%;}
-.msg.bot{align-self:flex-start;}
-.msg.user{align-self:flex-end;flex-direction:row-reverse;}
-.msg-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.msg-avatar.bot{background:var(--bxd);border:1px solid var(--or);}
-.msg-avatar.bot i{font-size:14px;color:var(--or);}
-.msg-avatar.user{background:var(--bx);}
-.msg-avatar.user i{font-size:14px;color:var(--or);}
-.msg-bubble{padding:0.7rem 1rem;border-radius:14px;font-size:13px;line-height:1.6;}
-.msg-bubble.bot{background:var(--cr);border:0.5px solid var(--orl);color:var(--bx);border-bottom-left-radius:4px;}
-.msg-bubble.user{background:var(--bx);color:var(--or);border-bottom-right-radius:4px;}
-.msg-time{font-size:10px;color:#b4a890;margin-top:3px;}
-.parfum-suggest{background:var(--crd);border:0.5px solid var(--orl);border-radius:10px;padding:0.7rem;margin-top:6px;display:flex;align-items:center;gap:8px;cursor:pointer;}
-.ps-name{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--bx);}
-.ps-price{font-size:11px;color:var(--or);font-weight:500;}
-.ps-btn{margin-left:auto;background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:5px;padding:3px 8px;font-size:10px;cursor:pointer;letter-spacing:1px;white-space:nowrap;}
-.typing{display:flex;align-items:center;gap:4px;padding:0.6rem 1rem;background:var(--cr);border:0.5px solid var(--orl);border-radius:14px;border-bottom-left-radius:4px;width:fit-content;}
-.typing span{width:6px;height:6px;border-radius:50%;background:var(--orl);animation:bounce 1.2s infinite;}
-.typing span:nth-child(2){animation-delay:0.2s;}
-.typing span:nth-child(3){animation-delay:0.4s;}
-@keyframes bounce{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-6px);}}
-.chat-input-bar{border-top:0.5px solid var(--orl);padding:0.75rem 2rem;display:flex;gap:0.75rem;align-items:center;background:var(--cr);}
-.chat-input{flex:1;background:var(--crd);border:0.5px solid var(--orl);border-radius:50px;padding:0.6rem 1.1rem;font-size:13px;color:var(--bx);font-family:'DM Sans',sans-serif;outline:none;}
-.chat-input:focus{border-color:var(--or);}
-.chat-input::placeholder{color:#b4a890;}
-.send-btn{background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
-.powered{text-align:center;padding:0.5rem;font-size:10px;color:#b4a890;letter-spacing:1px;border-top:0.5px solid var(--orl);}
 .manifeste{background:var(--bxd);border-radius:16px;padding:2rem;margin:0 2rem;position:relative;overflow:hidden;}
 .manifeste-deco{position:absolute;font-family:'Cormorant Garamond',serif;font-size:8rem;color:var(--or);opacity:0.06;top:-10px;left:10px;line-height:1;}
 .manifeste-txt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--orl);line-height:1.9;position:relative;}
@@ -206,36 +123,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .faq-q.open i{transform:rotate(180deg);}
 .faq-a{padding:0 1rem 0.9rem;font-size:12px;color:#8a6050;line-height:1.7;display:none;}
 .faq-a.show{display:block;}
-.section{padding:1.5rem 2rem;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--bx);margin-bottom:1rem;display:flex;align-items:center;gap:8px;}
-.section-title::after{content:'';flex:1;height:0.5px;background:var(--orl);}
-.page-hero{background:var(--bxd);padding:2rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.6rem;}
-.page-hero-eyebrow{font-size:9px;color:var(--or);letter-spacing:5px;}
-.page-hero-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--cr);font-weight:400;}
-.page-hero-title em{color:var(--or);font-style:italic;}
-.page-hero-divider{display:flex;align-items:center;gap:8px;width:160px;}
-.page-hero-divider span{flex:1;height:0.5px;background:var(--or);opacity:0.4;}
-.page-hero-sub{font-size:11px;color:#a08070;letter-spacing:1px;}
-.filters-bar{padding:1rem 2rem 0.5rem;display:flex;gap:0.5rem;overflow-x:auto;scrollbar-width:none;}
-.f-btn{white-space:nowrap;padding:0.35rem 0.85rem;border-radius:50px;border:0.5px solid var(--orl);background:transparent;font-size:11px;cursor:pointer;color:#8a6050;font-family:'DM Sans',sans-serif;transition:all 0.15s;}
-.f-btn.on{background:var(--bx);border-color:var(--bx);color:var(--cr);}
-.toast{background:var(--bxd);color:var(--or);padding:0.5rem 1.4rem;border-radius:50px;font-size:12px;text-align:center;margin:0.5rem 2rem;display:none;font-family:'Cormorant Garamond',serif;letter-spacing:1px;border:0.5px solid var(--or);}
-.toast.show{display:block;}
-.footer{background:var(--bxd);padding:1.2rem 2rem;margin-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}
-.footer-logo{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--or);letter-spacing:4px;}
-.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;}
-.footer-links a{font-size:11px;color:#8a6070;text-decoration:none;letter-spacing:1px;cursor:pointer;}
 .cta-section{background:var(--bxd);padding:2rem;margin-top:1rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem;}
 .cta-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--cr);}
 .cta-title em{color:var(--or);font-style:italic;}
 .cta-btn{background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:8px;padding:0.75rem 2rem;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:2px;cursor:pointer;display:flex;align-items:center;gap:8px;}
-.notif-options{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:4px;}
-.notif-opt{display:flex;align-items:center;gap:6px;background:var(--crd);border:0.5px solid var(--orl);border-radius:8px;padding:0.5rem 0.9rem;cursor:pointer;transition:all 0.15s;}
-.notif-opt.on{background:var(--bxd);border-color:var(--bxd);}
-.notif-opt-txt{font-size:12px;color:var(--bx);}
-.notif-opt.on .notif-opt-txt{color:var(--or);}
-.notif-opt i{font-size:15px;color:var(--or);}
-.count-bar{padding:0.5rem 2rem;font-size:11px;color:#a08070;letter-spacing:1px;}
 .rgpd-content{padding:2rem;max-width:800px;margin:0 auto;}
 .rgpd-content h2{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--bx);margin:1.5rem 0 0.75rem;padding-bottom:0.4rem;border-bottom:0.5px solid var(--orl);}
 .rgpd-content p{font-size:13px;color:#6a4a40;line-height:1.8;margin-bottom:0.75rem;}
@@ -244,8 +135,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .rgpd-content strong{color:var(--bx);}
 .rgpd-content a{color:var(--or);text-decoration:none;}
 .rgpd-date{font-size:11px;color:#a08070;letter-spacing:1px;margin-bottom:1.5rem;}
-
-/* ═══ PAGE DÉTAIL PARFUM ═══ */
+/* DETAIL */
 #page-detail{background:var(--cr);}
 .detail-hero{background:var(--bxd);position:relative;overflow:hidden;}
 .detail-back{position:absolute;top:1rem;left:1.5rem;background:transparent;border:0.5px solid rgba(201,168,76,0.4);color:var(--or);padding:0.4rem 1rem;border-radius:50px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:6px;z-index:10;}
@@ -258,44 +148,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
 .detail-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--cr);line-height:1.1;margin-top:6px;}
 .detail-vol{font-size:12px;color:#a08070;letter-spacing:2px;margin-top:4px;}
 .detail-price-big{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--or);margin-top:1rem;}
-.detail-buy-btn{margin-top:1rem;background:var(--or);color:var(--bxd);border:none;border-radius:8px;padding:0.75rem 2rem;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:2px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-weight:600;}
-.detail-buy-btn:hover{opacity:0.9;}
-
-/* Notes olfactives scroll */
-.notes-section{padding:0;}
-.note-block{display:flex;gap:0;min-height:420px;}
-.note-block:nth-child(even) .note-text-side{order:2;}
-.note-block:nth-child(even) .note-img-side{order:1;}
-.note-text-side{flex:1;padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:center;}
-.note-img-side{flex:1;position:relative;overflow:hidden;min-height:380px;}
-.note-img-side img{width:100%;height:100%;object-fit:cover;}
-.note-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(74,15,28,0.3),transparent);}
-.note-phase-tag{display:inline-flex;align-items:center;gap:6px;background:var(--bxd);color:var(--or);font-size:9px;padding:4px 12px;border-radius:50px;letter-spacing:3px;margin-bottom:1rem;border:0.5px solid rgba(201,168,76,0.4);}
-.note-phase-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--bx);margin-bottom:0.5rem;}
-.note-phase-sub{font-size:12px;color:#a08070;letter-spacing:2px;margin-bottom:1.2rem;}
-.note-desc{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--bx);line-height:1.9;margin-bottom:1.5rem;}
-.note-ingredients{display:flex;flex-wrap:wrap;gap:0.5rem;}
-.note-ingr-tag{background:var(--crd);border:0.5px solid var(--orl);border-radius:50px;padding:4px 12px;font-size:11px;color:var(--bx);}
-
-/* Ingr carousel */
-.ingr-showcase{background:var(--bxd);padding:3rem 2rem;text-align:center;}
-.ingr-showcase-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--cr);margin-bottom:0.5rem;}
-.ingr-showcase-sub{font-size:11px;color:#a08070;letter-spacing:2px;margin-bottom:2rem;}
-.ingr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem;}
-.ingr-item{background:rgba(255,255,255,0.05);border:0.5px solid rgba(201,168,76,0.3);border-radius:12px;overflow:hidden;transition:transform 0.2s;}
-.ingr-item:hover{transform:translateY(-4px);}
-.ingr-item-img{height:110px;overflow:hidden;}
-.ingr-item-img img{width:100%;height:100%;object-fit:cover;}
-.ingr-item-name{font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:var(--or);padding:0.6rem 0.5rem;letter-spacing:1px;}
-
-/* CTA achat */
-.detail-cta{background:var(--cr);padding:3rem 2rem;text-align:center;border-top:0.5px solid var(--orl);}
-.detail-cta-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--bx);margin-bottom:0.5rem;}
-.detail-cta-sub{font-size:12px;color:#a08070;letter-spacing:1px;margin-bottom:1.5rem;}
-.detail-cta-price{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--bx);margin-bottom:1.5rem;}
-.detail-cta-btn{background:var(--bx);color:var(--or);border:1px solid var(--or);border-radius:8px;padding:1rem 3rem;font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:3px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;}
-
-/* Loading skeleton dans detail */
 .detail-loading{padding:4rem 2rem;text-align:center;}
 .detail-loading-spinner{width:40px;height:40px;border:2px solid var(--orl);border-top-color:var(--or);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 1rem;}
 @keyframes spin{to{transform:rotate(360deg);}}
@@ -332,16 +184,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     <button class="cat" data-c="mixte">Mixte</button>
     <button class="cat" data-c="niche">Niche</button>
   </div>
-  <div class="section-hd"><h2>Meilleures offres du moment</h2><span onclick="showPage('top10')">VOIR TOUT →</span></div>
+  <div class="section-hd"><h2>Meilleures offres du moment</h2></div>
   <div class="grid" id="gridAccueil"></div>
   <div class="toast" id="toastAccueil"></div>
   <div class="footer">
     <div class="footer-logo">✦ SCENTFINDER</div>
     <div class="footer-links">
-      <a onclick="showPage('apropos')">À propos</a><a href="#">Affiliation</a><a href="#">Contact</a>
-      <a onclick="showPage('mentions')">Mentions Légales</a><a onclick="showPage('politique')">Confidentialité</a>
+      <a onclick="showPage('apropos')">À propos</a>
+      <a href="#">Contact</a>
+      <a onclick="showPage('mentions')">Mentions Légales</a>
+      <a onclick="showPage('politique')">Confidentialité</a>
+    </div>
+  </div>
+</div>
 
-<!-- PAGE DETAIL PARFUM -->
+<!-- PAGE DETAIL -->
 <div id="page-detail" class="page">
   <div id="detail-content"></div>
 </div>
@@ -360,26 +217,25 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
         <input type="text" id="searchMarque" placeholder="Rechercher une marque..." style="background:transparent;border:none;outline:none;font-size:13px;color:var(--bx);font-family:'DM Sans',sans-serif;flex:1;"/>
       </div>
       <select id="sortMarque" style="background:var(--crd);border:0.5px solid var(--orl);border-radius:50px;padding:0.55rem 1rem;font-size:12px;color:var(--bx);font-family:'DM Sans',sans-serif;outline:none;cursor:pointer;">
-        <option value="eco">Meilleure remise</option><option value="price">Prix croissant</option><option value="alpha">A → Z</option>
+        <option value="alpha">A → Z</option>
+        <option value="price">Prix croissant</option>
       </select>
     </div>
-    <div class="section-title">Catégorie</div>
     <div class="filters-bar" id="filterMarqueCat" style="padding:0 0 0.75rem;">
-      <button class="f-btn on" data-c="all">Toutes</button><button class="f-btn" data-c="homme">Homme</button>
-      <button class="f-btn" data-c="femme">Femme</button><button class="f-btn" data-c="mixte">Mixte</button><button class="f-btn" data-c="niche">Niche</button>
-    </div>
-    <div class="section-title">Gamme de prix</div>
-    <div class="filters-bar" id="filterMarquePrix" style="padding:0 0 0.75rem;">
-      <button class="f-btn on" data-p="all">Tous</button><button class="f-btn" data-p="0-80">Moins de 80€</button>
-      <button class="f-btn" data-p="80-150">80€ – 150€</button><button class="f-btn" data-p="150+">Plus de 150€</button>
+      <button class="f-btn on" data-c="all">Toutes</button>
+      <button class="f-btn" data-c="homme">Homme</button>
+      <button class="f-btn" data-c="femme">Femme</button>
+      <button class="f-btn" data-c="mixte">Mixte</button>
+      <button class="f-btn" data-c="niche">Niche</button>
     </div>
   </div>
   <div class="count-bar" id="countMarque"></div>
   <div class="marques-grid" id="marqGrid"></div>
-  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a href="#">Contact</a><a onclick="showPage('politique')">Confidentialité</a></div></div>
+  <div class="footer">
+    <div class="footer-logo">✦ SCENTFINDER</div>
+    <div class="footer-links"><a onclick="showPage('accueil')">Accueil</a><a onclick="showPage('politique')">Confidentialité</a></div>
+  </div>
 </div>
-
-
 
 <!-- PAGE À PROPOS -->
 <div id="page-apropos" class="page">
@@ -389,20 +245,24 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     <div class="page-hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
     <div class="page-hero-sub">Le comparateur de référence pour les parfums de prestige</div>
   </div>
-  <div class="section"><div class="section-title">Notre manifeste</div>
-    <div class="manifeste"><div class="manifeste-deco">"</div>
+  <div class="section">
+    <div class="section-title">Notre manifeste</div>
+    <div class="manifeste">
+      <div class="manifeste-deco">"</div>
       <div class="manifeste-txt">Le luxe ne devrait pas être un privilège réservé à quelques-uns.<br><br>Chez <em>ScentFinder</em>, nous croyons que chaque personne mérite d'accéder aux plus grands parfums au <em>meilleur prix possible</em>.</div>
       <div class="manifeste-sign">— L'équipe ScentFinder, Paris 2025</div>
     </div>
   </div>
-  <div class="section" style="padding-top:0;"><div class="section-title">En chiffres</div>
+  <div class="section" style="padding-top:0;">
+    <div class="section-title">En chiffres</div>
     <div class="chiffres">
       <div class="chiffre-card"><div class="chiffre-val">500+</div><div class="chiffre-lbl">PARFUMS RÉFÉRENCÉS</div></div>
       <div class="chiffre-card"><div class="chiffre-val">12</div><div class="chiffre-lbl">BOUTIQUES PARTENAIRES</div></div>
       <div class="chiffre-card"><div class="chiffre-val">€ 47</div><div class="chiffre-lbl">ÉCONOMIE MOYENNE</div></div>
     </div>
   </div>
-  <div class="section" style="padding-top:0;"><div class="section-title">Nos valeurs</div>
+  <div class="section" style="padding-top:0;">
+    <div class="section-title">Nos valeurs</div>
     <div class="valeurs">
       <div class="valeur-card"><div class="valeur-icon"><i class="ti ti-shield-check"></i></div><div class="valeur-title">Transparence</div><div class="valeur-txt">Chaque offre est vérifiée et certifiée avant publication.</div></div>
       <div class="valeur-card"><div class="valeur-icon"><i class="ti ti-diamond"></i></div><div class="valeur-title">Qualité</div><div class="valeur-txt">Uniquement des parfums authentiques issus de boutiques officielles.</div></div>
@@ -410,25 +270,33 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
       <div class="valeur-card"><div class="valeur-icon"><i class="ti ti-heart"></i></div><div class="valeur-title">Passion</div><div class="valeur-txt">Une équipe de passionnés de parfumerie.</div></div>
     </div>
   </div>
-  <div class="section" style="padding-top:0;"><div class="section-title">L'équipe</div>
+  <div class="section" style="padding-top:0;">
+    <div class="section-title">L'équipe</div>
     <div class="equipe">
       <div class="membre-card"><div class="membre-avatar">N</div><div class="membre-nom">Nils</div><div class="membre-role">FONDATEUR</div><div class="membre-bio">Passionné de parfums et de tech, il a créé ScentFinder pour démocratiser l'accès au luxe.</div></div>
       <div class="membre-card"><div class="membre-avatar">SA</div><div class="membre-nom">Sophie A.</div><div class="membre-role">PARFUMEUSE</div><div class="membre-bio">Experte en olfaction, elle sélectionne chaque parfum référencé.</div></div>
       <div class="membre-card"><div class="membre-avatar">TM</div><div class="membre-nom">Thomas M.</div><div class="membre-role">TECH & DATA</div><div class="membre-bio">Il développe les outils de comparaison des prix en temps réel.</div></div>
     </div>
   </div>
-  <div class="section" style="padding-top:0;"><div class="section-title">Questions fréquentes</div>
+  <div class="section" style="padding-top:0;">
+    <div class="section-title">Questions fréquentes</div>
     <div class="faq">
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">ScentFinder est-il gratuit ?<i class="ti ti-chevron-down"></i></div><div class="faq-a">Oui, totalement gratuit. ScentFinder se rémunère via des commissions d'affiliation.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">ScentFinder est-il gratuit ?<i class="ti ti-chevron-down"></i></div><div class="faq-a">Oui, totalement gratuit. ScentFinder se rémunère via des commissions d'affiliation sans surcoût pour vous.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Les prix affichés sont-ils fiables ?<i class="ti ti-chevron-down"></i></div><div class="faq-a">Chaque prix est vérifié quotidiennement. Nous travaillons uniquement avec des boutiques officielles agréées.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Comment créer une alerte prix ?<i class="ti ti-chevron-down"></i></div><div class="faq-a">Section "Alertes", sélectionnez votre parfum, entrez votre prix cible et votre email.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Comment fonctionne l'affiliation ?<i class="ti ti-chevron-down"></i></div><div class="faq-a">Lorsque vous cliquez sur un lien et effectuez un achat, ScentFinder perçoit une petite commission, sans aucun surcoût pour vous.</div></div>
     </div>
   </div>
   <div class="cta-section">
     <div class="cta-title">Prêt à trouver votre <em>parfum idéal</em> ?</div>
     <button class="cta-btn" onclick="showPage('accueil')"><i class="ti ti-search"></i> DÉCOUVRIR LES OFFRES</button>
   </div>
-  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a onclick="showPage('mentions')">Mentions Légales</a><a onclick="showPage('politique')">Confidentialité</a></div></div>
+  <div class="footer">
+    <div class="footer-logo">✦ SCENTFINDER</div>
+    <div class="footer-links">
+      <a onclick="showPage('mentions')">Mentions Légales</a>
+      <a onclick="showPage('politique')">Confidentialité</a>
+    </div>
+  </div>
 </div>
 
 <!-- PAGE MENTIONS LÉGALES -->
@@ -440,28 +308,48 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
   </div>
   <div class="rgpd-content">
     <p class="rgpd-date">Dernière mise à jour : 12 mai 2026</p>
-    <h2>1. Éditeur du site</h2><p><strong>Nom :</strong> Nils Navarro<br><strong>Email :</strong> nils.navarro@scentfinder.fr</p>
-    <h2>2. Hébergement</h2><p><strong>Hébergeur :</strong> Vercel, Inc. — San Francisco, CA</p>
-    <h2>3. Propriété intellectuelle</h2><p>L'ensemble du contenu est la propriété exclusive de Nils Navarro.</p>
-    <h2>4. Nature du site</h2><p>ScentFinder est un comparateur de prix indépendant. Le site ne vend aucun produit directement.</p>
+    <h2>1. Éditeur du site</h2>
+    <p><strong>Nom :</strong> Nils Navarro<br><strong>Email :</strong> nils.navarro@scentfinder.fr<br><strong>Site web :</strong> scentfinder.fr</p>
+    <h2>2. Hébergement</h2>
+    <p><strong>Hébergeur :</strong> Vercel, Inc. — San Francisco, CA</p>
+    <h2>3. Propriété intellectuelle</h2>
+    <p>L'ensemble du contenu du site ScentFinder est la propriété exclusive de Nils Navarro.</p>
+    <h2>4. Nature du site</h2>
+    <p>ScentFinder est un comparateur de prix indépendant spécialisé dans les parfums de prestige. Le site ne vend aucun produit directement et participe à des programmes d'affiliation.</p>
+    <h2>5. Contact</h2>
+    <p><strong>Email :</strong> nils.navarro@scentfinder.fr</p>
   </div>
-  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a onclick="showPage('accueil')">Accueil</a><a onclick="showPage('politique')">Confidentialité</a></div></div>
+  <div class="footer">
+    <div class="footer-logo">✦ SCENTFINDER</div>
+    <div class="footer-links"><a onclick="showPage('accueil')">Accueil</a><a onclick="showPage('politique')">Confidentialité</a></div>
+  </div>
 </div>
 
-<!-- PAGE POLITIQUE -->
+<!-- PAGE POLITIQUE DE CONFIDENTIALITÉ -->
 <div id="page-politique" class="page">
   <div class="page-hero">
     <div class="page-hero-eyebrow">✦ LÉGAL ✦</div>
     <div class="page-hero-title">Politique de <em>Confidentialité</em></div>
     <div class="page-hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
+    <div class="page-hero-sub">Conformément au RGPD et à la loi Informatique et Libertés</div>
   </div>
   <div class="rgpd-content">
     <p class="rgpd-date">Dernière mise à jour : 12 mai 2026</p>
-    <h2>1. Responsable du traitement</h2><p>Nils Navarro — nils.navarro@scentfinder.fr</p>
-    <h2>2. Données collectées</h2><p>Adresse email (alertes prix) et données de navigation (cookies analytiques).</p>
-    <h2>3. Vos droits</h2><p>Accès, rectification, effacement, opposition. Contactez-nous à nils.navarro@scentfinder.fr.</p>
+    <h2>1. Responsable du traitement</h2>
+    <p>Nils Navarro — nils.navarro@scentfinder.fr</p>
+    <h2>2. Données collectées</h2>
+    <p>Données de navigation uniquement (cookies analytiques). Aucune donnée personnelle collectée sans consentement.</p>
+    <h2>3. Cookies</h2>
+    <p>Cookies essentiels au fonctionnement du site et cookies analytiques avec votre consentement.</p>
+    <h2>4. Vos droits</h2>
+    <p>Accès, rectification, effacement, opposition. Contactez-nous à nils.navarro@scentfinder.fr.</p>
+    <h2>5. Contact</h2>
+    <p>nils.navarro@scentfinder.fr — scentfinder.fr</p>
   </div>
-  <div class="footer"><div class="footer-logo">✦ SCENTFINDER</div><div class="footer-links"><a onclick="showPage('accueil')">Accueil</a></div></div>
+  <div class="footer">
+    <div class="footer-logo">✦ SCENTFINDER</div>
+    <div class="footer-links"><a onclick="showPage('accueil')">Accueil</a><a onclick="showPage('apropos')">À propos</a></div>
+  </div>
 </div>
 
 <script>
@@ -520,162 +408,95 @@ const parfumsData=[
     {n:"Amazon",p:97.90,url:"https://amzn.to/4uC2KW6"},
     {n:"Perfumeria Comas",p:49.90,url:"https://tidd.ly/49F9SbZ"},
   ]},
-  {id:16,img:"https://cdn.shopify.com/s/files/1/0582/2955/5259/files/fdbc2ce3360372058878_1_350x@2x.jpg?v=1751264660",brand:"Giorgio Armani",name:"Acqua di Giò EDT",vol:"50ml",cat:"homme",shops:[
-    {n:"Perfumeria Comas",p:54.90,url:"https://tidd.ly/4ntgm3y"},
+  {id:16,img:"https://cdn.shopify.com/s/files/1/0582/2955/5259/files/fdbc2ce3360372058878_1_350x@2x.jpg?v=1751264660",brand:"Giorgio Armani",name:"Acqua di Giò EDT",vol:"50ml",cat:"homme",shops:[{n:"Perfumeria Comas",p:54.90,url:"https://tidd.ly/4ntgm3y"}]},
+  {id:17,img:"https://www.armanibeauty.fr/on/demandware.static/-/Sites-gac-emea-west-Library/default/dw9f2afacb/images/pdp/ww-00846-arm/ww-00846-arm-adg-parfum-comparison-visual.jpg",brand:"Giorgio Armani",name:"Acqua di Giò EDP",vol:"50ml",cat:"homme",shops:[{n:"Perfumeria Comas",p:66.50,url:"https://tidd.ly/4uL9GjI"}]},
+  {id:18,img:"https://i1.perfumesclub.com/grande/195686-4.jpg",brand:"Giorgio Armani",name:"Acqua di Giò Profondo EDP",vol:"50ml",cat:"homme",shops:[{n:"Perfumeria Comas",p:64.90,url:"https://tidd.ly/4dhaWUE"}]},
+  {id:19,img:"https://i1.perfumesclub.com/grande/205659-4.jpg",brand:"Giorgio Armani",name:"Acqua di Giò Profondo EDT",vol:"50ml",cat:"homme",shops:[{n:"Perfumeria Comas",p:54.50,url:"https://tidd.ly/4nrVTfl"}]},
+  {id:20,img:"https://kapao.fr/36110-large_default/armani-code-edt.jpg",brand:"Giorgio Armani",name:"Code EDT",vol:"50ml",cat:"homme",shops:[{n:"Perfumeria Comas",p:54.90,url:"https://tidd.ly/3RjGMbW"}]},
+  {id:21,img:"https://i1.perfumesclub.com/grande/217000-4.jpg",brand:"Giorgio Armani",name:"Code EDP",vol:"50ml",cat:"homme",shops:[{n:"Perfumeria Comas",p:64.90,url:"https://tidd.ly/491MXaO"}]},
+  {id:22,img:"https://i1.perfumesclub.com/grande/94272-3.jpg",brand:"Giorgio Armani",name:"Stronger With You EDT",vol:"50ml",cat:"homme",shops:[{n:"Perfumeria Comas",p:56.50,url:"https://tidd.ly/42xCtfz"}]},
+  {id:23,img:"https://www.passionbeaute.fr/media/catalog/product/cache/f3020b7489dcfc4d1d147cf4dad07b7f/g/i/giorgio-armani_3614272225695_2.jpg",brand:"Giorgio Armani",name:"Stronger With You Intensely",vol:"50ml",cat:"homme",shops:[{n:"Perfumeria Comas",p:54.90,url:"https://tidd.ly/48WNniy"}]},
+  {id:24,img:"https://media.sephora.eu/content/dam/digital/pim/published/A/ARMANI/P1000205700/109331-media_1-0.jpg?scaleWidth=750&scaleHeight=750&scaleMode=fit",brand:"Giorgio Armani",name:"Stronger With You Parfum",vol:"100ml",cat:"homme",shops:[{n:"Perfumeria Comas",p:94.90,url:"https://tidd.ly/48XnFKQ"}]},
+  {id:25,img:"https://parfumexquis.com/cdn/shop/files/XerjoffCoro_4.jpg?v=1761339977&width=1400",brand:"Xerjoff",name:"V Coro EPV",vol:"100ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:310.00,url:"https://tidd.ly/431Wawe"}]},
+  {id:26,img:"https://testscent.com/wp-content/uploads/2026/02/duranblack4gha.jpg",brand:"Xerjoff",name:"Duran Black Moonligh Parfum",vol:"50ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:315.00,url:"https://tidd.ly/4tybyey"}]},
+  {id:27,img:"https://galleryparfums-dz.com/wp-content/uploads/2025/10/xerjoff-DD-YELLOW-2.png",brand:"Xerjoff",name:"Duran Neorio Yellow Parfum",vol:"50ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:315.00,url:"https://tidd.ly/42wbCkc"}]},
+  {id:28,img:"https://m.media-amazon.com/images/I/81d8jvPAwfL._AC_UF350,350_QL80_.jpg",brand:"Xerjoff",name:"Erba Pura V",vol:"100ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:245.00,url:"https://tidd.ly/4uLe81U"}]},
+  {id:29,img:"https://parfumexquis.com/cdn/shop/files/AlexandriaIIXerjoff.jpg?v=1743087665&width=1400",brand:"Xerjoff",name:"Alexandria II",vol:"100ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:545.00,url:"https://tidd.ly/4uFMTWl"}]},
+  {id:30,img:"https://parfumerienasreen.com/cdn/shop/articles/Untitled_design_1_fe84f6ff-3f9a-4fa8-981a-a28955794fca_1024x1024.png?v=1682107079",brand:"Xerjoff",name:"Naxos",vol:"100ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:245.00,url:"https://tidd.ly/4uIATDs"}]},
+  {id:31,img:"https://cdn.basler-beauty.de/out/pictures/generated/product/3/1200_1200_100/2528231-XERJOFF-Shooting-Stars-APOLLONIA-Eau-de-Parfum-50-ml.0991f748.jpg",brand:"Xerjoff",name:"Apollonia",vol:"50ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:235.00,url:"https://tidd.ly/4wz1Qvp"}]},
+  {id:32,img:"https://mediafiles.maxaroma.com/9cd29e92-4b8f-436f-ad1f-8e368b30dc1d/https://www.maxaroma.com/productimages/large/UP8033488155193_1.jpg?ver=1727325592",brand:"Xerjoff",name:"Commandant",vol:"100ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:270.00,url:"https://tidd.ly/4d6bNbY"}]},
+  {id:33,img:"https://cdn.50-ml.media/media/catalog/product/x/e/xerjoff_damarose_extrait_de_parfum_5.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=540&width=540",brand:"Xerjoff",name:"Daies",vol:"100ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:245.00,url:"https://tidd.ly/3PfkQ18"}]},
+  {id:34,img:"https://www.xerjoff.com/cdn/shop/files/listing-xerjoff-kobe-still.jpg?v=1772614281&width=1445",brand:"Xerjoff",name:"Kobe",vol:"50ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:235.00,url:"https://tidd.ly/3P0SeIZ"}]},
+  {id:35,img:"https://cdn.50-ml.media/media/catalog/product/x/e/xerjoff_luxor_extrait_de_parfum_4.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=540&width=540",brand:"Xerjoff",name:"Louxor",vol:"50ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:325.00,url:"https://tidd.ly/48SYIAk"}]},
+  {id:36,img:"https://www.xerjoff.com/cdn/shop/files/xerjoff-morethanwords-single.jpg?v=1747737794&width=3200",brand:"Xerjoff",name:"More Than Words",vol:"100ml",cat:"niche",shops:[{n:"Perfumeria Comas",p:290.00,url:"https://tidd.ly/3PzS7UO"}]},
+];
+
+const marques=[
+  {nom:"Azzaro",cat:"homme",prestige:false,parfums:[
+    {emoji:"💫",nom:"The Most Wanted EDP Intense",vol:"100ml",price:69.90},
+    {emoji:"💫",nom:"The Most Wanted Parfum",vol:"50ml",price:46.13},
+    {emoji:"💫",nom:"Wanted EDT",vol:"100ml",price:64.50},
+    {emoji:"💫",nom:"Chrome EDT",vol:"100ml",price:54.90},
+    {emoji:"💫",nom:"Wanted Forever Elixir",vol:"50ml",price:69.90},
+    {emoji:"💫",nom:"The Most Wanted EDT Intense",vol:"50ml",price:49.90},
+    {emoji:"💫",nom:"Pour Homme EDT",vol:"100ml",price:49.19},
+    {emoji:"💫",nom:"Sport EDT",vol:"75ml",price:31.23},
+    {emoji:"💫",nom:"Pour Elle EDP",vol:"100ml",price:39.00},
   ]},
-  {id:17,img:"https://www.armanibeauty.fr/on/demandware.static/-/Sites-gac-emea-west-Library/default/dw9f2afacb/images/pdp/ww-00846-arm/ww-00846-arm-adg-parfum-comparison-visual.jpg",brand:"Giorgio Armani",name:"Acqua di Giò EDP",vol:"50ml",cat:"homme",shops:[
-    {n:"Perfumeria Comas",p:66.50,url:"https://tidd.ly/4uL9GjI"},
+  {nom:"Giorgio Armani",cat:"homme",prestige:true,parfums:[
+    {emoji:"💧",nom:"Acqua di Giò EDT",vol:"50ml",price:54.90},
+    {emoji:"💧",nom:"Acqua di Giò EDP",vol:"50ml",price:66.50},
+    {emoji:"💧",nom:"Acqua di Giò Profondo EDP",vol:"50ml",price:64.90},
+    {emoji:"💧",nom:"Acqua di Giò Profondo EDT",vol:"50ml",price:54.50},
+    {emoji:"🖤",nom:"Code EDT",vol:"50ml",price:54.90},
+    {emoji:"🖤",nom:"Code EDP",vol:"50ml",price:64.90},
+    {emoji:"💪",nom:"Stronger With You EDT",vol:"50ml",price:56.50},
+    {emoji:"💪",nom:"Stronger With You Intensely",vol:"50ml",price:54.90},
+    {emoji:"💪",nom:"Stronger With You Parfum",vol:"100ml",price:94.90},
   ]},
-  {id:18,img:"https://i1.perfumesclub.com/grande/195686-4.jpg",brand:"Giorgio Armani",name:"Acqua di Giò Profondo EDP",vol:"50ml",cat:"homme",shops:[
-    {n:"Perfumeria Comas",p:64.90,url:"https://tidd.ly/4dhaWUE"},
+  {nom:"Xerjoff",cat:"niche",prestige:true,parfums:[
+    {emoji:"✨",nom:"V Coro EPV",vol:"100ml",price:310.00},
+    {emoji:"✨",nom:"Alexandria II",vol:"100ml",price:545.00},
+    {emoji:"✨",nom:"Naxos",vol:"100ml",price:245.00},
+    {emoji:"✨",nom:"More Than Words",vol:"100ml",price:290.00},
+    {emoji:"✨",nom:"Erba Pura V",vol:"100ml",price:245.00},
+    {emoji:"✨",nom:"Apollonia",vol:"50ml",price:235.00},
+    {emoji:"✨",nom:"Commandant",vol:"100ml",price:270.00},
+    {emoji:"✨",nom:"Daies",vol:"100ml",price:245.00},
+    {emoji:"✨",nom:"Kobe",vol:"50ml",price:235.00},
+    {emoji:"✨",nom:"Louxor",vol:"50ml",price:325.00},
+    {emoji:"✨",nom:"Duran Black Moonligh",vol:"50ml",price:315.00},
+    {emoji:"✨",nom:"Duran Neorio Yellow",vol:"50ml",price:315.00},
   ]},
-  {id:19,img:"https://i1.perfumesclub.com/grande/205659-4.jpg",brand:"Giorgio Armani",name:"Acqua di Giò Profondo EDT",vol:"50ml",cat:"homme",shops:[
-    {n:"Perfumeria Comas",p:54.50,url:"https://tidd.ly/4nrVTfl"},
+  {nom:"Maison Margiela",cat:"mixte",prestige:true,parfums:[
+    {emoji:"🎷",nom:"Jazz Club",vol:"100ml",price:149.00},
   ]},
-  {id:20,img:"https://kapao.fr/36110-large_default/armani-code-edt.jpg",brand:"Giorgio Armani",name:"Code EDT",vol:"50ml",cat:"homme",shops:[
-    {n:"Perfumeria Comas",p:54.90,url:"https://tidd.ly/3RjGMbW"},
+  {nom:"Hermès",cat:"homme",prestige:true,parfums:[
+    {emoji:"🍊",nom:"Terre d'Hermès Intense",vol:"100ml",price:97.95},
   ]},
-  {id:21,img:"https://i1.perfumesclub.com/grande/217000-4.jpg",brand:"Giorgio Armani",name:"Code EDP",vol:"50ml",cat:"homme",shops:[
-    {n:"Perfumeria Comas",p:64.90,url:"https://tidd.ly/491MXaO"},
+  {nom:"Dolce & Gabbana",cat:"homme",prestige:false,parfums:[
+    {emoji:"🌿",nom:"The One EDT",vol:"30ml",price:53.18},
   ]},
-  {id:22,img:"https://i1.perfumesclub.com/grande/94272-3.jpg",brand:"Giorgio Armani",name:"Stronger With You EDT",vol:"50ml",cat:"homme",shops:[
-    {n:"Perfumeria Comas",p:56.50,url:"https://tidd.ly/42xCtfz"},
+  {nom:"Diesel",cat:"homme",prestige:false,parfums:[
+    {emoji:"💪",nom:"Only The Brave EDT",vol:"125ml",price:53.01},
+    {emoji:"🔊",nom:"Sound Of The Brave EDT",vol:"200ml",price:120.00},
   ]},
-  {id:23,img:"https://www.passionbeaute.fr/media/catalog/product/cache/f3020b7489dcfc4d1d147cf4dad07b7f/g/i/giorgio-armani_3614272225695_2.jpg",brand:"Giorgio Armani",name:"Stronger With You Intensely",vol:"50ml",cat:"homme",shops:[
-    {n:"Perfumeria Comas",p:54.90,url:"https://tidd.ly/48WNniy"},
-  ]},
-  {id:24,img:"https://media.sephora.eu/content/dam/digital/pim/published/A/ARMANI/P1000205700/109331-media_1-0.jpg?scaleWidth=750&scaleHeight=750&scaleMode=fit",brand:"Giorgio Armani",name:"Stronger With You Parfum",vol:"100ml",cat:"homme",shops:[
-    {n:"Perfumeria Comas",p:94.90,url:"https://tidd.ly/48XnFKQ"},
-  ]},
-  {id:25,img:"https://parfumexquis.com/cdn/shop/files/XerjoffCoro_4.jpg?v=1761339977&width=1400",brand:"Xerjoff",name:"V Coro EPV",vol:"100ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:310.00,url:"https://tidd.ly/431Wawe"},
-  ]},
-  {id:26,img:"https://testscent.com/wp-content/uploads/2026/02/duranblack4gha.jpg",brand:"Xerjoff",name:"Duran Black Moonligh Parfum",vol:"50ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:315.00,url:"https://tidd.ly/4tybyey"},
-  ]},
-  {id:27,img:"https://galleryparfums-dz.com/wp-content/uploads/2025/10/xerjoff-DD-YELLOW-2.png",brand:"Xerjoff",name:"Duran Neorio Yellow Parfum",vol:"50ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:315.00,url:"https://tidd.ly/42wbCkc"},
-  ]},
-  {id:28,img:"https://m.media-amazon.com/images/I/81d8jvPAwfL._AC_UF350,350_QL80_.jpg",brand:"Xerjoff",name:"Erba Pura V",vol:"100ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:245.00,url:"https://tidd.ly/4uLe81U"},
-  ]},
-  {id:29,img:"https://parfumexquis.com/cdn/shop/files/AlexandriaIIXerjoff.jpg?v=1743087665&width=1400",brand:"Xerjoff",name:"Alexandria II",vol:"100ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:545.00,url:"https://tidd.ly/4uFMTWl"},
-  ]},
-  {id:30,img:"https://parfumerienasreen.com/cdn/shop/articles/Untitled_design_1_fe84f6ff-3f9a-4fa8-981a-a28955794fca_1024x1024.png?v=1682107079",brand:"Xerjoff",name:"Naxos",vol:"100ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:245.00,url:"https://tidd.ly/4uIATDs"},
-  ]},
-  {id:31,img:"https://cdn.basler-beauty.de/out/pictures/generated/product/3/1200_1200_100/2528231-XERJOFF-Shooting-Stars-APOLLONIA-Eau-de-Parfum-50-ml.0991f748.jpg",brand:"Xerjoff",name:"Apollonia",vol:"50ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:235.00,url:"https://tidd.ly/4wz1Qvp"},
-  ]},
-  {id:32,img:"https://mediafiles.maxaroma.com/9cd29e92-4b8f-436f-ad1f-8e368b30dc1d/https://www.maxaroma.com/productimages/large/UP8033488155193_1.jpg?ver=1727325592",brand:"Xerjoff",name:"Commandant",vol:"100ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:270.00,url:"https://tidd.ly/4d6bNbY"},
-  ]},
-  {id:33,img:"https://cdn.50-ml.media/media/catalog/product/x/e/xerjoff_damarose_extrait_de_parfum_5.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=540&width=540",brand:"Xerjoff",name:"Daies",vol:"100ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:245.00,url:"https://tidd.ly/3PfkQ18"},
-  ]},
-  {id:34,img:"https://www.xerjoff.com/cdn/shop/files/listing-xerjoff-kobe-still.jpg?v=1772614281&width=1445",brand:"Xerjoff",name:"Kobe",vol:"50ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:235.00,url:"https://tidd.ly/3P0SeIZ"},
-  ]},
-  {id:35,img:"https://cdn.50-ml.media/media/catalog/product/x/e/xerjoff_luxor_extrait_de_parfum_4.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=540&width=540",brand:"Xerjoff",name:"Louxor",vol:"50ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:325.00,url:"https://tidd.ly/48SYIAk"},
-  ]},
-  {id:36,img:"https://www.xerjoff.com/cdn/shop/files/xerjoff-morethanwords-single.jpg?v=1747737794&width=3200",brand:"Xerjoff",name:"More Than Words",vol:"100ml",cat:"niche",shops:[
-    {n:"Perfumeria Comas",p:290.00,url:"https://tidd.ly/3PzS7UO"},
+  {nom:"Guess",cat:"femme",prestige:false,parfums:[
+    {emoji:"🌸",nom:"Seductive EDT",vol:"75ml",price:24.90},
   ]},
 ];
 
-/* ─── DONNÉES NOTES OLFACTIVES PAR PARFUM ─── */
-const notesData={
-  1:{
-    tete:{
-      titre:"Notes de Tête",
-      phase:"OUVERTURE",
-      sub:"Les premières 15 minutes",
-      desc:"Dès la première projection, Jazz Club s'ouvre sur un souffle de tabac blond chaud et velouté, enrobé d'une touche de rhum épicé qui réveille les sens. Une entrée en matière audacieuse, comme les premières mesures d'un jazz nocturne dans un club enfumé.",
-      ingredients:["Tabac Blond","Rhum","Poivre Rose"],
-      imgs:["https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=400&q=80","https://images.unsplash.com/photo-1609951651556-5334e2706168?w=400&q=80","https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80"]
-    },
-    coeur:{
-      titre:"Notes de Cœur",
-      phase:"CŒUR",
-      sub:"30 minutes à 2 heures",
-      desc:"Au cœur du sillage, la fumée douce d'un bois de santal crémeux s'installe avec grâce, portée par une vanille sensuelle et gourmande. L'accord boisé-épicé s'épanouit pleinement, révélant la complexité et le caractère unique de cette fragrance hors du commun.",
-      ingredients:["Santal","Vanille","Vétiver"],
-      imgs:["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&q=80","https://images.unsplash.com/photo-1575377427642-087cf684f29d?w=400&q=80","https://images.unsplash.com/photo-1626808642875-0aa545482dfb?w=400&q=80"]
-    },
-    fond:{
-      titre:"Notes de Fond",
-      phase:"FOND",
-      sub:"Plusieurs heures",
-      desc:"Le fond s'assèche sur un muscs blanc doux et une note ambrée lumineuse qui persistent longuement sur la peau. Une signature mémorable, chaude et envoûtante, qui vous accompagne tout au long de la soirée comme un murmure discret mais inoubliable.",
-      ingredients:["Musc Blanc","Ambre","Cèdre"],
-      imgs:["https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80","https://images.unsplash.com/photo-1604155507436-3e3de3d2c484?w=400&q=80","https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80"]
-    }
-  },
-  2:{
-    tete:{
-      titre:"Notes de Tête",phase:"OUVERTURE",sub:"Les premières 15 minutes",
-      desc:"Une explosion de fraîcheur sauvage s'ouvre sur un accord agrumé lumineux, mêlant la vivacité du pamplemousse à la verdeur de la feuille de tomate. Un départ saisissant, tellurique, qui évoque l'immensité des grandes terres.",
-      ingredients:["Pamplemousse","Poivre","Feuille de Tomate"],
-      imgs:["https://images.unsplash.com/photo-1529567793693-9478e1e06aaf?w=400&q=80","https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80","https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&q=80"]
-    },
-    coeur:{
-      titre:"Notes de Cœur",phase:"CŒUR",sub:"30 minutes à 2 heures",
-      desc:"Le vétiver s'impose en maître absolu au cœur de la composition. Fumé, terreux, presque minéral, il dialogue avec une fleur d'oranger légère qui apporte une tension florale inattendue et captivante.",
-      ingredients:["Vétiver","Fleur d'Oranger","Géranium"],
-      imgs:["https://images.unsplash.com/photo-1574483251006-2a9a0dcb2fb0?w=400&q=80","https://images.unsplash.com/photo-1490750967868-88df5691663a?w=400&q=80","https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=400&q=80"]
-    },
-    fond:{
-      titre:"Notes de Fond",phase:"FOND",sub:"Plusieurs heures",
-      desc:"Le fond se dévoile comme une terre après la pluie — fève de tonka crémeuse, vétiver fumé et cèdre sec se fondent dans une signature puissante et durable. Un parfum d'homme qui affirme sa présence sans jamais l'imposer.",
-      ingredients:["Fève de Tonka","Cèdre","Vétiver"],
-      imgs:["https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&q=80","https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80","https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80"]
-    }
-  }
-};
-
-/* Notes génériques pour les parfums sans données spécifiques */
-function getGenericNotes(p){
-  const teteMap={homme:["Bergamote","Poivre","Citron"],femme:["Bergamote","Neroli","Citron"],mixte:["Bergamote","Cardamome","Rose"],niche:["Encens","Poivre Noir","Yuzu"]};
-  const coeurMap={homme:["Lavande","Géranium","Iris"],femme:["Rose","Jasmin","Muguet"],mixte:["Vétiver","Fleur d'Oranger","Patchouli"],niche:["Oud","Encens","Rose Sombre"]};
-  const fondMap={homme:["Cèdre","Musc","Vétiver"],femme:["Musc","Vanille","Santal"],mixte:["Ambre","Musc Blanc","Cèdre"],niche:["Musc","Ambre Gris","Encens"]};
-  const c=p.cat||'mixte';
-  return{
-    tete:{titre:"Notes de Tête",phase:"OUVERTURE",sub:"Les premières 15 minutes",
-      desc:`${p.name} s'ouvre sur une première impression électrisante — fraîche, lumineuse, presque éphémère. Ces notes de tête jouent le rôle de l'étincelle : elles captent l'attention, éveillent la curiosité et préparent la peau à accueillir la magie qui va suivre.`,
-      ingredients:teteMap[c],
-      imgs:["https://images.unsplash.com/photo-1529567793693-9478e1e06aaf?w=400&q=80","https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80","https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&q=80"]
-    },
-    coeur:{titre:"Notes de Cœur",phase:"CŒUR",sub:"30 minutes à 2 heures",
-      desc:`Là où ${p.name} révèle sa véritable nature. Ces notes florales et chaleureuses constituent l'âme du parfum — la raison pour laquelle on en tombe amoureux. Elles enveloppent avec générosité, créant une aura irrésistible et addictive.`,
-      ingredients:coeurMap[c],
-      imgs:["https://images.unsplash.com/photo-1490750967868-88df5691663a?w=400&q=80","https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&q=80","https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=400&q=80"]
-    },
-    fond:{titre:"Notes de Fond",phase:"FOND",sub:"Plusieurs heures",
-      desc:`Le dernier acte — et sans doute le plus beau. Les notes de fond de ${p.name} s'installent durablement sur la peau, chaudes, sensuelles, inoubliables. Ce sont elles qui vous accompagnent tout au long de la journée, laissant un sillage discret mais envoutant dans votre sillage.`,
-      ingredients:fondMap[c],
-      imgs:["https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=400&q=80","https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80","https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80"]
-    }
-  };
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b=>{if(b.onclick&&b.onclick.toString().includes("'"+id+"'"))b.classList.add('active');});
+  window.scrollTo(0,0);
 }
 
-function buildIngrGrid(notes){
-  const all=[];
-  ['tete','coeur','fond'].forEach(k=>{
-    const n=notes[k];
-    n.ingredients.forEach((ing,i)=>{
-      if(!all.find(x=>x.name===ing)) all.push({name:ing,img:n.imgs[i]||n.imgs[0]});
-    });
-  });
-  return all.map(item=>`<div class="ingr-item"><div class="ingr-item-img"><img src="${item.img}" alt="${item.name}" loading="lazy"/></div><div class="ingr-item-name">${item.name}</div></div>`).join('');
-}
-
-function buildNoteBlock(note,idx){
-  const even=idx%2===0;
-  const imgSide=`<div class="note-img-side"><img src="${note.imgs[0]}" alt="${note.titre}" loading="lazy"/><div class="note-img-overlay"></div></div>`;
-  const txtSide=`<div class="note-text-side"><div class="note-phase-tag"><i class="ti ti-diamond" style="font-size:9px"></i>${note.phase}</div><div class="note-phase-title">${note.titre}</div><div class="note-phase-sub">${note.sub}</div><div class="note-desc">${note.desc}</div><div class="note-ingredients">${note.ingredients.map(i=>`<span class="note-ingr-tag">${i}</span>`).join('')}</div></div>`;
-  return`<div class="note-block" style="flex-direction:${even?'row':'row-reverse'}">${txtSide}${imgSide}</div>`;
+function toast(msg,id='toastAccueil'){
+  const t=document.getElementById(id);if(!t)return;
+  t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);
 }
 
 function openDetail(id){
@@ -683,8 +504,7 @@ function openDetail(id){
   if(!p)return;
   showPage('detail');
   const cont=document.getElementById('detail-content');
-  cont.innerHTML=`<div class="detail-loading"><div class="detail-loading-spinner"></div><div class="detail-loading-txt">Composition olfactive en cours d'analyse...</div></div>`;
-  
+  cont.innerHTML=`<div class="detail-loading"><div class="detail-loading-spinner"></div><div class="detail-loading-txt">Chargement des prix...</div></div>`;
   setTimeout(()=>{
     const s=[...p.shops].sort((a,b)=>a.p-b.p);
     const best=s[0];
@@ -703,7 +523,6 @@ function openDetail(id){
           </div>
         </div>
       </div>
-
       <div style="padding:2rem;">
         <div style="font-size:9px;color:var(--or);letter-spacing:4px;margin-bottom:1rem;">✦ COMPARER LES PRIX ✦</div>
         <div style="display:flex;flex-direction:column;gap:0.75rem;">
@@ -722,89 +541,11 @@ function openDetail(id){
         </div>
         <div style="margin-top:1rem;font-size:10px;color:#a08070;text-align:center;letter-spacing:1px;">✦ Prix vérifiés · Offres sous réserve de disponibilité</div>
       </div>
-
       <div class="footer">
         <div class="footer-logo">✦ SCENTFINDER</div>
-        <div class="footer-links"><a onclick="showPage('accueil')">Accueil</a><a onclick="showPage('top10')">Top 10</a><a onclick="showPage('alertes')">Alertes</a></div>
-      </div>
-    `;
+        <div class="footer-links"><a onclick="showPage('accueil')">Accueil</a><a onclick="showPage('marques')">Marques</a></div>
+      </div>`;
   },500);
-}
-
-const top10=[
-  {rank:1,img:"https://kapao.fr/67764-thickbox_default/g-seductive-edt.jpg",brand:"Guess",name:"Seductive EDT Femme",vol:"75ml",cat:"femme",url:"https://amzn.to/4dCOnLj",shop:"Amazon",price:24.90,orig:35,hot:true},
-  {rank:2,img:"https://i1.perfumesclub.com/grande/205711-2.jpg",brand:"Azzaro",name:"The Most Wanted Parfum",vol:"50ml",cat:"homme",url:"https://amzn.to/3R3sfB7",shop:"Amazon",price:46.13,orig:65,hot:true},
-  {rank:3,img:"https://i1.perfumesclub.com/grande/181158.jpg",brand:"Dolce & Gabbana",name:"The One EDT",vol:"30ml",cat:"homme",url:"https://amzn.to/3RjloU9",shop:"Amazon",price:53.18,orig:75,hot:false},
-  {rank:4,img:"https://sykz.fr/cdn/shop/files/SHOPIFYIMAGE_5_5feb747f-b500-43e3-b42e-84008a727dad.png?v=1773235301&width=1445",brand:"Diesel",name:"Only The Brave EDT",vol:"125ml",cat:"homme",url:"https://amzn.to/4txXrWS",shop:"Amazon",price:53.01,orig:70,hot:false},
-  {rank:5,img:"https://www.parfumdo.com/120969-large_default/azzaro-wanted-eau-de-toilette-vaporisateur.jpg",brand:"Azzaro",name:"Wanted EDT",vol:"100ml",cat:"homme",url:"https://amzn.to/4d56DNp",shop:"Amazon",price:72.75,orig:95,hot:false},
-  {rank:6,img:"https://kapao.fr/37881-thickbox_default/most-wanted-edp.jpg",brand:"Azzaro",name:"The Most Wanted EDP Intense",vol:"100ml",cat:"homme",url:"https://amzn.to/4d1WSiY",shop:"Amazon",price:78.29,orig:100,hot:false},
-  {rank:7,img:"https://assets.hermes.com/is/image/hermesproduct/terre-d-hermes-eau-intense-vetiver-eau-de-parfum--40946-worn-9-0-0-800-800_g.jpg",brand:"Hermès",name:"Terre d'Hermès Intense",vol:"100ml",cat:"homme",url:"https://amzn.to/4eC1Unv",shop:"Amazon",price:112.26,orig:140,hot:false},
-  {rank:8,img:"https://media.marionnaud.fr/medias/sys_master/prd-images/h81/he5/12480030834718/prd-side-102111246_2000x2000/prd-side-102111246-2000x2000.png",brand:"Diesel",name:"Sound Of The Brave EDT",vol:"200ml",cat:"homme",url:"https://amzn.to/4uDugSX",shop:"Amazon",price:120.00,orig:150,hot:false},
-  {rank:9,img:"https://img01.ztat.net/article/spp-media-p1/114b06c8786f4c01b41b40d6bc71ba22/48739a49670d4139996caa49024a4cdf.jpg?imwidth=1800&filter=packshot",brand:"Maison Margiela",name:"Jazz Club",vol:"100ml",cat:"mixte",url:"https://amzn.to/4eCXH2X",shop:"Amazon",price:159.90,orig:185,hot:false},
-];
-const marques=[
-  {nom:"Azzaro",cat:"homme",prestige:false,parfums:[
-    {emoji:"💫",nom:"The Most Wanted EDP Intense",vol:"100ml",price:69.90,orig:78.29,eco:11},
-    {emoji:"💫",nom:"The Most Wanted Parfum",vol:"50ml",price:46.13,orig:59.90,eco:23},
-    {emoji:"💫",nom:"Wanted EDT",vol:"100ml",price:64.50,orig:72.75,eco:11},
-    {emoji:"💫",nom:"Chrome EDT",vol:"100ml",price:54.90,orig:56.49,eco:3},
-    {emoji:"💫",nom:"Wanted Forever Elixir",vol:"50ml",price:69.90,orig:99.95,eco:30},
-    {emoji:"💫",nom:"The Most Wanted EDT Intense",vol:"50ml",price:49.90,orig:97.90,eco:49},
-    {emoji:"💫",nom:"Pour Homme EDT",vol:"100ml",price:49.19,orig:49.19,eco:0},
-    {emoji:"💫",nom:"Sport EDT",vol:"75ml",price:31.23,orig:31.23,eco:0},
-    {emoji:"💫",nom:"Pour Elle EDP",vol:"100ml",price:39.00,orig:39.00,eco:0},
-  ]},
-  {nom:"Giorgio Armani",cat:"homme",prestige:true,parfums:[
-    {emoji:"💧",nom:"Acqua di Giò EDT",vol:"50ml",price:54.90,orig:54.90,eco:0},
-    {emoji:"💧",nom:"Acqua di Giò EDP",vol:"50ml",price:66.50,orig:66.50,eco:0},
-    {emoji:"💧",nom:"Acqua di Giò Profondo EDP",vol:"50ml",price:64.90,orig:64.90,eco:0},
-    {emoji:"💧",nom:"Acqua di Giò Profondo EDT",vol:"50ml",price:54.50,orig:54.50,eco:0},
-    {emoji:"🖤",nom:"Code EDT",vol:"50ml",price:54.90,orig:54.90,eco:0},
-    {emoji:"🖤",nom:"Code EDP",vol:"50ml",price:64.90,orig:64.90,eco:0},
-    {emoji:"💪",nom:"Stronger With You EDT",vol:"50ml",price:56.50,orig:56.50,eco:0},
-    {emoji:"💪",nom:"Stronger With You Intensely",vol:"50ml",price:54.90,orig:54.90,eco:0},
-    {emoji:"💪",nom:"Stronger With You Parfum",vol:"100ml",price:94.90,orig:94.90,eco:0},
-  ]},
-  {nom:"Xerjoff",cat:"niche",prestige:true,parfums:[
-    {emoji:"✨",nom:"V Coro EPV",vol:"100ml",price:310.00,orig:310.00,eco:0},
-    {emoji:"✨",nom:"Alexandria II",vol:"100ml",price:545.00,orig:545.00,eco:0},
-    {emoji:"✨",nom:"Naxos",vol:"100ml",price:245.00,orig:245.00,eco:0},
-    {emoji:"✨",nom:"More Than Words",vol:"100ml",price:290.00,orig:290.00,eco:0},
-    {emoji:"✨",nom:"Erba Pura V",vol:"100ml",price:245.00,orig:245.00,eco:0},
-  ]},
-  {nom:"Maison Margiela",cat:"mixte",prestige:true,parfums:[
-    {emoji:"🎷",nom:"Jazz Club",vol:"100ml",price:149.00,orig:159.90,eco:7},
-  ]},
-  {nom:"Hermès",cat:"homme",prestige:true,parfums:[
-    {emoji:"🍊",nom:"Terre d'Hermès Intense",vol:"100ml",price:97.95,orig:112.26,eco:13},
-  ]},
-  {nom:"Dolce & Gabbana",cat:"homme",prestige:false,parfums:[
-    {emoji:"🌿",nom:"The One EDT",vol:"30ml",price:53.18,orig:53.18,eco:0},
-  ]},
-  {nom:"Diesel",cat:"homme",prestige:false,parfums:[
-    {emoji:"💪",nom:"Only The Brave EDT",vol:"125ml",price:53.01,orig:66.00,eco:20},
-    {emoji:"🔊",nom:"Sound Of The Brave EDT",vol:"200ml",price:120.00,orig:120.00,eco:0},
-  ]},
-  {nom:"Guess",cat:"femme",prestige:false,parfums:[
-    {emoji:"🌸",nom:"Seductive EDT",vol:"75ml",price:24.90,orig:24.90,eco:0},
-  ]},
-];
-let alertes=[
-  {id:1,emoji:"🧴",brand:"Dior",name:"Sauvage EDP",vol:"100ml",current:87.00,target:80.00,triggered:false},
-  {id:2,emoji:"🌸",brand:"Chanel",name:"N°5 EDP",vol:"50ml",current:99.90,target:105.00,triggered:true},
-  {id:3,emoji:"☕",brand:"YSL",name:"Black Opium",vol:"90ml",current:72.00,target:70.00,triggered:false},
-];
-
-function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(b=>{if(b.onclick&&b.onclick.toString().includes("'"+id+"'"))b.classList.add('active');});
-  window.scrollTo(0,0);
-}
-function toast(msg,id='toastAccueil'){
-  const t=document.getElementById(id);if(!t)return;
-  t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);
 }
 
 let catAccueil='all';
@@ -814,8 +555,8 @@ function renderAccueil(){
   document.getElementById('gridAccueil').innerHTML=items.map((d,i)=>{
     const s=[...d.shops].sort((a,b)=>a.p-b.p);
     const rows=s.map((sh,j)=>`<div class="price-row"><span class="shop-name">${sh.n}</span><div style="display:flex;align-items:center;gap:6px;">${j===0?'<span style="font-size:9px;background:#2d8a4e;color:#fff;padding:1px 6px;border-radius:50px;">MEILLEUR</span>':''}<span style="font-size:${j===0?'13':'12'}px;font-weight:${j===0?'600':'400'};color:${j===0?'var(--bx)':'#a08070'}">${sh.p.toFixed(2)}€</span></div></div>`).join('');
-    return`<div class="card" onclick="openDetail(${d.id})"><div class="card-img" style="background:var(--crd);padding:0;">${d.img?`<img src="${d.img}" alt="${d.name}" style="width:100%;height:100%;object-fit:cover;"/>`:''} ${i===0?'<span class="best-badge">✦ TOP DEAL</span>':''}</div><div class="card-body"><div class="card-brand">${d.brand}</div><div class="card-name">${d.name}</div><div class="card-vol">${d.vol} · <span style="color:#2d8a4e;font-size:10px;">${s.length} boutique${s.length>1?'s':''}</span></div><div class="prices">${rows}</div><button class="go-btn" onclick="event.stopPropagation();openDetail(${d.id})">COMPARER LES PRIX <i class="ti ti-arrow-right"></i></button></div></div>`;
-  }).join('')||'<div style="grid-column:1/-1;padding:2rem;text-align:center;color:#a08070;font-family:Cormorant Garamond,serif;letter-spacing:1px;">Aucun parfum trouvé</div>';
+    return`<div class="card" onclick="openDetail(${d.id})"><div class="card-img" style="padding:0;overflow:hidden;">${d.img?`<img src="${d.img}" alt="${d.name}" style="width:100%;height:100%;object-fit:cover;"/>`:''} ${i===0?'<span class="best-badge">✦ TOP DEAL</span>':''}</div><div class="card-body"><div class="card-brand">${d.brand}</div><div class="card-name">${d.name}</div><div class="card-vol">${d.vol} · <span style="color:#2d8a4e;font-size:10px;">${s.length} boutique${s.length>1?'s':''}</span></div><div class="prices">${rows}</div><button class="go-btn" onclick="event.stopPropagation();openDetail(${d.id})">COMPARER LES PRIX <i class="ti ti-arrow-right"></i></button></div></div>`;
+  }).join('')||'<div style="grid-column:1/-1;padding:2rem;text-align:center;color:#a08070;font-family:Cormorant Garamond,serif;">Aucun parfum trouvé</div>';
 }
 document.getElementById('catsAccueil').addEventListener('click',e=>{
   if(e.target.classList.contains('cat')){document.querySelectorAll('#catsAccueil .cat').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');catAccueil=e.target.dataset.c;renderAccueil();}
@@ -823,94 +564,36 @@ document.getElementById('catsAccueil').addEventListener('click',e=>{
 document.getElementById('searchAccueil').addEventListener('input',renderAccueil);
 renderAccueil();
 
-let filtreTop='all';
-function renderTop(){
-  const d=filtreTop==='all'?top10:top10.filter(p=>p.cat===filtreTop);
-  document.getElementById('podiumTop').innerHTML=d.slice(0,3).map((p,i)=>`<div class="podium-card${i===0?' gold':''}"><div class="podium-rank rank-${i+1}">${i+1}</div><div class="podium-img" style="padding:0;overflow:hidden;">${p.img?`<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;"/>`:''}</div><div class="podium-body"><div class="podium-brand">${p.brand}</div><div class="podium-name">${p.name}</div>${p.hot?'<div style="margin-top:4px"><span class="badge-diamant"><i class="ti ti-diamond"></i> PRESTIGE</span></div>':''}<div style="display:flex;align-items:baseline;gap:5px;margin-top:4px;"><div class="podium-price">${p.price.toFixed(2)}€</div><div class="podium-old">${p.orig}€</div></div></div></div>`).join('');
-  document.getElementById('topList').innerHTML=d.slice(3).map(p=>`<div class="top-row${p.hot?' hot':''}"><div class="top-num${p.hot?' hot-num':''}">${p.rank}</div><div class="top-img" style="padding:0;overflow:hidden;">${p.img?`<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;"/>`:''}</div><div class="top-info"><div class="top-brand">${p.brand}</div><div class="top-name">${p.name} · ${p.vol}</div><div class="top-shop">sur ${p.shop}</div></div><div class="top-right"><div class="top-price">${p.price.toFixed(2)}€</div><div class="top-old">${p.orig}€</div><button class="top-btn" onclick="window.open('${p.url}','_blank')">Y ALLER</button></div></div>`).join('');
-}
-document.getElementById('filterTop').addEventListener('click',e=>{
-  if(e.target.classList.contains('f-btn')){document.querySelectorAll('#filterTop .f-btn').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');filtreTop=e.target.dataset.f;renderTop();}
-});
-renderTop();
-
-let catM='all',prixM='all',sortM='eco';
-function inPrix(p){if(prixM==='all')return true;if(prixM==='0-80')return p<=80;if(prixM==='80-150')return p>80&&p<=150;if(prixM==='150+')return p>150;return true;}
+let catM='all',sortM='alpha';
 function renderMarques(){
   const q=document.getElementById('searchMarque').value.toLowerCase();
-  let res=marques.filter(m=>{if(catM!=='all'&&m.cat!==catM)return false;if(q&&!m.nom.toLowerCase().includes(q))return false;if(!inPrix(Math.min(...m.parfums.map(p=>p.price))))return false;return true;});
-  if(sortM==='eco')res.sort((a,b)=>Math.max(...b.parfums.map(p=>p.eco))-Math.max(...a.parfums.map(p=>p.eco)));
-  if(sortM==='price')res.sort((a,b)=>Math.min(...a.parfums.map(p=>p.price))-Math.min(...b.parfums.map(p=>p.price)));
+  let res=marques.filter(m=>(catM==='all'||m.cat===catM)&&(!q||m.nom.toLowerCase().includes(q)));
   if(sortM==='alpha')res.sort((a,b)=>a.nom.localeCompare(b.nom));
+  if(sortM==='price')res.sort((a,b)=>Math.min(...a.parfums.map(p=>p.price))-Math.min(...b.parfums.map(p=>p.price)));
   document.getElementById('countMarque').textContent=`${res.length} maison${res.length>1?'s':''} trouvée${res.length>1?'s':''}`;
-  document.getElementById('marqGrid').innerHTML=res.map(m=>`<div class="marque-card"><div class="marque-header"><div><div class="marque-name">${m.nom.toUpperCase()}</div><div class="marque-cat">${m.cat.toUpperCase()} · ${m.parfums.length} PARFUMS</div></div>${m.prestige?'<span class="marque-badge prestige"><i class="ti ti-diamond" style="font-size:10px"></i> PRESTIGE</span>':'<span class="marque-badge">ACCESSIBLES</span>'}</div><div class="marque-body"><div class="marque-stats"><div class="marque-stat"><div class="marque-stat-val">dès ${Math.min(...m.parfums.map(p=>p.price)).toFixed(0)}€</div><div class="marque-stat-lbl">PRIX D'ENTRÉE</div></div><div class="marque-stat"><div class="marque-stat-val">−${Math.max(...m.parfums.map(p=>p.eco))}%</div><div class="marque-stat-lbl">MEILLEURE REMISE</div></div></div><div class="parfums-list">${m.parfums.map(p=>`<div class="parfum-row"><div class="parfum-left"><div style="font-size:1.1rem">${p.emoji}</div><div><div class="parfum-name">${p.nom}</div><div class="parfum-vol">${p.vol}</div></div></div><div class="parfum-right"><span class="parfum-eco">−${p.eco}%</span><span class="parfum-price">${p.price.toFixed(2)}€</span><button class="parfum-btn">Y ALLER</button></div></div>`).join('')}</div></div></div>`).join('')||'<div style="grid-column:1/-1;text-align:center;padding:2rem;color:#a08070;font-family:Cormorant Garamond,serif;">Aucune marque trouvée</div>';
+  document.getElementById('marqGrid').innerHTML=res.map(m=>`
+    <div class="marque-card">
+      <div class="marque-header">
+        <div><div class="marque-name">${m.nom.toUpperCase()}</div><div class="marque-cat">${m.cat.toUpperCase()} · ${m.parfums.length} PARFUM${m.parfums.length>1?'S':''}</div></div>
+        ${m.prestige?'<span class="marque-badge prestige"><i class="ti ti-diamond" style="font-size:10px"></i> PRESTIGE</span>':'<span class="marque-badge">ACCESSIBLE</span>'}
+      </div>
+      <div class="marque-body">
+        <div class="marque-stats">
+          <div><div class="marque-stat-val">dès ${Math.min(...m.parfums.map(p=>p.price)).toFixed(0)}€</div><div class="marque-stat-lbl">PRIX D'ENTRÉE</div></div>
+          <div><div class="marque-stat-val">${m.parfums.length}</div><div class="marque-stat-lbl">PARFUMS</div></div>
+        </div>
+        <div class="parfums-list">
+          ${m.parfums.map(p=>`<div class="parfum-row"><div class="parfum-left"><div style="font-size:1.1rem">${p.emoji}</div><div><div class="parfum-name">${p.nom}</div><div class="parfum-vol">${p.vol}</div></div></div><div class="parfum-right"><span class="parfum-price">${p.price.toFixed(2)}€</span></div></div>`).join('')}
+        </div>
+      </div>
+    </div>`).join('')||'<div style="grid-column:1/-1;text-align:center;padding:2rem;color:#a08070;font-family:Cormorant Garamond,serif;">Aucune marque trouvée</div>';
 }
-document.getElementById('filterMarqueCat').addEventListener('click',e=>{if(e.target.classList.contains('f-btn')){document.querySelectorAll('#filterMarqueCat .f-btn').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');catM=e.target.dataset.c;renderMarques();}});
-document.getElementById('filterMarquePrix').addEventListener('click',e=>{if(e.target.classList.contains('f-btn')){document.querySelectorAll('#filterMarquePrix .f-btn').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');prixM=e.target.dataset.p;renderMarques();}});
+document.getElementById('filterMarqueCat').addEventListener('click',e=>{
+  if(e.target.classList.contains('f-btn')){document.querySelectorAll('#filterMarqueCat .f-btn').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');catM=e.target.dataset.c;renderMarques();}
+});
 document.getElementById('searchMarque').addEventListener('input',renderMarques);
 document.getElementById('sortMarque').addEventListener('change',e=>{sortM=e.target.value;renderMarques();});
 renderMarques();
-
-function pct(c,t){return Math.min(Math.round((t/c)*100),100);}
-function renderAlertes(){
-  document.getElementById('alerteList').innerHTML=alertes.map(a=>`<div class="alerte-card${a.triggered?' triggered':''}"><div class="alerte-left"><div class="alerte-img">${a.emoji}</div><div><div class="alerte-brand">${a.brand.toUpperCase()}</div><div class="alerte-name">${a.name}</div><div class="alerte-vol">${a.vol}</div></div></div><div class="alerte-right"><div class="alerte-target">CIBLE : ${a.target.toFixed(2)} €</div><div class="alerte-current">${a.current.toFixed(2)} €</div>${a.triggered?'<span class="alerte-badge-ok">✦ OFFRE ATTEINTE</span>':`<div class="progress-bar-wrap"><div class="progress-bar"><div class="progress-fill" style="width:${pct(a.current,a.target)}%"></div></div><div class="progress-txt">${pct(a.current,a.target)}% de l'objectif</div></div>`}<button class="alerte-del" onclick="suppAlerte(${a.id})">Supprimer</button></div></div>`).join('');
-  document.getElementById('statNb').textContent=alertes.length;
-}
-function suppAlerte(id){alertes=alertes.filter(a=>a.id!==id);renderAlertes();}
-function creerAlerte(){
-  const parfum=document.getElementById('selParfum').value;
-  const prix=parseFloat(document.getElementById('prixCible').value);
-  const email=document.getElementById('emailInp').value;
-  if(!prix||prix<=0){toast('Veuillez entrer un prix cible valide','toastAlerte');return;}
-  if(!email||!email.includes('@')){toast('Veuillez entrer un email valide','toastAlerte');return;}
-  alertes.push({id:Date.now(),emoji:'🌸',brand:parfum.split(' ')[0],name:parfum,vol:'50ml',current:prix+Math.round(Math.random()*20+5),target:prix,triggered:false});
-  renderAlertes();
-  document.getElementById('prixCible').value='';document.getElementById('emailInp').value='';
-  toast('✦ Alerte créée avec succès !','toastAlerte');
-}
-document.querySelectorAll('.notif-opt').forEach(o=>o.addEventListener('click',()=>o.classList.toggle('on')));
-renderAlertes();
-
-const sugParfums={
-  floral:[{emoji:"🌸",nom:"Chanel N°5 EDP",price:"99,90€",shop:"Feelunique"},{emoji:"🌺",nom:"Guerlain Mon Guerlain",price:"68,00€",shop:"Marionnaud"}],
-  boise:[{emoji:"🪵",nom:"Le Labo Santal 33",price:"185,00€",shop:"Feelunique"},{emoji:"🍊",nom:"Hermès Terre d'Hermès",price:"92,00€",shop:"Sephora"}],
-  offre:[{emoji:"🧴",nom:"Dior Sauvage EDP",price:"87,00€",shop:"Amazon"},{emoji:"☕",nom:"YSL Black Opium",price:"72,00€",shop:"Amazon"}],
-};
-function buildCards(list){return list.map(p=>`<div class="parfum-suggest"><div style="font-size:1.4rem">${p.emoji}</div><div><div class="ps-name">${p.nom}</div><div class="ps-price">dès ${p.price} · ${p.shop}</div></div><button class="ps-btn">VOIR</button></div>`).join('');}
-const repBotList=[
-  {kw:["offrir","cadeau"],txt:"Pour un cadeau, voici deux valeurs sûres :",cards:sugParfums.offre},
-  {kw:["floral","fleuri","femme"],txt:"Pour un parfum floral féminin :",cards:sugParfums.floral},
-  {kw:["boisé","bois","santal"],txt:"Les parfums boisés ont une profondeur incomparable :",cards:sugParfums.boise},
-  {kw:["edp","edt","différence"],txt:"L'EDT contient 5-15% d'huiles essentielles (légère, 3-4h). L'EDP en contient 15-20% (plus intense, 6-8h).",cards:null},
-  {kw:["bonjour","salut","bonsoir"],txt:"Bonjour ! Je suis Iris, votre conseillère IA. Comment puis-je vous aider ?",cards:null},
-  {kw:["merci","super"],txt:"Merci pour votre confiance ! N'hésitez pas si vous avez d'autres questions. ✦",cards:null},
-  {kw:["offre","promo","prix"],txt:"Voici les meilleures offres du moment :",cards:sugParfums.offre},
-];
-const fallbacks=["Quel genre préférez-vous (homme, femme, mixte) ?","Quel est votre budget approximatif ?","Préférez-vous un parfum floral, boisé ou oriental ?"];
-let fallIdx=0;
-function getRep(msg){const m=msg.toLowerCase();for(const r of repBotList){if(r.kw.some(k=>m.includes(k)))return r;}return{txt:fallbacks[fallIdx++%fallbacks.length],cards:null};}
-const now=()=>{const d=new Date();return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');};
-function addMsg(role,txt,cards=null){
-  const w=document.getElementById('chatWindow');
-  const div=document.createElement('div');div.className=`msg ${role}`;
-  div.innerHTML=`<div class="msg-avatar ${role}"><i class="ti ti-${role==='bot'?'sparkles':'user'}"></i></div><div><div class="msg-bubble ${role}">${txt.replace(/\n/g,'<br>')}${cards?buildCards(cards):''}</div><div class="msg-time">${now()}</div></div>`;
-  w.appendChild(div);w.scrollTop=w.scrollHeight;
-}
-function showTyping(){
-  const w=document.getElementById('chatWindow');const div=document.createElement('div');
-  div.className='msg bot';div.id='typing-ind';
-  div.innerHTML=`<div class="msg-avatar bot"><i class="ti ti-sparkles"></i></div><div class="typing"><span></span><span></span><span></span></div>`;
-  w.appendChild(div);w.scrollTop=w.scrollHeight;
-}
-function removeTyping(){const t=document.getElementById('typing-ind');if(t)t.remove();}
-function sendMsg(){
-  const inp=document.getElementById('chatInput');const msg=inp.value.trim();if(!msg)return;
-  inp.value='';addMsg('user',msg);showTyping();
-  setTimeout(()=>{removeTyping();const r=getRep(msg);addMsg('bot',r.txt,r.cards);},900);
-}
-function sendSug(btn){document.getElementById('chatInput').value=btn.textContent;sendMsg();}
-document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendMsg();});
-addMsg('bot','Bienvenue sur ScentFinder ! Je suis <strong>Iris</strong>, votre conseillère IA en parfumerie de prestige. 🌸\n\nQue recherchez-vous aujourd\'hui ?');
 
 function toggleFaq(el){
   const a=el.nextElementSibling;const open=a.classList.contains('show');
