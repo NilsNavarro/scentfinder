@@ -721,10 +721,8 @@ function openDetail(id){
   cont.innerHTML=`<div class="detail-loading"><div class="detail-loading-spinner"></div><div class="detail-loading-txt">Composition olfactive en cours d'analyse...</div></div>`;
   
   setTimeout(()=>{
-    const notes=notesData[id]||getGenericNotes(p);
-    const price=p.shops[0].p.toFixed(2);
-    const shop=p.shops[0].n;
-    
+    const s=[...p.shops].sort((a,b)=>a.p-b.p);
+    const best=s[0];
     cont.innerHTML=`
       <div class="detail-hero">
         <button class="detail-back" onclick="showPage('accueil')"><i class="ti ti-arrow-left"></i> Retour</button>
@@ -734,37 +732,30 @@ function openDetail(id){
             <div class="detail-brand">${p.brand}</div>
             <div class="detail-name">${p.name}</div>
             <div class="detail-vol">${p.vol} · ${p.cat.toUpperCase()}</div>
-            <div class="detail-price-big">${price} €</div>
-            <div style="font-size:11px;color:#a08070;margin-top:4px;">Meilleur prix sur ${shop}</div>
-            <div style="display:flex;flex-direction:column;gap:8px;margin-top:1rem;">${p.shops.map((sh,i)=>`<button style="background:${i===0?'var(--or)':'transparent'};color:${i===0?'var(--bxd)':'var(--or)'};border:1px solid var(--or);border-radius:8px;padding:0.6rem 1.5rem;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:2px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;" onclick="window.open('${sh.url}','_blank')">${i===0?'<span>✦ MEILLEUR PRIX</span>':'<span></span>'}<span>${sh.n} — ${sh.p.toFixed(2)}€</span><i class="ti ti-external-link"></i></button>`).join('')}</div>
+            <div style="font-size:9px;color:var(--or);letter-spacing:3px;margin-top:1rem;">MEILLEUR PRIX</div>
+            <div class="detail-price-big">${best.p.toFixed(2)} €</div>
+            <div style="font-size:11px;color:#a08070;margin-top:2px;">sur ${best.n}</div>
           </div>
         </div>
       </div>
 
-      <div style="background:var(--cr);padding:2rem;text-align:center;border-bottom:0.5px solid var(--orl);">
-        <div style="font-size:9px;color:var(--or);letter-spacing:5px;margin-bottom:0.5rem;">✦ PYRAMIDE OLFACTIVE ✦</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--bx);">Le voyage sensoriel de <em style="color:var(--or);font-style:italic;">${p.name}</em></div>
-        <div style="font-size:12px;color:#a08070;margin-top:0.4rem;letter-spacing:1px;">Trois actes. Une histoire à porter sur la peau.</div>
-      </div>
-
-      <div class="notes-section">
-        ${buildNoteBlock(notes.tete,0)}
-        ${buildNoteBlock(notes.coeur,1)}
-        ${buildNoteBlock(notes.fond,2)}
-      </div>
-
-      <div class="ingr-showcase">
-        <div class="ingr-showcase-title">Les ingrédients qui composent ce chef-d'œuvre</div>
-        <div class="ingr-showcase-sub">MATIÈRES PREMIÈRES SÉLECTIONNÉES · QUALITÉ PRESTIGE</div>
-        <div class="ingr-grid">${buildIngrGrid(notes)}</div>
-      </div>
-
-      <div class="detail-cta">
-        <div style="font-size:9px;color:var(--or);letter-spacing:5px;margin-bottom:0.5rem;">✦ OFFRE CERTIFIÉE ✦</div>
-        <div class="detail-cta-title">Laissez ${p.name} écrire<br>votre prochaine histoire</div>
-        <div class="detail-cta-sub">Prix vérifié quotidiennement · Stock limité</div>
-        <div class="detail-cta-price">${price} €</div>
-        <button class="detail-cta-btn" onclick="window.open('${p.url}','_blank')"><i class="ti ti-external-link"></i> VOIR L'OFFRE SUR ${shop.toUpperCase()}</button>
+      <div style="padding:2rem;">
+        <div style="font-size:9px;color:var(--or);letter-spacing:4px;margin-bottom:1rem;">✦ COMPARER LES PRIX ✦</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          ${s.map((sh,i)=>`
+            <div style="background:${i===0?'var(--bxd)':'var(--cr)'};border:${i===0?'1.5px solid var(--or)':'0.5px solid var(--orl)'};border-radius:12px;padding:1rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                ${i===0?'<span style="background:var(--or);color:var(--bxd);font-size:9px;padding:3px 8px;border-radius:50px;letter-spacing:1px;font-weight:600;">✦ MEILLEUR</span>':'<span style="width:52px;"></span>'}
+                <span style="font-family:\'Cormorant Garamond\',serif;font-size:1.1rem;font-weight:600;color:${i===0?'var(--cr)':'var(--bx)'};">${sh.n}</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:1rem;">
+                <span style="font-family:\'Cormorant Garamond\',serif;font-size:1.4rem;font-weight:600;color:${i===0?'var(--or)':'var(--bx)'};">${sh.p.toFixed(2)} €</span>
+                <button onclick="window.open('${sh.url}','_blank')" style="background:${i===0?'var(--or)':'var(--bx)'};color:${i===0?'var(--bxd)':'var(--or)'};border:1px solid var(--or);border-radius:6px;padding:0.5rem 1rem;font-family:\'Cormorant Garamond\',serif;font-size:12px;letter-spacing:2px;cursor:pointer;white-space:nowrap;">Y ALLER <i class="ti ti-external-link"></i></button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div style="margin-top:1rem;font-size:10px;color:#a08070;text-align:center;letter-spacing:1px;">✦ Prix vérifiés · Offres sous réserve de disponibilité</div>
       </div>
 
       <div class="footer">
@@ -772,7 +763,7 @@ function openDetail(id){
         <div class="footer-links"><a onclick="showPage('accueil')">Accueil</a><a onclick="showPage('top10')">Top 10</a><a onclick="showPage('alertes')">Alertes</a></div>
       </div>
     `;
-  },800);
+  },500);
 }
 
 const top10=[
