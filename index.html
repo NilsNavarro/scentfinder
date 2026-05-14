@@ -649,9 +649,15 @@ function openDetail(id){
   showPage('detail');
   const cont=document.getElementById('detail-content');
   cont.innerHTML=`<div class="detail-loading"><div class="detail-loading-spinner"></div><div class="detail-loading-txt">Chargement des prix...</div></div>`;
+  const shopInfo={
+    "Amazon":{livraison:"Livraison rapide disponible",confiance:"Retours selon conditions vendeur",icon:"ti-shopping-bag"},
+    "Perfumeria Comas":{livraison:"Livraison en Europe",confiance:"Boutique partenaire certifiée",icon:"ti-shield-check"},
+  };
   setTimeout(()=>{
     const s=[...p.shops].sort((a,b)=>a.p-b.p);
     const best=s[0];
+    const worst=s[s.length-1];
+    const saving=s.length>1?(worst.p-best.p).toFixed(2):null;
     cont.innerHTML=`
       <div class="detail-hero">
         <button class="detail-back" onclick="showPage('accueil')"><i class="ti ti-arrow-left"></i> Retour</button>
@@ -664,26 +670,35 @@ function openDetail(id){
             <div style="font-size:9px;color:var(--or);letter-spacing:3px;margin-top:1rem;">MEILLEUR PRIX</div>
             <div class="detail-price-big">${best.p.toFixed(2)} €</div>
             <div style="font-size:11px;color:#a08070;margin-top:2px;">sur ${best.n}</div>
+    ${saving?`<div style="margin-top:8px;display:inline-flex;align-items:center;gap:6px;background:#1a3d2a;border:1px solid #2d8a4e;border-radius:50px;padding:4px 12px;"><span style="font-size:11px;color:#4CAF50;font-weight:600;">✦ Économisez ${saving}€ vs le prix le plus élevé</span></div>`:''}
           </div>
         </div>
       </div>
       <div style="padding:2rem;">
-        <div style="font-size:9px;color:var(--or);letter-spacing:4px;margin-bottom:1rem;">✦ COMPARER LES PRIX ✦</div>
-        <div style="display:flex;flex-direction:column;gap:0.75rem;">
-          ${s.map((sh,i)=>`
-            <div style="background:${i===0?'var(--bxd)':'var(--cr)'};border:${i===0?'1.5px solid var(--or)':'0.5px solid var(--orl)'};border-radius:12px;padding:1rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
-              <div style="display:flex;align-items:center;gap:10px;">
-                ${i===0?'<span style="background:var(--or);color:var(--bxd);font-size:9px;padding:3px 8px;border-radius:50px;letter-spacing:1px;font-weight:600;">✦ MEILLEUR</span>':'<span style="width:52px;"></span>'}
-                <span style="font-family:\'Cormorant Garamond\',serif;font-size:1.1rem;font-weight:600;color:${i===0?'var(--cr)':'var(--bx)'};">${sh.n}</span>
+        <div style="font-size:9px;color:var(--or);letter-spacing:4px;margin-bottom:1.2rem;">✦ COMPARER LES PRIX ✦</div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          ${s.map((sh,i)=>{
+            const info=shopInfo[sh.n]||{livraison:"Livraison standard",confiance:"Boutique partenaire",icon:"ti-shopping-bag"};
+            return`            <div style="background:var(--bxd);border:${i===0?'2px solid #2d8a4e':'0.5px solid var(--or)'};border-radius:14px;padding:1.2rem 1.4rem;position:relative;overflow:hidden;">
+              ${i===0?`<div style="position:absolute;top:0;right:0;background:#2d8a4e;color:#fff;font-size:10px;font-weight:700;padding:4px 14px;border-radius:0 14px 0 10px;letter-spacing:1px;">✦ MEILLEUR PRIX</div>`:''}
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:0.5rem;">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <i class="ti ${info.icon}" style="font-size:20px;color:var(--or);"></i>
+                  <div>
+                    <div style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--cr);">${sh.n}</div>
+                    <div style="font-size:10px;color:#a08070;margin-top:2px;"><i class="ti ti-truck" style="font-size:11px;"></i> ${info.livraison}</div>
+                    <div style="font-size:10px;color:var(--or);margin-top:2px;"><i class="ti ti-shield-check" style="font-size:11px;"></i> ${info.confiance}</div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <span style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:${i===0?'var(--or)':'var(--cr)'};">${sh.p.toFixed(2)} €</span>
+                  <button onclick="window.open('${sh.url}','_blank')" style="background:${i===0?'var(--or)':'transparent'};color:${i===0?'var(--bxd)':'var(--or)'};border:1px solid var(--or);border-radius:8px;padding:0.6rem 1.2rem;font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:2px;cursor:pointer;white-space:nowrap;">Y ALLER <i class="ti ti-external-link"></i></button>
+                </div>
               </div>
-              <div style="display:flex;align-items:center;gap:1rem;">
-                <span style="font-family:\'Cormorant Garamond\',serif;font-size:1.4rem;font-weight:600;color:${i===0?'var(--or)':'var(--bx)'};">${sh.p.toFixed(2)} €</span>
-                <button onclick="window.open('${sh.url}','_blank')" style="background:${i===0?'var(--or)':'var(--bx)'};color:${i===0?'var(--bxd)':'var(--or)'};border:1px solid var(--or);border-radius:6px;padding:0.5rem 1rem;font-family:\'Cormorant Garamond\',serif;font-size:12px;letter-spacing:2px;cursor:pointer;white-space:nowrap;">Y ALLER <i class="ti ti-external-link"></i></button>
-              </div>
-            </div>
-          `).join('')}
+            </div>`;
+          }).join('')}
         </div>
-        <div style="margin-top:1rem;font-size:10px;color:#a08070;text-align:center;letter-spacing:1px;">✦ Prix vérifiés · Offres sous réserve de disponibilité</div>
+        <div style="margin-top:1rem;font-size:10px;color:#a08070;text-align:center;letter-spacing:1px;">✦ Prix mis à jour régulièrement · Offres sous réserve de disponibilité</div>
       </div>
       <div class="footer">
         <div class="footer-logo">✦ SCENTFINDER</div>
@@ -740,7 +755,7 @@ function renderAccueil(){
   });
   document.getElementById('gridAccueil').innerHTML=items.map((d,i)=>{
     const s=[...d.shops].sort((a,b)=>a.p-b.p);
-    const rows=s.map((sh,j)=>`<div class="price-row"><span class="shop-name">${sh.n}</span><div style="display:flex;align-items:center;gap:6px;">${j===0?'<span style="font-size:9px;background:#2d8a4e;color:#fff;padding:1px 6px;border-radius:50px;">MEILLEUR</span>':''}<span style="font-size:${j===0?'13':'12'}px;font-weight:${j===0?'600':'400'};color:${j===0?'var(--bx)':'#a08070'}">${sh.p.toFixed(2)}€</span></div></div>`).join('');
+    const rows=s.map((sh,j)=>`<div class="price-row"><span class="shop-name">${sh.n}</span><div style="display:flex;align-items:center;gap:6px;">${j===0?'<span style="font-size:9px;background:#2d8a4e;color:#fff;padding:1px 6px;border-radius:50px;font-weight:600;">✦ MEILLEUR</span>':''}<span style="font-size:${j===0?'13':'12'}px;font-weight:${j===0?'600':'400'};color:${j===0?'#2d8a4e':'#a08070'}">${sh.p.toFixed(2)}€</span></div></div>`).join('');
     return`<div class="card" onclick="openDetail(${d.id})"><div class="card-img" style="padding:0;overflow:hidden;">${d.img?`<img src="${d.img}" alt="${d.name}" style="width:100%;height:100%;object-fit:cover;"/>`:''} ${i===0?'<span class="best-badge">✦ TOP DEAL</span>':''}</div><div class="card-body"><div class="card-brand">${d.brand}</div><div class="card-name">${d.name}</div><div class="card-vol">${d.vol} · <span style="color:#2d8a4e;font-size:10px;">${s.length} boutique${s.length>1?'s':''}</span></div><div class="prices">${rows}</div><button class="go-btn" onclick="event.stopPropagation();openDetail(${d.id})">COMPARER LES PRIX <i class="ti ti-arrow-right"></i></button></div></div>`;
   }).join('')||'<div style="grid-column:1/-1;padding:2rem;text-align:center;color:#a08070;font-family:Cormorant Garamond,serif;">Aucun parfum trouvé</div>';
 }
