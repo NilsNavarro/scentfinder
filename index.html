@@ -652,7 +652,8 @@ function openDetail(id){
 let catAccueil='all';
 function renderAccueil(){
   const q=document.getElementById('searchAccueil').value.toLowerCase();
-  const items=parfumsData.filter(d=>(catAccueil==='all'||d.cat===catAccueil)&&(d.name.toLowerCase().includes(q)||d.brand.toLowerCase().includes(q)));
+  const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  const items=parfumsData.filter(d=>(catAccueil==='all'||d.cat===catAccueil)&&(norm(d.name).includes(norm(q))||norm(d.brand).includes(norm(q))));
   document.getElementById('gridAccueil').innerHTML=items.map((d,i)=>{
     const s=[...d.shops].sort((a,b)=>a.p-b.p);
     const rows=s.map((sh,j)=>`<div class="price-row"><span class="shop-name">${sh.n}</span><div style="display:flex;align-items:center;gap:6px;">${j===0?'<span style="font-size:9px;background:#2d8a4e;color:#fff;padding:1px 6px;border-radius:50px;">MEILLEUR</span>':''}<span style="font-size:${j===0?'13':'12'}px;font-weight:${j===0?'600':'400'};color:${j===0?'var(--bx)':'#a08070'}">${sh.p.toFixed(2)}€</span></div></div>`).join('');
