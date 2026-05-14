@@ -208,7 +208,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--bx);}
     <div class="hero-title">Le meilleur prix pour<br>votre <em>parfum de prestige</em></div>
     <div class="hero-divider"><span></span><i class="ti ti-diamond"></i><span></span></div>
     <div class="hero-sub">OFFRES CERTIFIÉES · PRIX MIS À JOUR QUOTIDIENNEMENT</div>
-    <div class="search-wrap"><i class="ti ti-search"></i><input type="text" id="searchAccueil" placeholder="Dior Sauvage, Chanel N°5, Guerlain..."/></div>
+    <div class="search-wrap" style="position:relative;flex-direction:column;align-items:stretch;padding:0;border-radius:16px;">
+      <div style="display:flex;align-items:center;gap:8px;padding:0.65rem 1.4rem;">
+        <i class="ti ti-search" style="color:var(--or);font-size:16px;flex-shrink:0;"></i>
+        <input type="text" id="searchAccueil" placeholder="Rechercher un parfum..." autocomplete="off" style="background:transparent;border:none;outline:none;color:var(--cr);font-size:13px;flex:1;font-family:'DM Sans',sans-serif;"/>
+      </div>
+      <div id="suggestions" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--bxd);border:0.5px solid var(--or);border-top:none;border-radius:0 0 16px 16px;max-height:280px;overflow-y:auto;z-index:200;"></div>
+    </div>
   </div>
   <div class="cats" id="catsAccueil">
     <button class="cat on" data-c="all">Tous</button>
@@ -649,11 +655,52 @@ function openDetail(id){
   },500);
 }
 
+function norm(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
+
+const searchInput=document.getElementById('searchAccueil');
+const sugBox=document.getElementById('suggestions');
+
+searchInput.addEventListener('input',()=>{
+  const q=norm(searchInput.value.trim());
+  if(q.length<1){sugBox.style.display='none';renderAccueil();return;}
+  const matches=parfumsData.filter(d=>{
+    const full=norm(d.brand+' '+d.name);
+    const words=q.split(' ').filter(w=>w.length>0);
+    return words.every(w=>full.includes(w));
+  }).slice(0,8);
+  if(matches.length===0){sugBox.style.display='none';renderAccueil();return;}
+  sugBox.innerHTML=matches.map(d=>{
+    const best=[...d.shops].sort((a,b)=>a.p-b.p)[0];
+    return`<div onclick="selectSug(${d.id})" style="display:flex;align-items:center;gap:10px;padding:0.7rem 1.2rem;cursor:pointer;border-bottom:0.5px solid rgba(201,168,76,0.15);transition:background 0.1s;" onmouseover="this.style.background='rgba(201,168,76,0.1)'" onmouseout="this.style.background='transparent'">
+      <img src="${d.img}" style="width:38px;height:38px;object-fit:cover;border-radius:6px;flex-shrink:0;"/>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:9px;color:var(--or);letter-spacing:2px;">${d.brand.toUpperCase()}</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--cr);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${d.name} · ${d.vol}</div>
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--or);flex-shrink:0;">${best.p.toFixed(2)}€</div>
+    </div>`;
+  }).join('');
+  sugBox.style.display='block';
+  renderAccueil();
+});
+
+searchInput.addEventListener('blur',()=>setTimeout(()=>sugBox.style.display='none',200));
+searchInput.addEventListener('focus',()=>{if(searchInput.value.trim().length>0)sugBox.style.display='block';});
+
+function selectSug(id){
+  sugBox.style.display='none';
+  searchInput.value='';
+  openDetail(id);
+}
+
 let catAccueil='all';
 function renderAccueil(){
-  const q=document.getElementById('searchAccueil').value.toLowerCase();
-  const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-  const items=parfumsData.filter(d=>(catAccueil==='all'||d.cat===catAccueil)&&(norm(d.name).includes(norm(q))||norm(d.brand).includes(norm(q))));
+  const q=norm(searchInput.value.trim());
+  const items=parfumsData.filter(d=>{
+    const full=norm(d.brand+' '+d.name);
+    const words=q.split(' ').filter(w=>w.length>0);
+    return (catAccueil==='all'||d.cat===catAccueil)&&words.every(w=>full.includes(w));
+  });
   document.getElementById('gridAccueil').innerHTML=items.map((d,i)=>{
     const s=[...d.shops].sort((a,b)=>a.p-b.p);
     const rows=s.map((sh,j)=>`<div class="price-row"><span class="shop-name">${sh.n}</span><div style="display:flex;align-items:center;gap:6px;">${j===0?'<span style="font-size:9px;background:#2d8a4e;color:#fff;padding:1px 6px;border-radius:50px;">MEILLEUR</span>':''}<span style="font-size:${j===0?'13':'12'}px;font-weight:${j===0?'600':'400'};color:${j===0?'var(--bx)':'#a08070'}">${sh.p.toFixed(2)}€</span></div></div>`).join('');
@@ -663,7 +710,7 @@ function renderAccueil(){
 document.getElementById('catsAccueil').addEventListener('click',e=>{
   if(e.target.classList.contains('cat')){document.querySelectorAll('#catsAccueil .cat').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');catAccueil=e.target.dataset.c;renderAccueil();}
 });
-document.getElementById('searchAccueil').addEventListener('input',renderAccueil);
+
 renderAccueil();
 
 let catM='all',sortM='alpha';
